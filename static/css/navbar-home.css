@@ -1,0 +1,17 @@
+/* .to-close2
+{
+    color: white;
+}
+
+
+.to-close
+{
+    color: black;
+} */
+
+.links a {
+    text-decoration: none;
+    color: black;
+    margin-right: 40px;
+    /* transition: .2s; */
+}

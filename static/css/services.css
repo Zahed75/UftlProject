@@ -1,0 +1,547 @@
+#services {
+    padding: 80px 0;
+    background: white;
+    padding-bottom: 10rem;
+ 
+}
+
+hr{ 
+  
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         100vh;
+    width:          1px;       
+}
+
+
+.services
+{    
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.services ,h4
+{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 2rem;
+    padding: 5px;
+    color: black;
+    margin-top: 35px;
+    margin-left: 25px;
+    text-transform: uppercase;
+}
+
+.title
+{
+    /* padding-top: 10rem; */
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 4rem;
+    font-weight: bold;
+    background: #FF951C;
+    background: -webkit-linear-gradient(to bottom right, #FF951C 0%, #EF3C26 100%);
+    background: -moz-linear-gradient(to bottom right, #FF951C 0%, #EF3C26 100%);
+    background: linear-gradient(to bottom right, #FF951C 0%, #EF3C26 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+
+    
+}
+
+.title2
+{
+    padding-top: 10rem;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+    height: 5px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16rem;
+    color: white;
+}
+
+
+.line{
+    
+    border-top: 1px solid red;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+hr{   
+    border-top:   2px solid black;
+    width: 75%;
+    margin: 0 auto;
+}
+
+#banner{
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1560px;
+    width: 100%;
+    right: 0px;
+    overflow:hidden;
+    margin-bottom: 3rem;
+    
+
+}
+
+.space
+{
+    padding-top: 5rem;
+
+}
+
+.gap
+{
+    padding-top: 10rem;
+}
+
+.orange
+{
+    width: 20rem;
+}
+
+@media only screen and (max-width: 770px) {
+   
+    .orange
+    {
+         width: 10rem;
+         margin-left: -20px;
+    }
+    .counter
+    {  
+        padding-bottom: 700px;
+        background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%)
+       
+    }
+}
+
+@media only screen and (max-width: 741px) {
+    .heading
+    {
+        text-align: left;
+        padding-right: 1rem;
+    }
+    .description5{
+        text-align: center;
+        padding-right: 1rem;
+    }
+    .menu
+    {
+        display: flex;
+        flex-direction: column;
+ 
+    }
+  
+
+
+}
+
+.heading2{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.5rem;
+    line-height: 59px;
+    text-align: right;
+}
+
+.heading
+{
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.5rem;
+    line-height: 59px;
+    /* identical to box height */
+    
+    
+    color: #1F1F1F;
+}
+.heading-gap{
+    padding-top: 10px;
+}
+.description5
+{
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    text-align: right;
+    color: #000000;
+}
+
+
+#dashboard
+{
+    padding-top: 4rem;
+    margin-top: 10rem;
+    
+}
+.dashboard-img
+{
+    width: 100%;
+    height: auto;
+    padding-bottom: 4rem;
+}
+
+.counter
+{
+    
+    margin-top: 10rem;
+    position: relative;
+    width: auto;
+    height: 350px;
+    left: 0px;
+    background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+}
+
+.menu
+{
+    padding-top: 100px;
+}
+
+.display-4
+{
+    font-weight: 900;
+}
+
+.cities
+{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.pos{
+    margin-top: 100px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.pos2{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 88px;
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#contact
+{
+    padding-top: 5rem;
+    background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+    padding-bottom: 5rem;
+    margin-top: 25px;
+}
+.send {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 42px;
+    color: #F8962C;
+    outline: 0;
+  
+    width: 100%;
+    border-radius: 16px;
+    border: 0;
+    padding: 15px;
+    
+    
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+
+  }
+
+.form-control
+{
+    background-color: transparent;
+    border-radius: 15px ;
+    
+    padding: 15px;    
+    border: 3px solid white;
+}
+
+
+form .form-control::-webkit-input-placeholder { 
+        color: white;
+        background-color: transparent;
+    }
+    
+form .form-control::-moz-placeholder {
+        color: white;
+        background-color: transparent;
+    }
+form .form-control:-ms-input-placeholder {
+        color: white;
+        background-color: transparent;
+        
+    }
+form .form-control:placeholder {
+        color: white;
+        background-color: transparent;
+        
+    }
+
+input[type="text"]::placeholder {  
+                  
+        /* Firefox, Chrome, Opera */ 
+        padding: 20px; 
+
+    }
+
+input[type="email"]::placeholder {  
+                  
+    /* Firefox, Chrome, Opera */ 
+    padding: 20px;
+    
+}
+
+input[name="message"]::placeholder {  
+                  
+    /* Firefox, Chrome, Opera */ 
+    padding: 20px;
+    
+}
+
+
+.message::-webkit-input-placeholder {padding-left: 10px;}
+.message:-moz-placeholder { /* Firefox 18- */padding-left: 10px;}
+.message::-moz-placeholder {  /* Firefox 19+ */padding-left: 10px;}
+.message:-ms-input-placeholder {padding-left: 10px;}
+
+.message{
+    background-color: transparent;
+    border-radius: 15px ;
+    padding: 15px;    
+    border: 3px solid white;
+    width: 100%;
+    height: 10rem;
+}
+
+form .message::-webkit-input-placeholder { 
+    color: white;
+    background-color: transparent;
+}
+
+form .message::-moz-placeholder {
+    color: white;
+    background-color: transparent;
+}
+form .message::-ms-input-placeholder {
+    color: white;
+    background-color: transparent;
+    
+}
+form .message::placeholder {
+    color: white;
+    background-color: transparent;
+    
+}
+
+.cuate2-pic
+{
+    margin-bottom: 12rem;
+}
+
+
+.title3
+{
+    padding-top: 10rem;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+    height: 5px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7rem;
+    color: white;
+}
+
+
+.vertical {
+    border-left: 6px solid black;
+    height: 200px;
+    position: relative;
+    left: 50%;
+}
+
+.flexbox
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.l3
+{
+
+    width: 0px;
+    height: 733px;
+    left: 50%;
+    margin-left: 14rem;
+    
+    border: 4px solid #000000;
+}
+
+.auv
+{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.service-img{
+    padding: 3rem 3rem 1rem 3rem;
+    margin-top: 2rem;
+    width: 9rem;
+    height: auto;
+}
+
+.service-img2{
+    padding: 3rem 3rem 1rem 3rem;
+    margin-top: 2rem;
+    width: 10rem;
+    height: auto;
+
+}
+
+
+.card{
+    width: 80%;
+    height: 18rem;
+    margin:  1rem;
+    border-radius: 21px;
+    box-shadow: 3px 6px 33px 1px rgba(0, 0, 0, 0.2);
+    /* background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+   border-radius: 21px;background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%); */
+    opacity: 1;
+    transition:1s;
+    
+}
+
+.card:hover{
+    /* transform: scale(1.05); */
+    background: #F6822A;
+    transition: 0.3s;
+    opacity: 1;
+  
+}
+.card-text{
+  height:80px;  
+}
+
+.card::before, .card::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale3d(0, 0, 1);
+  transition: transform .3s ease-out 0s;
+  background: rgba(255, 255, 255, 0.1);
+  content: '';
+  pointer-events: none;
+}
+.card::before {
+  transform-origin: left top;
+}
+.card::after {
+  transform-origin: right bottom;
+}
+.card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+  transform: scale3d(1, 1, 1);
+}
+
+
+
+.head{
+    font-family: Montserrat;
+    font-style: normal;
+
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    text-align: center;
+
+    color: #000000;
+}
+
+
+.head2{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    text-align: center;
+
+    color: black;
+
+}
+
+.title
+{
+    /* padding-top: 10rem; */
+    text-align: center;
+    font-size: 4rem;
+    padding-bottom: 4rem;
+    font-weight: bold;
+    background: #ffffff;
+    background: -webkit-linear-gradient(to bottom right, #FF951C 0%, #EF3C26 100%);
+    background: -moz-linear-gradient(to bottom right, #FF951C 0%, #EF3C26 100%);
+    background: linear-gradient(to bottom right, #FF951C 0%, #EF3C26 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+
+    
+}
+
+@media only screen and (max-width: 770px) {
+
+    .head{
+        
+        font-size: 0.7rem;  
+        line-height: 1.2rem;
+
+    }
+
+    .head2
+    {
+        padding-top: 1rem;
+        font-size: 0.7rem;  
+        line-height: 1.2rem;
+    }
+
+    .card{
+        width: 10rem;
+        height: 13rem;
+    }
+
+    .pos
+    {
+        margin-left: -2rem;
+    }
+}
+

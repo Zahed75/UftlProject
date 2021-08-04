@@ -1,0 +1,373 @@
+body {
+    max-width: 100%;
+  
+   overflow-x: hidden;
+    
+margin: 0;
+}
+
+.primary-body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.item {
+    /* text-decoration: none; */
+    color: white;
+    /* margin-left: 50px;
+    margin-right: 10px; */
+    margin: 13px;
+
+
+}
+
+.item:hover {
+    border-bottom: 1px solid white;
+}
+
+.navbar {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.toggle-btn {
+    color: white;
+}
+
+.icon {
+    color: white;
+}
+
+/* Search bar start */
+.search-box {
+    /* margin-left: 20px; */
+    /* position: absolute; */
+    height: 40px;
+    background: white;
+    border-radius: 40px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.search-btn {
+    color: orange;
+    width: 40px;
+    /*float: right;*/
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    /*float: left;*/
+    padding: 0;
+    color: orange;
+    font-size: 16px;
+    transition: .45s;
+    line-height: 30px;
+    max-width: 0px;
+}
+
+.search-box:hover > .search-txt {
+    max-width: 240px;
+    padding-left: 10px;
+}
+
+.search-box:hover > .custom-btn {
+    display: none;
+}
+
+/* Search bar end */
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.custom-btn {
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    width: 135px;
+    height: 45px;
+}
+
+
+
+#login-btn {
+    float: left;
+    transition: .2s;
+}
+
+.custom-btn:hover {
+    background-color: white;
+    color: orange;
+}
+
+#signup-btn {
+    background-color: white;
+    color: orange;
+    float: left;
+    transition: .2s;
+}
+
+/* .icon_nav {
+    margin: 10px;
+} */
+
+
+/*==== Zahed Start===*/
+
+
+/* Media Queries: Tablet Landscape */
+@media screen and (max-width: 1060px) {
+    #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;}  
+}
+
+/* Media Queries: Tabled Portrait */
+@media screen and (max-width: 768px) {
+    #primary { width:100%; }
+    #secondary { width:100%; margin:0; border:none; }
+}
+
+
+img { max-width: 100%; height: auto; }
+
+@media (min-device-width:600px) {
+    img[data-src-600px] {
+        content: attr(data-src-600px, url);
+    }
+}
+
+@media (min-device-width:800px) {
+    img[data-src-800px] {
+        content: attr(data-src-800px, url);
+    }
+}
+
+.bg_orange{
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1560px;
+    width: auto;
+    right: 0px;
+    overflow:hidden;
+    /* position: inherit; */
+
+    /* background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%); */
+    
+}
+
+.center img{
+    margin-left:auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 120px;
+}
+
+
+.mid-banner{
+    overflow: hidden;
+    width: auto;
+    height:auto;
+    background-size: cover;
+}
+
+.bt h1{
+
+font-style: normal;
+font-weight: bold;
+font-size: 50px;
+padding: 20px;
+text-transform: capitalize;
+
+}
+
+/*====Zahed end====*/
+
+/* ====Mahin Start ==== */
+
+.main-body {
+    max-width: 1254px;
+    min-height: 763px;
+    position: relative;
+    top: 219px;
+   
+    background: white;
+    box-shadow: 14px 11px 113px -17px rgba(0, 0, 0, 0.25);
+    border-radius: 33px;
+    /* margin-bottom: 50px; */
+}
+
+.card-heading {
+    margin-top: 118px;
+    font-weight: 700;
+    font-size: 64px;
+    text-align: left;
+    line-height: 78.02px;
+    color: #282828, 100%;
+    width: 555px;
+}
+
+@media (max-width: 1200px) {
+    .card-heading {
+        width: 240px;
+        font-size: 50px;
+        line-height: 50px;
+    }
+}
+
+.card-text {
+    margin-top: 42px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29.26px;
+}
+
+.card-button {
+    margin-top: 43px;
+    width: 216px;
+    height: 64px;
+    background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+    border: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: white;
+    font-size: 24px;
+    font-weight: 200;
+    margin-bottom: 84px;
+}
+
+.text-section, .img-section {
+    margin: 0 auto;
+}
+
+.img-section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 520px;
+}
+
+
+.heading-images {
+    margin-top: 200px;
+    position: relative;
+}
+
+.img-text {
+    position: absolute;
+    /* top: 300px; */
+    top: 350px;
+    color: white;
+    width: 395px;
+    height: 132px;
+    font-size: 26px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+@media (max-width: 1200px) {
+    .img-text {
+        top: 50px;
+        font-size: 10px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .img-text {
+        top: 120px;
+        font-size: 10px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+    .img-text {
+        top: 70px;
+        left: 1px;
+        font-size: 8px;
+        width: 50px;
+    }
+}
+
+.section-heading {
+    margin-top: 20px;
+    font-weight: 700;
+    font: 64px;
+    margin-bottom: 77px;
+}
+
+.slider-body2 {
+    margin-left: 10px;
+    margin-right: 10px;
+    /* position: absolute; */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+box-shadow: 14px 11px 113px -17px rgba(0, 0, 0, 0.25);
+border-radius: 33px;
+}
+
+.input-field {
+    width: 400px;
+    float: left;
+    margin: 10px;
+    margin-top: 0;
+    height: 80px;
+    width: 396px;
+    padding-left: 30px;
+    border-radius: 17px;
+    border-image-source: linear-gradient(90deg, rgba(248,150,44,1) 0%, rgba(239,60,38,1) 100%);
+    border-width: 3px;
+    border-image-slice: 1;
+}
+
+@media (max-width: 460px) {
+    .input-field {
+        max-width: 330px;
+        height: 40px;
+    }
+}
+
+.input-fields {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+/* .slider-body {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+box-shadow: 14px 11px 113px -17px rgba(0, 0, 0, 0.25);
+border-radius: 33px;
+} */
+
+
+
+
+/* blog Start */
+
+
+
+/* blog end*/
+
+
+
+/* ------------Footer starrt--------------- */
+
+/* ------------Footer end--------------- */
+
+
+/* ====Mahin end ==== */
