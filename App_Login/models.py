@@ -24,6 +24,7 @@ class OrderFuel(models.Model):
     fuel_type = models.CharField(max_length=220, blank=False)  # drop Down
     order_area = models.CharField(max_length=220, blank=False)
     fuel_amount = models.IntegerField(null=True)
+
     def __str__(self):
         return self.full_name
 

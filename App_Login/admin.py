@@ -1,5 +1,5 @@
 from django.contrib import admin
-from. models import OrderFuel,Profile,fuel_utils
+from. models import *
 # Register your models here.
 
 admin.site.register(OrderFuel)

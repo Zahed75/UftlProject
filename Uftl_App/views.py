@@ -17,3 +17,14 @@ def index(request):
     dict={}
 
     return render(request,'Uftl_App/index.html',context=dict)
+
+
+def assets(request):
+    dict={}
+
+    return render(request,'Uftl_App/asset.html',context=dict)
+
+def contact_page(request):
+    dict={}
+
+    return render(request,'Uftl_App/contact.html',context=dict)

@@ -4,7 +4,12 @@
     padding-bottom: 10rem;
  
 }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
 hr{ 
   
     border:         none;
@@ -146,8 +151,6 @@ hr{
 }
 
 .heading2{
-    font-family: Montserrat;
-    font-style: normal;
     font-weight: bold;
     font-size: 3.5rem;
     line-height: 59px;
@@ -156,9 +159,7 @@ hr{
 
 .heading
 {
-    
-    font-family: Montserrat;
-    font-style: normal;
+
     font-weight: bold;
     font-size: 3.5rem;
     line-height: 59px;
@@ -209,11 +210,12 @@ hr{
 
 .menu
 {
-    padding-top: 100px;
+    /*padding-top: 100px;*/
 }
 
 .display-4
 {
+    font-size: 4rem;
     font-weight: 900;
 }
 
@@ -284,27 +286,28 @@ hr{
 
 
 form .form-control::-webkit-input-placeholder { 
-        color: white;
+
         background-color: transparent;
     }
     
 form .form-control::-moz-placeholder {
-        color: white;
+
         background-color: transparent;
     }
 form .form-control:-ms-input-placeholder {
-        color: white;
+
         background-color: transparent;
         
     }
 form .form-control:placeholder {
-        color: white;
+
         background-color: transparent;
         
     }
 
 input[type="text"]::placeholder {  
-                  
+
+         background-color: transparent;
         /* Firefox, Chrome, Opera */ 
         padding: 20px; 
 
@@ -329,6 +332,12 @@ input[name="message"]::placeholder {
 .message:-moz-placeholder { /* Firefox 18- */padding-left: 10px;}
 .message::-moz-placeholder {  /* Firefox 19+ */padding-left: 10px;}
 .message:-ms-input-placeholder {padding-left: 10px;}
+
+.form-control
+{
+     background-color: transparent;
+}
+
 
 .message{
     background-color: transparent;
@@ -443,9 +452,9 @@ form .message::placeholder {
 
 .card:hover{
     /* transform: scale(1.05); */
-    background: #F6822A;
-    transition: 0.3s;
-    opacity: 1;
+    /*background: #F6822A;*/
+    /*transition: 0.3s;*/
+    /*opacity: 1;*/
   
 }
 .card-text{
@@ -477,9 +486,8 @@ form .message::placeholder {
 
 
 .head{
-    font-family: Montserrat;
-    font-style: normal;
 
+    font-weight: 900;
     font-size: 1.2rem;
     line-height: 2.2rem;
     text-align: center;

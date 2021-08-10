@@ -22,9 +22,9 @@ html {
     height: 1080px;
     background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
 }
-.container img{
-    padding:20px;
-}
+/*.container img{*/
+/*    padding:20px;*/
+/*}*/
 .submission{
     line-height: 25px;
 }
