@@ -10,6 +10,7 @@ from django.core.mail import send_mail, EmailMessage
 from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
 from django.views import View
+from App_Login.models import *
 # Create your views here.
 
 
@@ -20,7 +21,10 @@ def index(request):
 
 
 def assets(request):
-    dict={}
+
+    ft_util = fuel_utils.objects.all()
+
+    dict={"ft_util":ft_util}
 
     return render(request,'Uftl_App/asset.html',context=dict)
 

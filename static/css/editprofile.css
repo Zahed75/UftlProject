@@ -1,0 +1,21 @@
+.labelname {
+    color: black;
+    font-size: 0.8rem;
+}
+
+.fuel-input456 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1.3rem 9.5rem 1rem 0rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    /* min-width: 224px; */
+    outline: none;
+    padding-left: 20px;
+}
+
+.editimage {
+    width: 5rem;
+    height: auto;
+}

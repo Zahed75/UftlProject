@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-
-*{
+* {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -22,6 +20,7 @@ body {
     overflow-x: hidden !important;
 }
 
+
 /* *{
     box-sizing: border-box;
 } */
@@ -34,7 +33,6 @@ body {
     max-width: 200px;
 }
 
-
 .links a:hover {
     border-bottom: 1px solid #F57329;
 }
@@ -43,7 +41,9 @@ body {
     margin-right: 0;
 }
 
+
 /* Search bar start */
+
 .search-box {
     /* margin-left: 20px; */
     /* position: absolute; */
@@ -82,17 +82,18 @@ body {
     max-width: 0px;
 }
 
-.search-box:hover > .search-txt {
+.search-box:hover>.search-txt {
     max-width: 120px;
     padding-left: 10px;
 }
 
-.search-box:hover > .custom-btn {
+.search-box:hover>.custom-btn {
     display: none;
 }
 
 
 /* Search bar end */
+
 
 /* Search bar phone */
 
@@ -135,6 +136,7 @@ body {
     padding-left: 10px;
 }
 
+
 /* Search bar phone */
 
 .custom-btn {
@@ -167,6 +169,7 @@ body {
     font-size: 36px;
     color: black;
 }
+
 
 /* ========Slide navbar ========= */
 
@@ -230,31 +233,25 @@ body {
     border-radius: 9px;
 }
 
+
 /* ========Slide navbar ========= */
 
 @media (max-width: 1240px) {
-
-
     .menuicon {
         display: block;
     }
-
     .to-close {
         display: none;
     }
-
     .search {
         display: none;
     }
-
     .icons d-flex flex-row to-close {
         display: none;
     }
 }
 
-
 .buttons {
-
     margin-top: 0.5rem;
 }
 
@@ -262,27 +259,22 @@ body {
     border: 2px solid #F57329;
     box-sizing: border-box;
     border-radius: 15px;
-
     margin-left: 20px;
     text-align: left;
 }
-
 
 .two {
     border: 2px solid #F57329;
     box-sizing: border-box;
     border-radius: 15px;
-
     text-align: left;
     margin-left: 20px;
 }
-
 
 .three {
     border: 2px solid #F57329;
     box-sizing: border-box;
     border-radius: 15px;
-
     text-align: left;
     margin-left: 20px;
 }
@@ -306,7 +298,6 @@ body {
     min-width: 224px;
     outline: none;
     padding-left: 10px;
-
 }
 
 .fuel-dropdown {
@@ -316,11 +307,7 @@ body {
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
-
 }
-
-
-
 
 .text12 {
     font-family: Montserrat;
@@ -336,31 +323,27 @@ body {
 /* --- For medium screens and default----*/
 
 html {
-
-    font-size: 16px; /*---Now 1rem = 10px--*/
-
+    font-size: 16px;
+    /*---Now 1rem = 10px--*/
 }
 
 
 /* --- For smaller screens----*/
 
 @media (max-width: 767px) {
-
     html {
-
-        font-size: 16px; /*---If screen size is in between 0px-767px then 1rem = 8px--  */
-
+        font-size: 16px;
+        /*---If screen size is in between 0px-767px then 1rem = 8px--  */
     }
 }
+
 
 /* --- For larger screens----*/
 
 @media (min-width: 1200px) {
-
     html {
-
-        font-size: 18px; /*---If screen size is  1200px+ then 1rem = 12px   --  */
-
+        font-size: 18px;
+        /*---If screen size is  1200px+ then 1rem = 12px   --  */
     }
 }
 
@@ -368,11 +351,7 @@ html {
 /* Zahed End Section Jar Fuk On media Screen */
 
 
-
-
 /* clients section start */
-
-
 
 .carousel-control-prev-icon {
     background-image: url(../img/controlleft.png) !important;
@@ -381,7 +360,6 @@ html {
 
 .carousel-control-next-icon {
     background-image: url(../img/control.png) !important;
-
     margin-top: 130px;
 }
 
@@ -424,7 +402,6 @@ html {
         width: 600px;
         height: 300px;
     }
-
     .body-text h3 {
         font-size: 26px;
         width: 500px;
@@ -438,28 +415,24 @@ html {
         top: 25%;
         left: 44%;
     }
-
     .body-text {
         width: 300px !important;
         height: 200px !important;
         border-radius: 60px 0px;
     }
-
     .body-text h3 {
         font-size: 16px;
         width: 200px;
         margin-top: 40px;
     }
-
     .body-text p {
         font-size: 14px;
     }
 }
 
 
-
-
 /* clients section end */
+
 
 /* accordion start */
 
@@ -527,7 +500,8 @@ html {
     transition: transform .4s ease, -webkit-transform .4s ease;
 }
 
-.accordion__itemTitleWrap.is-active::after, .accordion__itemTitleWrap:hover::after {
+.accordion__itemTitleWrap.is-active::after,
+.accordion__itemTitleWrap:hover::after {
     -webkit-transform: translateX(-20%);
     transform: translateX(-20%);
 }
@@ -563,9 +537,11 @@ html {
 
 
 /* Faq Section start */
+
 #faq {
     margin-top: 75px;
 }
+
 
 /* Faq Section end */
 
@@ -574,14 +550,14 @@ html {
     margin-top: 30px;
 }
 
-
-#faq h3{
+#faq h3 {
     text-align: center;
 }
 
 .acn {
     text-align: center;
 }
+
 
 /* .faqimg img{
  
@@ -600,32 +576,39 @@ height: auto;
     }
 }
 
-
 @media (max-width: 766px) {
-    carousel-inner, img {
+    carousel-inner,
+    img {
         height: 50%;
         width: 50%;
-
     }
 }
 
-/* accordion end*/
 
+/* accordion end*/
 
 @media (max-width: 586px) {
     #chart {
         margin-top: 30rem;
         margin-left: 1rem;
     }
-
 }
 
 
-.accordion{
+/* #chart {
+    background-image: url(../img2/Group71.svg);
+    height: 150vh;
+    width: 80%;
+    margin-top: 20px;
+    background-position: center;
+    background-size: cover;
+    margin-left: 4rem;
+    background-repeat: no-repeat;
+} */
+
+.accordion {
     margin-top: 30px;
 }
-
-
 
 .btn4 {
     margin-bottom: 50rem;
@@ -636,32 +619,32 @@ height: auto;
 
 #button-addon1 {
     color: #ffc371;
-  }
-  
-  i {
+}
+
+i {
     color: #ffc371;
-  }
-  
-  .form-control::placeholder {
+}
+
+.form-control::placeholder {
     font-size: 0.95rem;
     color: #aaa;
     font-style: italic;
-  }
-  
-  .form-control.shadow-0:focus {
-    box-shadow: none;
-  }
+}
 
-.ft{
+.form-control.shadow-0:focus {
+    box-shadow: none;
+}
+
+.ft {
     background: #F0F0F0;
     margin: 0;
 }
-
 
 .contact-section a {
     text-decoration: none;
     color: black;
 }
+
 
 /* .contact-section {
     text-align: justify;
@@ -670,6 +653,7 @@ height: auto;
 .contact-section img {
     margin: 10px;
 }
+
 
 /* @media (max-width: ) */
 
@@ -695,7 +679,6 @@ height: auto;
         display: flex;
         flex-direction: column;
     }
-    
 }
 
 @media (max-width: 767px) {
@@ -712,7 +695,6 @@ height: auto;
         height: auto;
         margin-top: -200px;
     }
-
 }
 
 @media (max-width: 321px) {
@@ -721,26 +703,24 @@ height: auto;
     }
 }
 
-.hrline{
+.hrline {
     border: 0.5px solid #7e7d7d;
 }
 
-.social_icon ul li{
+.social_icon ul li {
     text-decoration: none;
-    display:inline;
+    display: inline;
     padding: 7px;
-
 }
 
-.social_icon ul li a img{
+.social_icon ul li a img {
     width: 30px;
 }
 
-.serve
-{
+.serve {
     margin-top: 10rem;
     text-align: center;
-    /*font-size: 3rem;*/
+    font-size: 4rem;
     padding-bottom: 4rem;
     font-weight: bold;
     color: #FF951C;
