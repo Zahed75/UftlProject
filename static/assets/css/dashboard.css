@@ -1,0 +1,127 @@
+.dashboard {
+    position: absolute;
+    top: 55%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    color: #202020;
+    z-index: -1;
+}
+
+.mainbox {
+    width: 500px;
+    height: 280px;
+    background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+    border-radius: 17px;
+    border: 1px solid #ff6f00;
+}
+
+.secbox {
+    width: 170px;
+    margin: auto 3rem 3rem 2rem;
+    height: 80px;
+    border: 1.5px solid #FF6F00;
+    box-sizing: border-box;
+    border-radius: 17px;
+}
+
+.value {
+    margin: 1.5rem 1.5rem;
+    line-height: 1px;
+}
+
+.title {
+    font-size: 0.8rem;
+    color: #ff6f00;
+}
+
+.number {
+    font-size: 1.5rem;
+    color: #454545;
+}
+
+.boxed {
+    margin-top: -1rem;
+}
+
+.reporting {
+    background-color: #ff6f00;
+    border-radius: 17px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 14px 76px;
+    text-decoration: none;
+}
+
+.view {
+    margin-left: 3rem;
+    margin-top: -1rem
+}
+
+.maincontent {
+    margin: 2.5rem 3rem 1rem 2rem;
+}
+
+.hello-user {
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+}
+
+.date-time {
+    color: white;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.description {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: white;
+}
+
+.description-bold {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: white;
+}
+
+.transparent-background {
+    width: 100px;
+    height: 160px;
+    background: rgba(192, 192, 192, 0.329);
+}
+
+.doll {
+    width: 100px;
+    height: 160px;
+}
+
+.order-fuel {
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ff6f00;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 31px;
+    text-decoration: none;
+}
+
+.firstrow {
+    padding-bottom: 2rem;
+}
+
+.charttitle {
+    margin-bottom: -2rem;
+    color: #FF6F00;
+    font-size: 1.5rem
+}

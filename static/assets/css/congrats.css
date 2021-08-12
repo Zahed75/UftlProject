@@ -1,0 +1,36 @@
+/*===== GOOGLE FONTS =====*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/*===== VARIABLES CSS =====*/
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: linear-gradient(90deg, #f8962c, #f46929, rgba(239, 60, 38, 1))
+}
+
+.account {
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.completed {
+    background: white;
+    text-align: center;
+    color: #F57329;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 1rem 8rem 1rem 8rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 16px;
+    margin-top: 1rem;
+    margin-left: 4rem;
+}

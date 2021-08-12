@@ -84,18 +84,18 @@ def Sign_in(request):
         user_obj = User.objects.filter(username=username).first()
         if user_obj is None:
             messages.success(request, 'User not found.')
-            return redirect('/login')
+            return redirect('/account/Sign_in/')
 
         profile_obj = Profile.objects.filter(user=user_obj).first()
 
         if not profile_obj.is_verified:
             messages.success(request, 'Profile is not verified check your mail.')
-            return redirect('/login')
+            return redirect('/account/Sign_in/')
 
         user = authenticate(username=username, password=password)
         if user is None:
             messages.success(request, 'Wrong password.')
-            return redirect('/login')
+            return redirect('/account/Sign_in/')
 
         login(request, user)
         return redirect('/submitted')
@@ -115,11 +115,11 @@ def SignUp(request):
         try:
             if User.objects.filter(username=username).first():
                 messages.success(request, 'Username is taken.')
-                return redirect('/SignUp')
+                return redirect('/account/Signup/')
 
             if User.objects.filter(email=email).first():
                 messages.success(request, 'Email is taken.')
-                return redirect('/SignUp')
+                return redirect('/account/Signup/')
 
             user_obj = User(username=username, email=email)
             user_obj.set_password(password)
@@ -163,7 +163,7 @@ def token_send(request):
 
 
 def send_mail_after_registration(email, token):
-    subject = 'Your accounts need to be verified'
+    subject = 'Your accounts need to be verified your account'
     message = f'Hi click the link to verify your account http://127.0.0.1:8000/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]

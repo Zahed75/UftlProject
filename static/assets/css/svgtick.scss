@@ -1,0 +1,54 @@
+// $timing: 1.5s;
+// $easing: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+// body {
+//     background: gainsboro;
+// }
+// svg {
+//     display: block;
+//     margin: 0 auto;
+// }
+// .toggle {
+//     cursor: pointer;
+//     background: rgb(238, 86, 38);
+//     padding: 1em;
+//     border-radius: 100%;
+//     display: table;
+//     width: 50px;
+//     transition: background 0.3s cubic-bezier(0.455, 0.030, 0.515, 0.955);
+//     /* Temp Scene Stuff */
+//     position: absolute;
+//     transform: translate(-50%, -50%);
+//     top: 50%;
+//     left: 50%;
+// }
+// .toggle.open {
+//     background: rgb(74, 228, 191);
+// }
+// .tick {
+//     stroke-dasharray: 44;
+//     stroke-dashoffset: 44;
+// }
+// .open .retract {
+//     stroke-dasharray: 20;
+//     stroke-dashoffset: 20;
+//     animation: retract $timing $easing forwards 1;
+// }
+// .open .tick {
+//     animation: dash $timing $easing forwards 1;
+// }
+// @keyframes dash {
+//     from {
+//         stroke-dashoffset: 44;
+//     }
+//     to {
+//         stroke-dashoffset: 0;
+//     }
+// }
+// @keyframes retract {
+//     from {
+//         stroke-dashoffset: 0;
+//     }
+//     to {
+//         stroke-dashoffset: 20;
+//     }
+// }
