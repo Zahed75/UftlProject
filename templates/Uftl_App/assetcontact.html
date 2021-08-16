@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Profile Setup</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button2.css">
+    <link rel="stylesheet" href="css/image.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/select.css">
+    <link rel="stylesheet" href="css/custom-sidebar.css">
+    <link rel="stylesheet" href="css/setupprofile.css">
+    <link rel="stylesheet" href="draft.css">
+</head>
+
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+
+                <a href="#" class="nav__logo">
+                    <div class="logoside">
+                        <img class="logoimage" src="assets/img/logo.svg" alt="My Happy SVG" />
+                        <div class="tex">
+                            <p class="text1">URGENT</p>
+                            <p class="text2">FUEL</p>
+                        </div>
+                    </div>
+                    <!-- <i class='bx bx-layer nav__logo-icon'></i>
+                        <span class="nav__logo-name">Bedimcode</span> -->
+                </a>
+
+                <a href="#" class="img logo rounded-circle mb-2" style="background-image: url(assets/img/saul.png);"> </a>
+                <h3 class="text-center mb-5 username">Saul Ramirez</h3>
+
+
+
+                <ul class="list-unstyled components mb-5">
+
+                    <li>
+
+                        <a href="#">
+                            <ion-icon class="setup" name="person-outline"></ion-icon> Setup Profile</a>
+                    </li>
+
+
+
+                </ul>
+
+                <div class="footer">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <!-- Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a> -->
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-4">
+
+            <nav class="">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                     </button>
+
+
+
+                    <div class="float-right">
+                        <div class=" menu ">
+                            <div class="header__img ">
+                                <img class="navimage" src="assets/img/saul.png " alt=" ">
+
+                            </div>
+
+                            <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
+                            <p class="back">Back to Home</p>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+
+            <div class="container">
+
+                <div class="row ">
+
+
+                    <div class="form-section d-flex justify-content-center align-items-center my-5">
+                        <form method="POST" class="form-group">
+                            <div id="div1">
+                                <div class="row justify-content-between ml-2 ipad">
+
+                                    <div class="col-sm-6 col-md-6 ">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="headingtext2">Asset
+
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-6 col-md-3 fuel">
+
+                                            <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Name*">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-3 fuel">
+                                            <select name="fuel-type" class="selectbox">
+                                                        <option selected disabled value="select">Asset type*</option>
+                                                        <option value="Diesel">Generator</option>
+                                                        <option value="Gasoline">Vehicles</option>
+                                                        <option value="Kerosene">Construction</option>
+                                                        <option value="LPG">Machines</option>
+                                                    </select>
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-3 fuel">
+                                            <select name="fuel-type" class="selectbox">
+                                                        <option selected disabled value="select">Fuel Type*</option>
+                                                        <option value="Diesel">Diesel</option>
+                                                        <option value="Gasoline">Octane</option>
+                                                </select>
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-3 fuel">
+                                            <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Location*">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-7 col-md-3">
+
+                                        <div class="col-sm-6 col-md-3 rightsection">
+                                            <div class="file-upload">
+
+
+                                                <div class="image-upload-wrap">
+
+                                                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                                    <div class="drag-text">
+                                                        <p class="drag2">Photo/Logo (Optional)</p>
+                                                        <svg class="icon-image2" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19V5h14l.002 14H5z"></path><path d="m10 14-1-1-3 4h12l-5-7z"></path></svg>
+                                                        <h3 class="drapanddrop">Drag and drop a photo or<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">browse</button>a file or upload!
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="file-upload-content">
+                                                    <img class="file-upload-image" src="#" alt="your image" />
+                                                    <div class="image-title-wrap">
+                                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                                    </div>
+                                                </div>
+
+
+                                                <button class="fuel-ordery" onclick="Show1()" type="button" id="sendMessageButton">Next</button>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="div2">
+                                <div class="row justify-content-between ipad">
+
+                                    <div class="col-sm-6 col-md-6 ">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="headingtext2">Contact Info
+
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-3 fuel">
+                                            <input type="text" name="fuel-amount" class="fuel-input" placeholder="Full Name*">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-3 fuel">
+                                            <input type="text" name="fuel-amount" class="fuel-input" placeholder="Company Name">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-3 fuel">
+                                            <input type="number" name="fuel-amount" class="fuel-input" placeholder="Phone Number*">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-3 fuel">
+                                            <input type="email" name="fuel-amount" class="fuel-input" placeholder="Email">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-3 fuel">
+                                            <select name="fuel-type" class="area">
+                                                                <option selected disabled value="select">Area*</option>
+                                                                <option value="Diesel">Generator</option>
+                                                                <option value="Gasoline">Vehicles</option>
+                                                                <option value="Kerosene">Construction</option>
+                                                                <option value="LPG">Machines</option>
+                                                            </select>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <button class="previous" type="button" onclick="Show2()" id="sendMessageButton">Previous</button>
+                                    </div>
+
+                                    <div class="col-sm-7 col-md-3 contactimage">
+
+                                        <div class="col-sm-6 col-md-3 rightsection">
+                                            <div class="col-sm-6 col-md-3 fuel">
+                                                <div class="file-upload">
+
+
+                                                    <div class="image-upload-wrap">
+
+                                                        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                                        <div class="drag-text">
+                                                            <p class="drag2">Photo/Logo (Optional)</p>
+                                                            <svg class="icon-image2" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19V5h14l.002 14H5z"></path><path d="m10 14-1-1-3 4h12l-5-7z"></path></svg>
+                                                            <h3 class="drapanddrop">Drag and drop a photo or<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">browse</button>a file or upload!
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="file-upload-content">
+                                                        <img class="file-upload-image" src="#" alt="your image" />
+                                                        <div class="image-title-wrap">
+                                                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-sm-6 col-md-3 fuel">
+                                                <select name="fuel-type" class="city">
+                                                                    <option selected disabled value="select">City*</option>
+                                                                    <option value="Dhaka">Dhaka</option>
+                                                                    <option value="Chittagong">Chittagong</option>
+                                                                    
+                                                                </select>
+                                                <p class="help-block"></p>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-3 fuel">
+                                                <input type="text" name="fuel-amount" class="billingaddress" placeholder="Billing Address*">
+                                                <p class="help-block"></p>
+                                            </div>
+
+                                            <button class="fuel-ordery" type="submit" id="sendMessageButton">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="assets/js/image.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="draft.js"></script>
+</body>
+
+</html>

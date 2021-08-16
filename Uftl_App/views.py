@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse,HttpResponseRedirect
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.views.generic import CreateView, UpdateView, ListView, DetailView, View, TemplateView, DeleteView
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -11,24 +11,24 @@ from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
 from django.views import View
 from App_Login.models import *
+
+
 # Create your views here.
 
 
 def index(request):
-    dict={}
+    dict = {}
 
-    return render(request,'Uftl_App/index.html',context=dict)
+    return render(request, 'Uftl_App/index.html', context=dict)
 
 
-def assets(request):
+def assets_profile(request):
+    dict = {}
 
-    ft_util = fuel_utils.objects.all()
+    return render(request, 'Uftl_App/assetprofile.html', context=dict)
 
-    dict={"ft_util":ft_util}
 
-    return render(request,'Uftl_App/asset.html',context=dict)
+def asset_contact(request):
+    dict = {}
 
-def contact_page(request):
-    dict={}
-
-    return render(request,'Uftl_App/contact.html',context=dict)
+    return render(request, 'Uftl_App/contactprofile.html', context=dict)

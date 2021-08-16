@@ -1,5 +1,3 @@
-{% load static %}
-
 <!doctype html>
 <html lang="en">
 
@@ -10,15 +8,13 @@
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- css -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/button2.css' %}">
-    <link rel="stylesheet" href="{% static 'css/image.css' %}">
-    <link rel="stylesheet" href="{% static 'css/input.css' %}">
-    <link rel="stylesheet" href="{% static 'css/select.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom-sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button2.css">
+    <link rel="stylesheet" href="css/image.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/select.css">
+    <link rel="stylesheet" href="css/custom-sidebar.css">
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
 
 <body>
@@ -29,13 +25,14 @@
 
                 <a href="#" class="nav__logo">
                     <div class="logoside">
-                        <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG" />
+                        <img class="logoimage" src="assets/img/logo.svg" alt="My Happy SVG" />
                         <div class="tex">
                             <p class="text1">URGENT</p>
                             <p class="text2">FUEL</p>
                         </div>
                     </div>
-
+                    <!-- <i class='bx bx-layer nav__logo-icon'></i>
+                        <span class="nav__logo-name">Bedimcode</span> -->
                 </a>
 
                 <a href="#" class="img logo rounded-circle mb-2" style="background-image: url(assets/img/saul.png);"> </a>
@@ -57,7 +54,12 @@
 
                 <div class="footer">
                     <p>
-
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <!-- Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a> -->
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
 
@@ -80,7 +82,7 @@
                     <div class="float-right">
                         <div class=" menu ">
                             <div class="header__img ">
-                                <img class="navimage" src="{% static 'assets/img/saul.png ' %}" alt=" ">
+                                <img class="navimage" src="assets/img/saul.png " alt=" ">
 
                             </div>
 
@@ -88,7 +90,26 @@
                             <p class="back">Back to Home</p>
                         </div>
                     </div>
+                    <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <i class="fa fa-bars"></i>
+                  </button> -->
 
+                    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div> -->
                 </div>
             </nav>
 
@@ -101,84 +122,82 @@
                     <div class="container mt-5">
 
 
-                        <div class="form-section d-flex justify-content-center align-items-center my-5">
-                            <form method="POST" class="form-group">
-                                <div class="row justify-content-center align-content-start ipad">
+                        <div class="row justify-content-center align-content-start ipad">
 
-                                    <div class="col-sm-6 col-md-6 ">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="headingtext2">Asset
+                            <div class="col-sm-6 col-md-6 ">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="headingtext2">Asset
 
-                                                </p>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm-6 col-md-3 fuel">
-
-                                            <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Name*">
-                                            <p class="help-block"></p>
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-3 fuel">
-                                            <select name="fuel-type" class="fuel-input22">
-                                                <option selected disabled value="select">Asset type*</option>
-                                                {% for x in ft_util %}
-                                                    <option value="{{x.fuel_type}}">{{x.fuel_type}}</option>
-                                                {% endfor %}
-                                            </select>
-                                            <p class="help-block"></p>
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-3 fuel">
-                                            <select name="fuel-type" class="fuel-input3">
-                                                <option selected disabled value="select">Fuel Type*</option>
-                                                <option value="Diesel">Diesel</option>
-                                                <option value="Gasoline">Octane</option>
-                                        </select>
-                                            <p class="help-block"></p>
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-3 fuel">
-                                            <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Location*">
-                                            <p class="help-block"></p>
-                                        </div>
+                                        </p>
                                     </div>
 
-                                    <div class="col-sm-7 col-md-3">
+                                </div>
+                                <div class="col-sm-6 col-md-3 fuel">
 
-                                        <div class="col-sm-6 col-md-3 rightsection">
-                                            <div class="file-upload">
-
-
-                                                <div class="image-upload-wrap">
-
-                                                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-                                                    <div class="drag-text">
-                                                        <p class="drag2">Photo/Logo (Optional)</p>
-                                                        <svg class="icon-image2" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19V5h14l.002 14H5z"></path><path d="m10 14-1-1-3 4h12l-5-7z"></path></svg>
-                                                        <h3 class="drapanddrop">Drag and drop a photo or<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">browse</button>a file or upload!
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                                <div class="file-upload-content">
-                                                    <img class="file-upload-image" src="#" alt="your image" />
-                                                    <div class="image-title-wrap">
-                                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                                                    </div>
-                                                </div>
-
-
-                                                <button class="fuel-ordery" type="submit" id="sendMessageButton">Next</button>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                    <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Name*">
+                                    <p class="help-block"></p>
                                 </div>
 
-                            </form>
+                                <div class="col-sm-6 col-md-3 fuel">
+                                    <select name="fuel-type" class="fuel-input22">
+                                            <option selected disabled value="select">Asset type*</option>
+                                            <option value="Diesel">Generator</option>
+                                            <option value="Gasoline">Vehicles</option>
+                                            <option value="Kerosene">Construction</option>
+                                            <option value="LPG">Machines</option>
+                                        </select>
+                                    <p class="help-block"></p>
+                                </div>
+
+                                <div class="col-sm-6 col-md-3 fuel">
+                                    <select name="fuel-type" class="fuel-input3">
+                                            <option selected disabled value="select">Fuel Type*</option>
+                                            <option value="Diesel">Diesel</option>
+                                            <option value="Gasoline">Octane</option>
+                                    </select>
+                                    <p class="help-block"></p>
+                                </div>
+
+                                <div class="col-sm-6 col-md-3 fuel">
+                                    <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Location*">
+                                    <p class="help-block"></p>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-7 col-md-3">
+
+                                <div class="col-sm-6 col-md-3 rightsection">
+                                    <div class="file-upload">
+
+
+                                        <div class="image-upload-wrap">
+
+                                            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                            <div class="drag-text">
+                                                <p class="drag2">Photo/Logo (Optional)</p>
+                                                <svg class="icon-image2" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19V5h14l.002 14H5z"></path><path d="m10 14-1-1-3 4h12l-5-7z"></path></svg>
+                                                <h3 class="drapanddrop">Drag and drop a photo or<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">browse</button>a file or upload!
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="file-upload-content">
+                                            <img class="file-upload-image" src="#" alt="your image" />
+                                            <div class="image-title-wrap">
+                                                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                            </div>
+                                        </div>
+
+
+                                        <button class="fuel-ordery" type="submit" id="sendMessageButton">Next</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
+
+
 
 
                     </div>
@@ -188,15 +207,11 @@
         </div>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <script src="{% static 'js/jquery.min.js' %}"></script>
-
-        <script src="{% static 'js/image.js' %}"></script>
-        <script src="{% static 'js/popper.js' %}"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'js/main.js' %}"></script>
-
-
-        <script src="{% static 'js/sidebar.js' %}"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="assets/js/image.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
 </body>
 
 </html>

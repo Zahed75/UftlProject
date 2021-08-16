@@ -1,0 +1,707 @@
+/*===== GOOGLE FONTS =====*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/*===== VARIABLES CSS =====*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.myButton {
+    background-color: #ff6f00;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1rem;
+    width: 10rem;
+    height: 3.5rem;
+    text-decoration: none;
+}
+
+.reporting {}
+
+.selectanasset {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ff6f00;
+    display: inline-block;
+    cursor: pointer;
+    color: #ff6f00;
+    text-align: left;
+    font-size: 1rem;
+    width: 10rem;
+    height: 3.5rem;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+.datarange {
+    margin-left: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ff6f00;
+    display: inline-block;
+    cursor: pointer;
+    color: #ff6f00;
+    text-align: left;
+    font-size: 1rem;
+    width: 10rem;
+    height: 3.5rem;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+.status {
+    margin-left: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ff6f00;
+    display: inline-block;
+    cursor: pointer;
+    color: #ff6f00;
+    text-align: left;
+    font-size: 1rem;
+    width: 10rem;
+    height: 3.5rem;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+.secondrow {
+    margin-top: 1rem;
+    color: #9FA2B4;
+}
+
+.devicer {
+    width: 70em;
+    display: block;
+    height: 0.1px;
+    background-color: #4b4b4d;
+    margin: 1px auto 0;
+}
+
+.results {
+    margin-top: 1rem;
+}
+
+.orderid {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: black;
+}
+
+.data {
+    margin-top: 1rem;
+    font-weight: 800;
+    color: black;
+}
+
+.time {
+    margin-top: -10px;
+    color: #9FA2B4;
+}
+
+.amount {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: black;
+}
+
+.cost {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: black;
+}
+
+.profile {
+    display: flex;
+}
+
+.profileinfo {
+    margin-left: 2rem;
+}
+
+.circleimage {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    padding: auto 1rem auto 1rem;
+}
+
+.ontheway {
+    background-color: #0EC0E7;
+    border-radius: 9px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    width: 8rem;
+    height: 2.5rem;
+    text-decoration: none;
+}
+
+.processing {
+    background-color: #ff6f00;
+    border-radius: 9px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    width: 8rem;
+    height: 2.5rem;
+    text-decoration: none;
+}
+
+.delivered {
+    background-color: #00C29F;
+    border-radius: 9px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    width: 8rem;
+    height: 2.5rem;
+    text-decoration: none;
+}
+
+.cancelled {
+    margin-top: 1rem;
+    background-color: #FF4853;
+    border-radius: 9px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    width: 8rem;
+    height: 2.5rem;
+    text-decoration: none;
+}
+
+.processing,
+.cancelled,
+.delivered,
+.ontheway {}
+
+.btnmargin {
+    margin-top: 1rem;
+}
+
+@media only screen and (max-width: 770px) {
+    .selectanasset,
+    .datarange,
+    .status {
+        width: 8rem;
+        height: 3.5rem;
+        font-size: 0.7rem;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 8rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
+    .amounttile {
+        margin-left: -0.5rem;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .secondrow {
+        font-size: 0.8rem;
+    }
+    .circleimage {
+        display: none;
+    }
+    .orderid {
+        margin-top: 2rem;
+        font-size: 0.7rem;
+    }
+    .profileinfo {
+        margin-left: -0.1rem;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 5rem;
+        height: 2rem;
+        font-size: 0.6rem;
+    }
+    .amount,
+    .cost {
+        font-size: 1rem;
+    }
+    .amounttile {
+        margin-left: -1.3rem;
+    }
+    .btnmargin {
+        padding-left: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status,
+    .myButton {
+        width: 5rem;
+        height: 3rem;
+        font-size: 0.6rem;
+    }
+    .data,
+    .time {
+        font-size: 0.7rem;
+    }
+    .amount,
+    .cost {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .secondrow {
+        font-size: 0.5rem;
+    }
+    .circleimage {
+        display: none;
+    }
+    .orderid {
+        margin-top: 2rem;
+        font-size: 0.5rem;
+    }
+    .profileinfo {
+        margin-left: -0.1rem;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 6rem;
+        height: 2rem;
+        font-size: 0.5rem;
+    }
+    .amount,
+    .cost {
+        margin-left: -0.5rem;
+        font-size: 0.4rem;
+    }
+    .amounttile {
+        margin-left: -1rem;
+    }
+    .btnmargin {
+        padding-left: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status,
+    .myButton {
+        width: 4.5rem;
+        height: 2rem;
+        font-size: 0.4rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .dandt {
+        margin-left: -1.1rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .data,
+    .time {
+        font-size: 0.6rem;
+    }
+    .amount,
+    .cost {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .secondrow {
+        font-size: 0.8rem;
+    }
+    .circleimage {
+        display: none;
+    }
+    .orderid {
+        margin-top: 2rem;
+        font-size: 0.7rem;
+    }
+    .profileinfo {
+        margin-left: -0.1rem;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 5rem;
+        height: 2rem;
+        font-size: 0.6rem;
+    }
+    .amount,
+    .cost {
+        font-size: 1rem;
+    }
+    .amounttile {
+        margin-left: -1.3rem;
+    }
+    .btnmargin {
+        padding-left: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status,
+    .myButton {
+        width: 5rem;
+        height: 3rem;
+        font-size: 0.6rem;
+    }
+    .data,
+    .time {
+        font-size: 0.7rem;
+    }
+    .amount,
+    .cost {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .secondrow {
+        font-size: 0.45rem;
+    }
+    .circleimage {
+        display: none;
+    }
+    .orderid {
+        margin-top: 2rem;
+        font-size: 0.5rem;
+    }
+    .profileinfo {
+        margin-left: -0.1rem;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 5rem;
+        height: 2rem;
+        font-size: 0.45rem;
+    }
+    .amount,
+    .cost {
+        font-size: 0.7rem;
+    }
+    .amounttile {
+        margin-left: -0.5rem;
+    }
+    .btnmargin {
+        padding-left: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status,
+    .myButton {
+        width: 4rem;
+        height: 2rem;
+        font-size: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status {
+        padding-left: 5px;
+    }
+    .data,
+    .time {
+        font-size: 0.6rem;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .secondrow {
+        font-size: 0.45rem;
+    }
+    .circleimage {
+        display: none;
+    }
+    .orderid {
+        margin-top: 2rem;
+        font-size: 0.5rem;
+    }
+    .profileinfo {
+        margin-left: -0.1rem;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 6rem;
+        height: 2rem;
+        font-size: 0.4rem;
+    }
+    .amount,
+    .cost {
+        margin-left: -0.5rem;
+        font-size: 0.3rem;
+    }
+    .amounttile {
+        margin-left: -1rem;
+    }
+    .btnmargin {
+        padding-left: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status,
+    .myButton {
+        width: 4rem;
+        height: 2rem;
+        font-size: 0.4rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .dandt {
+        margin-left: -1.1rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .data,
+    .time {
+        font-size: 0.6rem;
+    }
+    .amount,
+    .cost {
+        font-size: 0.8rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status {
+        padding-left: 5px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .secondrow {
+        font-size: 0.45rem;
+    }
+    .circleimage {
+        display: none;
+    }
+    .orderid {
+        margin-top: 2rem;
+        font-size: 0.5rem;
+    }
+    .profileinfo {
+        margin-left: 5px;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 6rem;
+        height: 1.5rem;
+        font-size: 0.4rem;
+    }
+    .amount,
+    .cost {
+        margin-left: -0.5rem;
+        font-size: 0.3rem;
+    }
+    .amounttile {
+        margin-left: -1rem;
+    }
+    .btnmargin {
+        padding-left: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status,
+    .myButton {
+        width: 3.5rem;
+        height: 2rem;
+        font-size: 0.4rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .selectanasset,
+    .datarange,
+    .status {
+        padding-left: 5px;
+    }
+    .dandt {
+        margin-left: -1.1rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .data,
+    .time {
+        font-size: 0.5rem;
+        width: 80%;
+        margin-left: -5px;
+    }
+    .amount,
+    .cost {
+        font-size: 0.6rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .secondrow {
+        font-size: 0.45rem;
+    }
+    .circleimage {
+        display: none;
+    }
+    .orderid {
+        margin-top: 2rem;
+        font-size: 0.4rem;
+        margin-left: -10px;
+    }
+    .profileinfo {
+        margin-left: 5px;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 6rem;
+        height: 1.5rem;
+        font-size: 0.3rem;
+    }
+    .amount,
+    .cost {
+        margin-left: -0.5rem;
+        font-size: 0.3rem;
+    }
+    .amounttile {
+        margin-left: -1rem;
+    }
+    .btnmargin {
+        padding-left: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status,
+    .myButton {
+        width: 3rem;
+        height: 2rem;
+        font-size: 0.4rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status {
+        padding-left: 2px;
+    }
+    .dandt {
+        margin-left: -1.5rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .data,
+    .time {
+        font-size: 0.5rem;
+        width: 80%;
+        margin-left: -5px;
+    }
+    .amount,
+    .cost {
+        font-size: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .secondrow {
+        font-size: 0.45rem;
+    }
+    .circleimage {
+        display: none;
+    }
+    .orderid {
+        margin-top: 2rem;
+        font-size: 0.4rem;
+        margin-left: -10px;
+    }
+    .profileinfo {
+        margin-left: 5px;
+    }
+    .processing,
+    .cancelled,
+    .delivered,
+    .ontheway {
+        width: 6rem;
+        height: 1.5rem;
+        font-size: 0.2rem;
+    }
+    .amount,
+    .cost {
+        margin-left: -0.5rem;
+        font-size: 0.3rem;
+    }
+    .amounttile {
+        margin-left: -1rem;
+    }
+    .btnmargin {
+        padding-left: 0.5rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status,
+    .myButton {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.3rem;
+    }
+    .selectanasset,
+    .datarange,
+    .status {
+        margin-left: -2px;
+    }
+    .dandt {
+        margin-left: -1.5rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .data,
+    .time {
+        font-size: 0.5rem;
+        width: 80%;
+        margin-left: -5px;
+    }
+    .amount,
+    .cost {
+        font-size: 0.5rem;
+    }
+}
+
+input[type="date"]:not(.has-value):before {
+    color: #ff6f00;
+    content: attr(placeholder);
+}

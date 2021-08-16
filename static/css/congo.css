@@ -1,0 +1,40 @@
+html {
+    scroll-behavior: "smooth";
+}
+
+
+.congo{
+font-size: 34px;
+line-height: 41px;
+text-align: center
+font-weight:bold;
+
+}
+
+
+#congo_body{
+    background:linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+    width: 100%;
+    height: 1080px;
+}
+
+.back{
+    padding: 30px;
+}
+
+.back p,a{
+    list-style: none;
+    color: aliceblue!important;
+}
+
+.btn-dark {
+    color: #FF6F00 !important;
+background-color: #ffffff !important;
+    border-color: #ffffff!important;
+
+    font-weight: bold!important;
+}
+
+.order_congo{
+    font-size: 20px;
+}

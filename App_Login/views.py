@@ -129,7 +129,7 @@ def SignUp(request):
             profile_obj = Profile.objects.create(user=user_obj, auth_token=auth_token)
             profile_obj.save()
             send_mail_after_registration(email, auth_token)
-            return redirect('/token')
+            return redirect('/account/token/')
 
         except Exception as e:
             print(e)
@@ -162,8 +162,9 @@ def ChangePassword(request, token):
 
             user_obj.set_password(new_password)
             user_obj.save()
-            print("hello",user_obj)
-            print( "test" ,new_password)
+            messages.success(request, "Password Has Been Changed!")
+            print("hello", user_obj)
+            print("test", new_password)
             return redirect('/account/Sign_in/')
 
 
@@ -173,7 +174,6 @@ def ChangePassword(request, token):
     except Exception as e:
         print(e)
     return render(request, 'App_Login/change_pass.html', context)
-
 
 
 import uuid
@@ -209,11 +209,11 @@ def verify(request, auth_token):
         if profile_obj:
             if profile_obj.is_verified:
                 messages.success(request, 'Your account is already verified.')
-                return redirect('/Sign_in')
+                return redirect('/accounts/Sign_in')
             profile_obj.is_verified = True
             profile_obj.save()
             messages.success(request, 'Your account has been verified.')
-            return redirect('/Sign_in')
+            return redirect('/account/Sign_in/')
         else:
             return redirect('/error')
     except Exception as e:
@@ -229,7 +229,7 @@ def token_send(request):
 
 def send_mail_after_registration(email, token):
     subject = 'Your accounts need to be verified your account'
-    message = f'Hi click the link to verify your account http://127.0.0.1:8000/verify/{token}'
+    message = f'Hi click the link to verify your account http://127.0.0.1:8000/account/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)

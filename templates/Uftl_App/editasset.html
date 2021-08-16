@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Edit Asset</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- cdn -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button2.css">
+    <link rel="stylesheet" href="css/image.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/select.css">
+    <link rel="stylesheet" href="css/editprofile.css">
+    <link rel="stylesheet" href="css/setupprofile.css">
+    <link rel="stylesheet" href="draft.css">
+    <link rel="stylesheet" href="css/custom-sidebar.css">
+
+
+
+
+</head>
+
+<body>
+
+    <!-- Sidebar Start  -->
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-2 pt-1">
+
+                <a href="#" class="nav__logo">
+                    <div class="logoside">
+                        <img class="logoimage" src="assets/img/logo.svg" alt="My Happy SVG" />
+                        <div class="tex">
+                            <p class="text1">URGENT</p>
+                            <p class="text2">FUEL</p>
+                        </div>
+                    </div>
+
+                </a>
+
+                <a href="#" class="img logo rounded-circle mb-2" style="background-image: url(assets/img/saul.png);"> </a>
+                <h3 class="text-center mb-4 username">Saul Ramirez</h3>
+
+
+
+                <ul class="list-unstyled components mb-2 p-2">
+
+                    <li>
+                        <a href="#"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class='bx bx-list-check setup'></i>Place an Order</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class='bx bx-info-circle setup'></i>Assets</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class='bx bx-clipboard setup'></i>Reporting</a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <ion-icon class="setup" name="settings-outline"></ion-icon>Edit Profile</a>
+                    </li>
+
+
+                    <div class="logout">
+                        <button class="livechat" type="submit" id="sendMessageButton">Live Chat</button>
+                        <div class="logoutline"></div>
+                        <li>
+                            <a href="#">
+                                <ion-icon class="setup" name="log-out-outline"></ion-icon>
+                                </ion-icon>Log Out</a>
+                        </li>
+                    </div>
+                </ul>
+
+                <div class="footer">
+                    <p>
+
+                    </p>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <!-- Sidebar End  -->
+
+        <!-- Page Content r kaj korbe  -->
+        <div id="content" class="p-4 p-md-3">
+
+            <nav class="">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                     </button>
+
+                    <div class="float-right">
+                        <div class=" menu ">
+                            <div class="header__img ">
+                                <img class="navimage" src="assets/img/saul.png " alt=" ">
+
+                            </div>
+
+                            <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
+                            <p class="back">Back to Home</p>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+
+            <div id="content" class="p-4 p-md-5">
+
+                <div class="container">
+
+
+
+
+                    <div class="form-section d-flex justify-content-center align-items-center my-5">
+                        <form method="POST" class="form-group">
+
+                            <div class="row justify-content-center ipad">
+
+                                <div class="col-sm-6 col-md-6 ">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="headingtext2">Edit Asset
+
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 fuel">
+
+                                        <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Name*">
+                                        <p class="help-block"></p>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-3 fuel">
+                                        <select name="fuel-type" class="selectbox">
+                                                            <option selected disabled value="select">Asset type*</option>
+                                                            <option value="Diesel">Generator</option>
+                                                            <option value="Gasoline">Vehicles</option>
+                                                            <option value="Kerosene">Construction</option>
+                                                            <option value="LPG">Machines</option>
+                                                        </select>
+                                        <p class="help-block"></p>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-3 fuel">
+                                        <select name="fuel-type" class="selectbox">
+                                                            <option selected disabled value="select">Fuel Type*</option>
+                                                            <option value="Diesel">Diesel</option>
+                                                            <option value="Gasoline">Octane</option>
+                                                    </select>
+                                        <p class="help-block"></p>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-3 fuel">
+                                        <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Location*">
+                                        <p class="help-block"></p>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-7 col-md-3">
+
+                                    <div class="col-sm-6 col-md-3 rightsection">
+                                        <div class="col-sm-6 col-md-3">
+                                            <img class="box1" src="assets/img/2.png" alt="">
+                                            <button class="fuel-ordery" onclick="Show1()" type="button" id="sendMessageButton">Edit</button>
+                                            <button class="fuel-ordery" onclick="Show1()" type="button" id="sendMessageButton">Delete</button>
+                                            <button class="fuel-ordery" onclick="Show1()" type="button" id="sendMessageButton">Save</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <!-- Page Content r kaj korbe  -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="assets/js/image.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/sidebar.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>
