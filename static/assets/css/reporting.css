@@ -21,14 +21,7 @@ body {
     text-shadow: 0px 1px 0px #ffffff;
 }
 
-.reporting {
-    position: fixed;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-    color: #202020;
-    z-index: -1;
-}
+.reporting {}
 
 .selectanasset {
     background-color: #ffffff;

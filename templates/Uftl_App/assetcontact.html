@@ -1,3 +1,4 @@
+{% load  static %}
 <!doctype html>
 <html lang="en">
 
@@ -8,14 +9,14 @@
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/button2.css">
-    <link rel="stylesheet" href="css/image.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/select.css">
-    <link rel="stylesheet" href="css/custom-sidebar.css">
-    <link rel="stylesheet" href="css/setupprofile.css">
-    <link rel="stylesheet" href="draft.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/image.css' %}">
+    <link rel="stylesheet" href="{% static 'css/input.css' %}">
+    <link rel="stylesheet" href="{% static 'css/select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom-sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/setup_profile.css' %}">
+    <link rel="stylesheet" href="{% static 'draft.css' %}">
 </head>
 
 <body>
@@ -285,13 +286,13 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="assets/js/image.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/sidebar.js"></script>
-    <script src="draft.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/image.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/sidebar.js' %}"></script>
+    <script src="{% static 'draft.js' %}"></script>
 </body>
 
 </html>

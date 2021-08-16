@@ -7,23 +7,6 @@
     z-index: -1;
 }
 
-.mainbox {
-    width: 500px;
-    height: 280px;
-    background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
-    border-radius: 17px;
-    border: 1px solid #ff6f00;
-}
-
-.secbox {
-    width: 170px;
-    margin: auto 3rem 3rem 2rem;
-    height: 80px;
-    border: 1.5px solid #FF6F00;
-    box-sizing: border-box;
-    border-radius: 17px;
-}
-
 .value {
     margin: 1.5rem 1.5rem;
     line-height: 1px;
@@ -35,7 +18,7 @@
 }
 
 .number {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #454545;
 }
 
@@ -96,6 +79,8 @@
 .transparent-background {
     width: 100px;
     height: 160px;
+    margin-left: -2rem;
+    margin-top: 2.5rem;
     background: rgba(192, 192, 192, 0.329);
 }
 
@@ -110,7 +95,6 @@
     display: inline-block;
     cursor: pointer;
     color: #ff6f00;
-    font-size: 20px;
     font-weight: bold;
     padding: 10px 31px;
     text-decoration: none;
@@ -124,4 +108,225 @@
     margin-bottom: -2rem;
     color: #FF6F00;
     font-size: 1.5rem
+}
+
+.mainbox {
+    width: 27rem;
+    height: 330px;
+    background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+    border-radius: 17px;
+    border: 1px solid #ff6f00;
+}
+
+.secbox {
+    width: 150px;
+    margin: auto 3rem 3rem 2rem;
+    height: 100px;
+    border: 1.5px solid #FF6F00;
+    box-sizing: border-box;
+    border-radius: 17px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .mainbox {
+        width: 27rem;
+        height: 330px;
+    }
+    .reporting {
+        background-color: #ff6f00;
+        border-radius: 17px;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 1rem;
+        width: 17rem;
+        height: auto;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .doll,
+    .transparent-background {
+        visibility: hidden;
+    }
+    .mainbox {
+        width: 27rem;
+        height: 330px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .mainbox {
+        width: 20rem;
+        height: 25rem;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .mainbox {
+        width: 20rem;
+        height: 18rem;
+        background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+        border-radius: 17px;
+        border: 1px solid #ff6f00;
+    }
+    .secbox {
+        width: 8rem;
+        height: 5rem;
+        margin: 2rem 2rem 2rem 2rem;
+        border: 1.5px solid #FF6F00;
+        box-sizing: border-box;
+        border-radius: 17px;
+    }
+    .title {
+        font-size: 0.6rem;
+        color: #ff6f00;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .doll,
+    .transparent-background {
+        visibility: none;
+        display: none;
+    }
+    .mainbox {
+        width: 20rem;
+        height: 18rem;
+        background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+        border-radius: 17px;
+        border: 1px solid #ff6f00;
+    }
+    .secbox {
+        width: 8rem;
+        height: 5rem;
+        margin: 2rem 2rem 1rem 2rem;
+        border: 1.5px solid #FF6F00;
+        box-sizing: border-box;
+        border-radius: 17px;
+    }
+    .value {
+        margin: 1.5rem 1rem;
+        line-height: 1px;
+    }
+    .reporting {
+        background-color: #ff6f00;
+        border-radius: 17px;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 1rem;
+        padding: 1rem 1rem;
+        text-decoration: none;
+    }
+    .view {
+        margin-left: 3rem;
+        margin-top: 1rem;
+    }
+    .charttitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .secbox {
+        width: 8rem;
+        height: 5rem;
+        margin: 2rem 2rem 2rem 2rem;
+        border: 1.5px solid #FF6F00;
+        box-sizing: border-box;
+        border-radius: 17px;
+    }
+    .value {
+        margin: 1.5rem 1rem;
+        line-height: 1px;
+    }
+    .reporting {
+        background-color: #ff6f00;
+        border-radius: 17px;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 1rem;
+        padding: 1rem 0.5rem;
+        text-align: center;
+        text-decoration: none;
+    }
+    .view {
+        margin-left: 3rem;
+        margin-top: 1rem;
+    }
+    .charttitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .mainbox {
+        width: 18rem;
+        height: 20rem;
+    }
+    .title {
+        font-size: 0.6rem;
+        color: #ff6f00;
+    }
+    .reporting {
+        background-color: #ff6f00;
+        border-radius: 17px;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 1rem;
+        width: 15rem;
+        height: auto;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .mainbox {
+        width: 14rem;
+        height: 25rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .mainbox {
+        width: 16rem;
+        height: 22rem;
+    }
+    .secbox {
+        width: 6.5rem;
+        height: 6rem;
+        margin: 2rem 2rem 1rem 2rem;
+        border: 1.5px solid #FF6F00;
+        box-sizing: border-box;
+        border-radius: 17px;
+    }
+    .title {
+        font-size: 0.6rem;
+        color: #ff6f00;
+    }
+    .reporting {
+        background-color: #ff6f00;
+        border-radius: 17px;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 0.7rem;
+        width: 12rem;
+        height: auto;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 290px) {
+    .mainbox {
+        width: 14rem;
+        height: 28rem;
+    }
 }

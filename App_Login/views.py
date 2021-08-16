@@ -99,7 +99,7 @@ def Sign_in(request):
             return redirect('/account/Sign_in/')
 
         login(request, user)
-        return redirect('/')
+        return redirect('/assets/')
 
     dict = {}
 

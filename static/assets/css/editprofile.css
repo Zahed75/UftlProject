@@ -11,13 +11,14 @@
 
 .save {
     height: 60px;
-    width: 300px;
+    width: 350px;
     border-radius: 10px;
     background: #DEDEDE;
     color: #989898;
     outline: none;
     border: none;
     box-shadow: none;
+    text-align: center;
 }
 
 .livechat {

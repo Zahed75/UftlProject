@@ -21,14 +21,14 @@ def index(request):
 
     return render(request, 'Uftl_App/index.html', context=dict)
 
-
+@login_required()
 def assets_profile(request):
     dict = {}
 
     return render(request, 'Uftl_App/assetprofile.html', context=dict)
 
-
-def asset_contact(request):
+@login_required()
+def assets_contact(request):
     dict = {}
 
     return render(request, 'Uftl_App/contactprofile.html', context=dict)
