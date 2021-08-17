@@ -13,3 +13,11 @@ class AssetsAdmin(admin.ModelAdmin):
 @admin.register(Contact_Assets)
 class Contact_AssetsAdmin(admin.ModelAdmin):
     list_display = ('full_name','company_name','phone_number','area')
+
+@admin.register(OrderDashboard)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['id', 'time', 'reserved']
+
+@admin.register(Reserved)
+class ReservedAdmin(admin.ModelAdmin):
+    list_display = ['id', 'time', 'date']

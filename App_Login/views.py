@@ -20,7 +20,7 @@ from .helpers import send_forget_password_mail
 
 
 # Create your views here.
-
+# ===============captchca start here========
 def generate_captcha():
     s = 4  # number of characters in the string.
     global captcha
@@ -28,7 +28,11 @@ def generate_captcha():
     captcha = str(captcha)
 
     return captcha
+# ==============end=============================
 
+
+
+# =====================Non register order fuel start here======================
 
 def non_register(request):
     # captcha start
@@ -75,6 +79,10 @@ def non_register(request):
     dict = {'test': test, 'fuel_des_area': fuel_des_area, 'captcha': captcha}
 
     return render(request, 'App_Login/form.html', context=dict)
+
+# =====================================end===================================================
+
+
 
 
 def Sign_in(request):

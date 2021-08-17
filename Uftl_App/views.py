@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
 from django.views import View
 from App_Login.models import *
+from Uftl_App.models import *
 
 # Create your views here.
 from Uftl_App.models import Assets, Contact_Assets
@@ -53,17 +54,17 @@ def assets_profile(request):
 @login_required()
 def assets_contact(request):
     ft = fuel_utils.objects.all()
-    if request.method=='POST':
-        full_name=request.POST.get('full_name')
-        company_name=request.POST.get('company_name')
-        phone_number=request.POST.get('phone_number')
-        email=request.POST.get('email')
-        area=request.POST.get('area')
-        contact_photo=request.POST.get('contact_photo')
-        city=request.POST.get('city')
-        billing_add=request.POST.get('billing_add')
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name')
+        company_name = request.POST.get('company_name')
+        phone_number = request.POST.get('phone_number')
+        email = request.POST.get('email')
+        area = request.POST.get('area')
+        contact_photo = request.POST.get('contact_photo')
+        city = request.POST.get('city')
+        billing_add = request.POST.get('billing_add')
 
-        contact_ins=Contact_Assets(
+        contact_ins = Contact_Assets(
             user=request.user,
             full_name=full_name,
             company_name=company_name,
@@ -78,13 +79,34 @@ def assets_contact(request):
         contact_ins.save()
         return redirect('/order_fuel/')
 
-
     dict = {'ft': ft}
 
     return render(request, 'Uftl_App/contactprofile.html', context=dict)
 
 
+# @login_required()
 def order_fuel(request):
-    dict={}
+    from django.db.models import Q
+    date_time = OrderDashboard.objects.all()
+    reservation = False
+    if request.method == "POST":
+        time = request.POST.get('time')
+        date = request.POST.get('date')
 
-    return render(request,'Uftl_App/orderfuel.html',context=dict)
+        reserved = Reserved.objects.filter(Q(time=time) & Q(date=date))
+        if reserved:
+            reservation = True
+            print(reservation)
+            return HttpResponse('Time already reserved!')
+
+        else:
+            reserved_ins = Reserved(
+                time=time,
+                date=date
+            )
+            reserved_ins.save()
+            return HttpResponse('Order confirmed')
+
+    dict = {'date_time': date_time, 'reservation': reservation}
+
+    return render(request, 'Uftl_App/orderfuel.html', context=dict)
