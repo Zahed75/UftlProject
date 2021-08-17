@@ -31,8 +31,10 @@ class OrderFuel(models.Model):
 
 
 class fuel_utils(models.Model):
-    fuel_type = models.CharField(max_length=220, blank=False)  # drop Down
-    order_area = models.CharField(max_length=220, blank=False)  # drop down
-    
+    fuel_type = models.CharField(max_length=220, blank=True)  # drop Down
+    order_area = models.CharField(max_length=220, blank=True)  # drop down
+    asset_type = models.CharField(max_length=220, blank=True)  # drop down
+    city = models.CharField(max_length=220, blank=True)  # drop down
+
     def __str__(self):
         return self.fuel_type

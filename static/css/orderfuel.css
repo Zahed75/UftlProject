@@ -1,0 +1,371 @@
+.time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    height: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 85%;
+    line-height: 28px;
+    text-align: center;
+    width: 85%;
+    border: 1px solid #FF6F00;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.timeselect {
+    display: flex;
+    align-items: center;
+    background: #FF6F00;
+    justify-content: center;
+    margin: 10px 0;
+    height: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 85%;
+    line-height: 28px;
+    text-align: center;
+    width: 85%;
+    border: 1px solid #FF6F00;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.timenone {
+    display: flex;
+    align-items: center;
+    background: #DEDEDE;
+    justify-content: center;
+    margin: 10px 0;
+    height: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 85%;
+    line-height: 28px;
+    text-align: center;
+    width: 85%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.timetablenone {
+    margin: auto;
+    padding: 10px;
+    color: #989898;
+}
+
+.timetable {
+    margin: auto;
+    padding: 10px;
+    color: #FF6F00;
+}
+
+.timetableselect {
+    color: #fff;
+    margin: auto;
+    padding: 10px;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    background: #F5F5F5;
+    border-radius: 17px;
+    margin: 10px 0;
+    width: 100%;
+    height: 11rem;
+    color: black;
+    font-size: 1rem;
+}
+
+.assetselect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    margin: 10px 0;
+    width: 100%;
+    height: 4rem;
+    border: 2px #FF6F00 solid;
+    border-radius: 18px;
+}
+
+.assetdropdown {
+    border-radius: 15px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    /* min-width: 224px; */
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    border-radius: 17px;
+    margin: 10px 0;
+    width: 100%;
+    height: 8rem;
+    color: #FF6F00;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #aaa;
+    margin: 10px 0;
+    width: 100%;
+    height: 8rem;
+    border: 2px #ccc solid;
+    color: #fff;
+}
+
+.firstline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #aaa;
+    margin: 10px 0;
+    width: 100%;
+    height: 4rem;
+    border: 2px #ccc solid;
+    color: #fff;
+}
+
+.timecircle {
+    margin: 4px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #FF6F00;
+    width: 3.5rem;
+    height: 3.5rem;
+    text-align: center;
+}
+
+.datepick {
+    margin: 1px 0px 0px 0px;
+    color: #989898;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.daypick {
+    margin: -10px 0px 0px 0px;
+    color: #989898;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    font-size: .6rem;
+    text-align: center;
+}
+
+.cashondelivery {
+    border: 2px solid #989898;
+    box-sizing: border-box;
+    border-radius: 17px;
+    margin: 10px 0;
+    width: 100%;
+    height: 8rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.cash {
+    color: #989898;
+    font-size: 1rem;
+    width: 70%;
+    line-height: 25px;
+    font-weight: 700;
+}
+
+.money {
+    font-size: 3rem;
+    color: #989898;
+}
+
+.creditcard {
+    border: 2px solid #989898;
+    box-sizing: border-box;
+    border-radius: 17px;
+    margin: 10px 0;
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.money {
+    font-size: 3rem;
+    color: #989898;
+}
+
+.cardfront {
+    font-size: 3rem;
+    color: #989898;
+}
+
+.calendercircle {
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: #FF6F00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calender {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.marg {
+    margin-left: 20px;
+}
+
+.swipecard {
+    border: 2px solid #989898;
+    box-sizing: border-box;
+    border-radius: 17px;
+    margin: 10px 0;
+    width: 100%;
+    height: 8rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.cardpunch {
+    margin: 10px 0;
+    width: 3rem;
+    height: auto;
+}
+
+.fuelfield {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    border-radius: 17px;
+    margin: 10px 0;
+    font-weight: 900;
+    width: 100%;
+    height: 4rem;
+    font-size: 3em;
+    color: black;
+}
+
+.fueltype {
+    margin-top: 1rem;
+    font-size: 2rem;
+    line-height: 41px;
+    color: #FF6F00;
+    font-weight: 900;
+}
+
+
+/* input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+} */
+
+#fuelamount {
+    cursor: pointer;
+    width: 70%;
+    text-align: right;
+    outline: none;
+    background: none;
+    font-weight: 900;
+    border: none;
+    box-shadow: none;
+}
+
+.fuelprice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    border-radius: 17px;
+    margin: 10px 0;
+    width: 100%;
+    font-weight: 900;
+    height: 4rem;
+    font-size: 3em;
+    color: #FF6F00;
+}
+
+@media screen and (max-width: 800px) {
+    .creditcard,
+    .swipecard,
+    .cashondelivery {
+        align-items: center;
+    }
+}
+
+.quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+.quantity button {
+    width: 40px;
+    height: 30px;
+    color: #ff6f00;
+    font-size: 26px;
+}
+
+.plusminus {
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantity input {
+    background: none;
+    cursor: none;
+    border: none;
+    text-align: center;
+    width: 100px;
+    font-size: 3rem;
+    color: #000;
+    font-weight: 300;
+}
+
+.total-price {}
+
+.total-price .fa-rupee {
+    display: inline-block;
+    font-size: 90%;
+}
+
+.quantity-nav {
+    display: none;
+}

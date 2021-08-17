@@ -64,7 +64,7 @@
                             </div>
 
                             <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
-                            <a href="{% url 'Uftl_App:index' %}"> <p class="back">Back to Home</p></a>
+                            <a href="{% url 'Uftl_App:index' %}"><p class="back">Back to Home</p></a>
                         </div>
                     </div>
 
@@ -78,6 +78,7 @@
 
                     <div class="form-section d-flex justify-content-center align-items-center my-5">
                         <form method="POST" class="form-group">
+                        {% csrf_token %}
                             <div id="div1">
                                 <div class="row justify-content-between ml-2 ipad">
 
@@ -92,33 +93,34 @@
                                         </div>
                                         <div class="col-sm-6 col-md-3 fuel">
 
-                                            <input type="text" name="fuel-amount" class="fuel-input"
+                                            <input type="text" name="asset_name" class="fuel-input"
                                                    placeholder="Asset Name*">
                                             <p class="help-block"></p>
                                         </div>
 
                                         <div class="col-sm-6 col-md-3 fuel">
-                                            <select name="fuel-type" class="selectbox">
+                                            <select name="asset_type" class="selectbox">
                                                 <option selected disabled value="select">Asset type*</option>
-                                                <option value="Diesel">Generator</option>
-                                                <option value="Gasoline">Vehicles</option>
-                                                <option value="Kerosene">Construction</option>
-                                                <option value="LPG">Machines</option>
+                                                {% for x in ft %}
+                                                <option value="{{ x.asset_type }}">{{ x.asset_type }}</option>
+
+                                                    {% endfor %}
                                             </select>
                                             <p class="help-block"></p>
                                         </div>
 
                                         <div class="col-sm-6 col-md-3 fuel">
-                                            <select name="fuel-type" class="selectbox">
+                                            <select name="fuel_type" class="selectbox">
                                                 <option selected disabled value="select">Fuel Type*</option>
-                                                <option value="Diesel">Diesel</option>
-                                                <option value="Gasoline">Octane</option>
+                                                {% for x in ft %}
+                                                <option value="{{ x.fuel_type }}">{{ x.fuel_type }}</option>
+                                                {% endfor %}
                                             </select>
                                             <p class="help-block"></p>
                                         </div>
 
                                         <div class="col-sm-6 col-md-3 fuel">
-                                            <input type="text" name="fuel-amount" class="fuel-input"
+                                            <input type="text" name="asset_location" class="fuel-input"
                                                    placeholder="Asset Location*">
                                             <p class="help-block"></p>
                                         </div>
@@ -133,7 +135,7 @@
 
                                                 <div class="image-upload-wrap">
 
-                                                    <input class="file-upload-input" type='file'
+                                                    <input name="asset_photo" class="file-upload-input" type='file'
                                                            onchange="readURL(this);" accept="image/*"/>
                                                     <div class="drag-text">
                                                         <p class="drag2">Photo/Logo (Optional)</p>
@@ -163,8 +165,8 @@
 
 
                                                 <a href="{% url 'Uftl_App:contactprofile' %}">
-                                                    <button class="fuel-ordery" type="button" id="sendMessageButton">
-                                                        Next
+                                                    <button class="fuel-ordery text-center" type="submit" id="sendMessageButton">
+                                                        save & Next
                                                     </button>
                                                 </a>
 
