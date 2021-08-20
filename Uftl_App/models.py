@@ -26,9 +26,18 @@ class Contact_Assets(models.Model):
 
 
 class OrderDashboard(models.Model):
-    time = models.TimeField()
+    time = models.TimeField(verbose_name='Please put your time')
     reserved = models.BooleanField(default=False)
+    price = models.CharField(max_length=2, blank=True)
+    time_slot=models.IntegerField(default='1')
+
 
 class Reserved(models.Model):
     time = models.TimeField()
     date = models.DateField()
+
+
+
+
+class orderlimit(models.Model):
+    limit=models.IntegerField(default='1')

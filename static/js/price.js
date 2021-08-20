@@ -1,6 +1,7 @@
 document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
 var valueCount
 var price = 65
+// var price_base=document.getElementById("Zahed").value;
 
 function priceTotal() {
     var total = valueCount * price + 105;
@@ -8,7 +9,8 @@ function priceTotal() {
     document.getElementById("price").innerText = total + '/-'
     document.getElementById("fuel").innerText = base + '/-'
 }
-document.querySelector(".plus-btn").addEventListener("click", function() {
+
+document.querySelector(".plus-btn").addEventListener("click", function () {
     valueCount = document.getElementById("quantity").value;
     valueCount++;
     document.getElementById("quantity").value = valueCount;
@@ -19,7 +21,7 @@ document.querySelector(".plus-btn").addEventListener("click", function() {
     }
     priceTotal()
 })
-document.querySelector(".minus-btn").addEventListener("click", function() {
+document.querySelector(".minus-btn").addEventListener("click", function () {
     valueCount = document.getElementById("quantity").value;
     valueCount--;
     document.getElementById("quantity").value = valueCount

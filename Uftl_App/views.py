@@ -1,3 +1,5 @@
+from concurrent.futures.process import _check_system_limits
+
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
 from django.views.generic import CreateView, UpdateView, ListView, DetailView, View, TemplateView, DeleteView
 from django.urls import reverse, reverse_lazy
@@ -84,18 +86,28 @@ def assets_contact(request):
     return render(request, 'Uftl_App/contactprofile.html', context=dict)
 
 
+def Dashboard(request):
+    dict = {}
+    return render(request, 'Uftl_App/dashboard.html', context=dict)
+
+
 # @login_required()
 def order_fuel(request):
     from django.db.models import Q
     date_time = OrderDashboard.objects.all()
+
     reservation = False
     if request.method == "POST":
         time = request.POST.get('time')
         date = request.POST.get('date')
 
         reserved = Reserved.objects.filter(Q(time=time) & Q(date=date))
-        if reserved:
+        order_limits = orderlimit.objects.all().last().limit
+        print(order_limits)
+        if reserved.count() >= order_limits:
+
             reservation = True
+
             print(reservation)
             return HttpResponse('Time already reserved!')
 
@@ -104,9 +116,19 @@ def order_fuel(request):
                 time=time,
                 date=date
             )
+
             reserved_ins.save()
+            # order_dashboard_ins=OrderDashboard.objects.filter(time=time)
+
+            # print("Test",time)
             return HttpResponse('Order confirmed')
 
     dict = {'date_time': date_time, 'reservation': reservation}
 
     return render(request, 'Uftl_App/orderfuel.html', context=dict)
+
+# slot =5
+# if(time<=slot):
+#     print()
+# else:
+#
