@@ -28,8 +28,12 @@ class Contact_Assets(models.Model):
 class OrderDashboard(models.Model):
     time = models.TimeField(verbose_name='Please put your time')
     reserved = models.BooleanField(default=False)
-    price = models.CharField(max_length=2, blank=True)
-    time_slot=models.IntegerField(default='1')
+    disel_price = models.IntegerField(default='1')
+    octen_price = models.IntegerField(default='1')
+    voucher = models.IntegerField(default='1')
+    discount = models.IntegerField(default='1')
+    total_ammount = models.IntegerField(default='1')
+    time_slot = models.IntegerField(default='1')
 
 
 class Reserved(models.Model):
@@ -37,7 +41,5 @@ class Reserved(models.Model):
     date = models.DateField()
 
 
-
-
 class orderlimit(models.Model):
-    limit=models.IntegerField(default='1')
+    limit = models.IntegerField(default='1')

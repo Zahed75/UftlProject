@@ -16,7 +16,7 @@ class Contact_AssetsAdmin(admin.ModelAdmin):
 
 @admin.register(OrderDashboard)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'time', 'reserved']
+    list_display = ['id', 'time', 'reserved', 'voucher', 'discount']
 
 
 @admin.register(Reserved)
@@ -26,4 +26,4 @@ class ReservedAdmin(admin.ModelAdmin):
 
 @admin.register(orderlimit)
 class orderlimitAdmin(admin.ModelAdmin):
-    list_display = ('limit','id')
+    list_display = ('limit', 'id')
