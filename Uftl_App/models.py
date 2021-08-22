@@ -26,15 +26,11 @@ class Contact_Assets(models.Model):
 
 
 class OrderDashboard(models.Model):
+    client=models.ForeignKey(User,on_delete=models.CASCADE)
     time = models.TimeField(verbose_name='Please put your time', blank=True)
     reserved = models.BooleanField(default=False)
-    disel_price = models.IntegerField(default='1')
-    octen_price = models.IntegerField(default='1')
-    voucher = models.IntegerField(default='1')
-    promo_code=models.CharField(max_length=40,blank=True)
-    discount = models.IntegerField(default='1')
-    total_ammount = models.IntegerField(default='1')
-    delivery_charge = models.IntegerField(default='1')
+
+
 
 
 class Reserved(models.Model):
@@ -44,3 +40,14 @@ class Reserved(models.Model):
 
 class orderlimit(models.Model):
     limit = models.IntegerField(default='1')
+
+
+class cupon_code(models.Model):
+    promo_code = models.CharField(max_length=40,blank=True)
+    discount = models.IntegerField(default='1')
+
+class Fuel_price(models.Model):
+    disel_price = models.IntegerField(default='1', null=True)
+    octen_price = models.IntegerField(default='1', null=True)
+    total_ammount = models.IntegerField(default='1', null=True)
+    delivery_charge = models.IntegerField(default='1', null=True)

@@ -135,7 +135,7 @@
 
                                 <div class="fuelfield">
                                     <div class="quantity">
-                                        <input type="text" id="quantity" name="fuelamount" value="20">L
+                                        <input type="text" id="quantity" name="fuelamount" value="20" readonly>L
 
 
                                         <div class="plusminus">
@@ -159,30 +159,30 @@
                             <div class="col-12 col-sm-6">
                                 <div class="row">
                                     {% for item in date_time %}
-                                    {% if reservation %}
-                                        <label style="color: red;">{{ item.time }}</label>
-                                        <input disabled type="radio" name="time" value="{{ item.time }}">
-                                    {% endif %}
+                                        {% if reservation %}
+                                            <label style="color: red;">{{ item.time }}</label>
+                                            <input disabled type="radio" name="time" value="{{ item.time }}">
+                                        {% endif %}
 
-                                    {#=====================================#}
+                                        {#=====================================#}
 
 
-                                    <label style="color: darkorchid;">{{ item.time }}</label>
-                                    <input type="radio" name="time" value="{{ item.time }}">
-                                {% endfor %}
+                                        <label style="color: darkorchid;">{{ item.time }}</label>
+                                        <input type="radio" name="time" value="{{ item.time }}">
+                                    {% endfor %}
                                 </div>
 
 
                             </div>
-                                {% for x in date_time  %}
-                            <div class="col-12 col-sm-6">
+                            {% for x in oil_price %}
+                                <div class="col-12 col-sm-6">
                                 <div class="price p-4">
                                     <div class="row justify-content-evenly">
                                         <div class="col-7 tol ">
                                             Delivery Fee:
                                         </div>
                                         <div class="col-5 tol" id="delicharge">
-                                           {{ x.delivery_charge }}
+                                            {{ x.delivery_charge }}
                                             <small>(5% VAT)</small>
                                         </div>
                                     </div>
@@ -191,7 +191,7 @@
                                     <!-- diesel value -->
                                     <div class="row justify-content-evenly diesel">
                                         <div class="col-7 dieselprice" id="dpd">
-                                            {{ x.disel_price}}
+                                            {{ x.disel_price }}
                                         </div>
                                     </div>
 
@@ -206,7 +206,7 @@
                                     <!-- discount -->
                                     <div class="row justify-content-evenly disc">
                                         <div class="col-7 tol dieselprice " id="discopd">
-                                              {{ x.discount }}
+                                            {{ x.discount }}
                                         </div>
                                     </div>
 
@@ -215,10 +215,17 @@
                                         <div class="col-7 tol">
                                             Discount:
                                         </div>
-                                        <div  class="col-5 tol" id="dp">
-                                            {{ x.discount }}
+
+                                        <div class="col-5 tol" id="dp">
+{#                                            {% for x in cp %}#}
+{#                                                <span>{{ x.discount}}</span>#}
+{#                                            {% endfor %}#}
+                                            0/-bdt
                                         </div>
+
                                     </div>
+
+
                                     <div class="row">
                                         <div class="col-7 tol">
                                             Total Price
@@ -227,7 +234,7 @@
                                         <div class="col-5 tol">
                                             <p class="total-price">
                                                 <!-- <span><i class="fa fa-rupee"></i></span> -->
-                                                <span  id="price">{{ x.total_ammount|floatformat:2 }}/-</span>
+                                                <span id="price">{{ x.total_ammount|floatformat:2 }}/-</span>
                                                 <span> BDT</span>
                                             </p>
                                         </div>
@@ -236,12 +243,19 @@
 
                                     <div class="row">
                                         <div class="col-12 tol">
-                                            Apply a voucher
+                                            {#                                  vouhcer:{{ x.promo_code }} {{ x.discount}}#}
+
+                                            <select name="fuel-type" class="assetdropdown">
+                                                <option selected disabled value="select">Apply Voucher*</option>
+                                                {% for x in cp %}
+                                                    <option value="{{ x.discount }}">{{ x.promo_code }}</option>
+                                                {% endfor %}
+                                            </select>
 
                                         </div>
                                     </div>
                                 </div>
-                                {% endfor %}
+                            {% endfor %}
                             </div>
 
                         </div>

@@ -93,6 +93,8 @@ def Dashboard(request):
 
 # @login_required()
 def order_fuel(request):
+    cp=cupon_code.objects.all()
+    oil_price=Fuel_price.objects.all()
     ft_utils = fuel_utils.objects.all()
     from django.db.models import Q
     date_time = OrderDashboard.objects.all()
@@ -104,9 +106,7 @@ def order_fuel(request):
         time = request.POST.get('time')
         date = request.POST.get('date')
 
-
-
-        print("rafath",time)
+        print("rafath", time)
 
         reserved = Reserved.objects.filter(Q(time=time) & Q(date=date))
         order_limits = orderlimit.objects.all().last().limit
@@ -126,13 +126,11 @@ def order_fuel(request):
 
             reserved_ins.save()
 
-
             # print("Test",time)
             return HttpResponse('Order confirmed')
-    dict = {'date_time': date_time, 'reservation': reservation, 'ft_utils': ft_utils}
+    dict = {'date_time': date_time, 'reservation': reservation, 'ft_utils': ft_utils,'cp':cp,'oil_price':oil_price}
 
     return render(request, 'Uftl_App/orderfuel.html', context=dict)
-
 
 # slot =5
 # if(time<=slot):

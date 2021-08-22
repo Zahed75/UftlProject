@@ -16,7 +16,7 @@ class Contact_AssetsAdmin(admin.ModelAdmin):
 
 @admin.register(OrderDashboard)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'time', 'reserved', 'voucher', 'discount']
+    list_display = ['id', 'time', 'reserved', ]
 
 
 @admin.register(Reserved)
@@ -27,3 +27,13 @@ class ReservedAdmin(admin.ModelAdmin):
 @admin.register(orderlimit)
 class orderlimitAdmin(admin.ModelAdmin):
     list_display = ('limit', 'id')
+
+
+@admin.register(cupon_code)
+class cupon_codeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'promo_code', 'discount')
+
+
+@admin.register(Fuel_price)
+class Fuel_priceAdmin(admin.ModelAdmin):
+    list_display = ('id', 'disel_price', 'octen_price', 'delivery_charge','total_ammount')
