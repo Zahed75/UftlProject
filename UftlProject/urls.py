@@ -9,6 +9,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/',include('App_Login.urls')),
     path('',include('Uftl_App.urls')),
+    path('blog/',include('Blog_App.urls')),
+    path('driver/',include('Driver_App.urls')),
+
 
 ]
 urlpatterns += staticfiles_urlpatterns()

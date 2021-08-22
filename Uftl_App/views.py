@@ -1,5 +1,3 @@
-from concurrent.futures.process import _check_system_limits
-
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
 from django.views.generic import CreateView, UpdateView, ListView, DetailView, View, TemplateView, DeleteView
 from django.urls import reverse, reverse_lazy
@@ -86,15 +84,16 @@ def assets_contact(request):
     return render(request, 'Uftl_App/contactprofile.html', context=dict)
 
 
+@login_required()
 def Dashboard(request):
     dict = {}
     return render(request, 'Uftl_App/dashboard.html', context=dict)
 
 
-# @login_required()
+@login_required()
 def order_fuel(request):
-    cp=cupon_code.objects.all()
-    oil_price=Fuel_price.objects.all()
+    cp = cupon_code.objects.all()
+    oil_price = Fuel_price.objects.all()
     ft_utils = fuel_utils.objects.all()
     from django.db.models import Q
     date_time = OrderDashboard.objects.all()
@@ -128,12 +127,11 @@ def order_fuel(request):
 
             # print("Test",time)
             return HttpResponse('Order confirmed')
-    dict = {'date_time': date_time, 'reservation': reservation, 'ft_utils': ft_utils,'cp':cp,'oil_price':oil_price}
+    dict = {'date_time': date_time, 'reservation': reservation, 'ft_utils': ft_utils, 'cp': cp, 'oil_price': oil_price}
 
     return render(request, 'Uftl_App/orderfuel.html', context=dict)
 
-# slot =5
-# if(time<=slot):
-#     print()
-# else:
-#
+
+def success_profile(request):
+    dict={}
+    return render(request,'Uftl_App/profile_congo.html',context=dict)
