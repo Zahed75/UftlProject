@@ -2,10 +2,9 @@
 {% load static %}
 {% block title_block %}Order Dashboard{% endblock %}
 {% block profile_block %}
-    {% block css_block %}
 
-    {% endblock %}
-    <div class="wrapper d-flex align-items-stretch">
+
+    <div class="wrapper d-flex align-items-stretch" xmlns="http://www.w3.org/1999/html">
         <nav id="sidebar">
             <div class="p-2 pt-1">
 
@@ -98,17 +97,18 @@
                             </div>
 
                             <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
-                            <a href="{% url 'Uftl_App:index' %}"><p class="back">Back to Home</p></a>
+                            <p class="back">Back to Home</p>
                         </div>
                     </div>
 
                 </div>
             </nav>
 
+            <form method="POST">
+                {% csrf_token %}
 
-            <div id="content" class="p-4 p-md-5">
-                <form method="POST">
-                    {% csrf_token %}
+                <div id="content" class="p-4 p-md-5">
+
                     <div class="container-fluid">
                         <div class="row">
 
@@ -116,11 +116,10 @@
                                 <div class="assetselect">
 
                                     <select name="fuel-type" class="assetdropdown">
-                                        <option selected disabled value="select">My Generator*</option>
-                                        <option value="Diesel">Generator</option>
-                                        <option value="Gasoline">Vehicles</option>
-                                        <option value="Kerosene">Construction</option>
-                                        <option value="LPG">Machines</option>
+                                        <option selected disabled value="select">Assets types*</option>
+                                        {% for x in  ft_utils %}
+                                            <option value="{{ x.asset_type }}">{{ x.asset_type }}</option>
+                                        {% endfor %}
                                     </select>
                                     <p class="help-block"></p>
                                 </div>
@@ -128,7 +127,7 @@
 
                             <div class="col-6  col-sm-2 col-md-2">
                                 <div class="fuelfield">
-                                    <p class="fueltype">Diesel</p>
+                                    <p id="fuelname" class="fueltype">Diesel</p>
                                 </div>
                             </div>
 
@@ -150,7 +149,7 @@
 
                             <div class="col-12  col-sm-2 col-md-3">
                                 <div class="fuelprice">
-                                    <p id="fuel" class="fuel">1300/-</p>
+                                    <p id="fuel" class="fuel">0/-</p>
 
                                 </div>
                             </div>
@@ -159,99 +158,65 @@
                         <div class="row">
                             <div class="col-12 col-sm-6">
                                 <div class="row">
-                                    {# ===================================time start====================#}
-
                                     {% for item in date_time %}
-                                        {% if reservation %}
-                                            <label style="color: red;">{{ item.time }}</label>
-                                            <input disabled type="radio" name="time" value="{{ item.time }}">
-                                        {% endif %}
+                                    {% if reservation %}
+                                        <label style="color: red;">{{ item.time }}</label>
+                                        <input disabled type="radio" name="time" value="{{ item.time }}">
+                                    {% endif %}
 
-                                        {#=====================================#}
-
-
-                                        <label style="color: darkorchid;">{{ item.time }}</label>
-                                        <input type="radio" name="time" value="{{ item.time }}">
-                                    {% endfor %}
-
-                                    {#                                <div class="col-6 col-sm-6 col-md-4 ">#}
-                                    {#                                    <div class="timeselect">#}
-                                    {#                                        <p class="timetableselect">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
-
-                                    {#                                <div class="col-6 col-sm-6 col-md-4 ">#}
-                                    {#                                    <div class="time">#}
-                                    {#                                        <p class="timetable">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
-                                    {##}
-                                    {#                                <div class="col-6 col-sm-6 col-md-4">#}
-                                    {#                                    <div class="time">#}
-                                    {#                                        <p class="timetable">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
-                                    {##}
-                                    {#                                <div class="col-6 col-sm-6 col-md-4 ">#}
-                                    {#                                    <div class="timenone">#}
-                                    {#                                        <p class="timetablenone">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
-                                    {##}
-                                    {#                                <div class="col-6 col-sm-6 col-md-4 ">#}
-                                    {#                                    <div class="time">#}
-                                    {#                                        <p class="timetable">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
-                                    {##}
-                                    {#                                <div class="col-6 col-sm-6 col-md-4">#}
-                                    {#                                    <div class="timenone">#}
-                                    {#                                        <p class="timetablenone">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
-                                    {##}
-                                    {#                                <div class="col-6 col-sm-6 col-md-4 ">#}
-                                    {#                                    <div class="time">#}
-                                    {#                                        <p class="timetable">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
-                                    {##}
-                                    {#                                <div class="col-6 col-sm-6 col-md-4 ">#}
-                                    {#                                    <div class="timenone">#}
-                                    {#                                        <p class="timetablenone">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
-                                    {##}
-                                    {#                                <div class="col-6 col-sm-6 col-md-4">#}
-                                    {#                                    <div class="time">#}
-                                    {#                                        <p class="timetable">09:30 PM</p>#}
-                                    {#                                    </div>#}
-                                    {#                                </div>#}
+                                    {#=====================================#}
 
 
+                                    <label style="color: darkorchid;">{{ item.time }}</label>
+                                    <input type="radio" name="time" value="{{ item.time }}">
+                                {% endfor %}
                                 </div>
 
 
                             </div>
+                                {% for x in date_time  %}
                             <div class="col-12 col-sm-6">
                                 <div class="price p-4">
                                     <div class="row justify-content-evenly">
                                         <div class="col-7 tol ">
                                             Delivery Fee:
                                         </div>
-                                        <div class="col-5 tol">
-
-                                            105/- <small>{{ x.price }}</small>
-
-
+                                        <div class="col-5 tol" id="delicharge">
+                                           {{ x.delivery_charge }}
+                                            <small>(5% VAT)</small>
                                         </div>
                                     </div>
+
+
+                                    <!-- diesel value -->
+                                    <div class="row justify-content-evenly diesel">
+                                        <div class="col-7 dieselprice" id="dpd">
+                                            {{ x.disel_price}}
+                                        </div>
+                                    </div>
+
+
+                                    <!-- octane value -->
+                                    <div class="row justify-content-evenly octane">
+                                        <div class="col-7 tol octaneprice" id="opd">
+                                            {{ x.octen_price }}
+                                        </div>
+                                    </div>
+
+                                    <!-- discount -->
+                                    <div class="row justify-content-evenly disc">
+                                        <div class="col-7 tol dieselprice " id="discopd">
+                                              {{ x.discount }}
+                                        </div>
+                                    </div>
+
+
                                     <div class="row">
                                         <div class="col-7 tol">
                                             Discount:
                                         </div>
-                                        <div class="col-5 tol">
-                                            0/-
+                                        <div  class="col-5 tol" id="dp">
+                                            {{ x.discount }}
                                         </div>
                                     </div>
                                     <div class="row">
@@ -262,7 +227,7 @@
                                         <div class="col-5 tol">
                                             <p class="total-price">
                                                 <!-- <span><i class="fa fa-rupee"></i></span> -->
-                                                <span id="price">0/-</span>
+                                                <span  id="price">{{ x.total_ammount|floatformat:2 }}/-</span>
                                                 <span> BDT</span>
                                             </p>
                                         </div>
@@ -276,191 +241,54 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
 
                         </div>
-                        {#=============================                time====================start#}
                         <div class="row">
 
-                            {#                            ===================date===================#}
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="">
                                     <div class="row justify-content-evenly timeline">
-                                        <input type="date" name="date">
-                                        {#                                    {% for item in date_time %}#}
-                                        {#                                        <label>{{ item.date }}</label>#}
-                                        {#                                        <input type="radio" name="date" value="{{ item.date }}">#}
-                                        {#                                    <div class="col-xs-1">#}
-                                        {#                                        <div class="timecircle">#}
-                                        {#                                            <p class="datepick" id="today">{{ item.date }}</p>#}
-                                        {#                                            <p class="daypick">Today</p>#}
-                                        {#                                        </div>#}
-                                        {#                                    </div>#}
-                                        {#                                    {% endfor %}#}
-
-                                        {#                                    <div class="col-xs-1">#}
-                                        {#                                        <div class="timecircle or">#}
-                                        {#                                            <p class="datepick" id="today+1">01</p>#}
-                                        {#                                            <p class="daypick">Sun</p>#}
-                                        {#                                        </div>#}
-                                        {#                                    </div>#}
-                                        {#                                    <div class="col-xs-1">#}
-                                        {#                                        <div class="timecircle">#}
-                                        {#                                            <p class="datepick" id="today+2">02</p>#}
-                                        {#                                            <p class="daypick">Mon</p>#}
-                                        {#                                        </div>#}
-                                        {#                                    </div>#}
-                                        {#                                    <div class="col-xs-1">#}
-                                        {#                                        <div class="timecircle">#}
-                                        {#                                            <p class="datepick" id="today+3">03</p>#}
-                                        {#                                            <p class="daypick">Tue</p>#}
-                                        {#                                        </div>#}
-                                        {#                                    </div>#}
-                                        {#                                    <div class="col-xs-1">#}
-                                        {#                                        <div class="timecircle" id="today+4">#}
-                                        {#                                            <p class="datepick">04</p>#}
-                                        {#                                            <p class="daypick">Wed</p>#}
-                                        {#                                        </div>#}
-                                        {#                                    </div>#}
-                                        {#                                    <div class="col-xs-1">#}
-                                        {#                                        <div class="timecircle">#}
-                                        {#                                            <p class="datepick" id="today+4">05</p>#}
-                                        {#                                            <p class="daypick">Thu</p>#}
-                                        {#                                        </div>#}
-                                        {#                                    </div>#}
-                                        {#                                    <div class="col-xs-1">#}
-                                        {#                                        <div class="calendercircle">#}
-                                        {#                                            <i class='bx bx-calendar-alt calender'></i>#}
-                                        {#                                        </div>#}
-                                        {#                                    </div>#}
-
+                                        <div class="col">
+                                            <input type="date" name="date" value="" placeholder=""/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            {#                        <script>#}
-                            {#                            (function dateGenerator () {#}
-                            {#                                var today, today_1, today_2, today_3, today_4, month;#}
-                            {#var date = new Date(2021, 7, 17);#}
-                            {#                                var date = new Date();#}
-                            {##}
-                            {##}
-                            {#                                month = date.toLocaleString('en-US', {month: 'long'});#}
-                            {#                                console.log(month);#}
-                            {#                                today = date.toLocaleString('en-US', {day: '2-digit'});#}
-                            {#                                today = parseInt(today);#}
-                            {#                                if(month === "January" && today === 31) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "February" && today === 28) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "March" && today === 31) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "April" && today === 30) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "May" && today === 31) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "June" && today === 30) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "July" && today === 31) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "August" && today === 31) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "September" && today === 30) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "October" && today === 31) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "November" && today === 30) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else if(month === "December" && today === 31) {#}
-                            {#                                    today_1 = 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                } else {#}
-                            {#                                    today_1 = today + 1;#}
-                            {#                                    today_2 = today_1 + 1;#}
-                            {#                                    today_3 = today_2 + 1;#}
-                            {#                                    today_4 = today_3 + 1;#}
-                            {#                                }#}
-                            {##}
-                            {#                                document.getElementById('today').innerHTML = today;#}
-                            {#                                document.getElementById('today+1').innerHTML = today_1;#}
-                            {#                                document.getElementById('today+2').innerHTML = today_2;#}
-                            {#                                document.getElementById('today+3').innerHTML = today_3;#}
-                            {#                                document.getElementById('today+4').innerHTML = today_4;#}
-                            {##}
-                            {##}
-                            {#                            })();#}
-                            {#                        </script>#}
 
 
                             <div class="col-xs-12 col-sm-6 col-md-2">
-                                <div class="cashondelivery">
-                                    <div class="marg">
-                                        <i class='bx bx-money money'></i>
-                                        <p class="cash">Cash on delivery</p>
-                                    </div>
-                                </div>
+                                <input class="checkbox-budget" type="radio" name="budget" id="budget-1">
+                                <label class="for-checkbox-budget" for="budget-1">
+                                    <i class='bx bx-money money'></i>
+                                    <span data-hover="Cash on delivery">Cash on delivery</span>
+                                </label>
                             </div>
 
                             <div class="col-xs-12 col-sm-6 col-md-2">
-                                <div class="creditcard">
-                                    <div class="marg">
-                                        <i class='bx bxs-credit-card cardfront'></i>
-                                        <p class="cash">Online Payment</p>
-
-                                    </div>
-                                </div>
+                                <input class="checkbox-budget" type="radio" name="budget" id="budget-2">
+                                <label class="for-checkbox-budget" for="budget-2">
+                                    <i class='bx bxs-credit-card cardfront'></i>
+                                    <span data-hover="Online Payment">Online Payment</span>
+                                </label>
                             </div>
 
                             <div class="col-xs-12 col-sm-6 col-md-2">
-                                <div class="swipecard">
-                                    <div class="marg">
-                                        <img class="cardpunch" src="{% static 'img/swipe.png' %}" alt="">
-                                        <p class="cash">Swipe on delivery</p>
-                                    </div>
-                                </div>
+                                <input class="checkbox-budget" type="radio" name="budget" id="budget-3">
+                                <label class="for-checkbox-budget" for="budget-3">
+                                    <img class="cardpunch" src="{% static 'img/swipe.png' %}" alt="">
+                                    <span data-hover="Swipe on delivery">Swipe on delivery</span>
+                                </label>
                             </div>
-
-                            <button class="btn btn-info" type="submit">submit</button>
 
                         </div>
 
                     </div>
-                </form>
-            </div>
+
+                </div>
+                <button class="btn btn-info" type="submit"> submit</button>
+
+            </form>
 
 {% endblock %}

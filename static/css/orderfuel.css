@@ -256,7 +256,6 @@
 }
 
 .cardpunch {
-    margin: 10px 0;
     width: 3rem;
     height: auto;
 }
@@ -369,3 +368,9 @@ input[type=number] {
 .quantity-nav {
     display: none;
 }
+
+/*.dieselprice,*/
+/*.octaneprice,*/
+/*.discprice {*/
+/*    display: none;*/
+/*}*/

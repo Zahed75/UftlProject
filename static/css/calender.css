@@ -5,11 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-/*===== VARIABLES CSS =====*/
-
-:root {
+ :root {
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -36,8 +32,8 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: 'Montserrat', sans-serif;
-    --font-family-monospace: 'Montserrat', sans-serif;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 *,
@@ -48,7 +44,7 @@
 }
 
 html {
-    font-family: 'Montserrat', sans-serif;
+    font-family: sans-serif;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -69,11 +65,11 @@ section {
 
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #FF6F00;
+    color: #212529;
     text-align: left;
     background-color: #fff;
 }
@@ -202,7 +198,7 @@ pre,
 code,
 kbd,
 samp {
-    font-family: 'Montserrat', sans-serif;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 1em;
 }
 
@@ -262,7 +258,7 @@ select,
 optgroup,
 textarea {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: inherit;
     font-size: inherit;
     line-height: inherit;
 }
@@ -359,7 +355,7 @@ progress {
     -webkit-appearance: none;
 }
 
-::-webkit-file-upload-button {
+ ::-webkit-file-upload-button {
     font: inherit;
     -webkit-appearance: button;
 }
@@ -591,18 +587,9 @@ pre code {
     margin-left: auto;
 }
 
-@media only screen and (max-width: 380px) {
-    .container {
-        padding-right: 0px;
-        padding-left: 0px;
-    }
-}
-
 @media (min-width: 576px) {
     .container {
         max-width: 540px;
-        padding-right: 0px;
-        padding-left: 0px;
     }
 }
 
@@ -725,8 +712,8 @@ pre code {
 .col-xl-auto {
     position: relative;
     width: 100%;
-    padding-right: 55px;
-    /* padding-left: 15px; */
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .col {
@@ -6621,7 +6608,7 @@ a.close.disabled {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -6746,7 +6733,7 @@ a.close.disabled {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -10601,7 +10588,7 @@ button.bg-dark:focus {
 }
 
 .text-monospace {
-    font-family: 'Montserrat', sans-serif;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
 }
 
 .text-justify {
@@ -10921,11 +10908,11 @@ a.text-dark:focus {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 16px;
     line-height: 1.8;
     font-weight: normal;
-    background: #fafafa;
+    background: #f8f9fd;
     color: gray;
 }
 
@@ -10933,7 +10920,7 @@ a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
-    color: #f8b739;
+    color: #fc7fb2;
 }
 
 a:hover,
@@ -10942,20 +10929,6 @@ a:focus {
     outline: none !important;
     -webkit-box-shadow: none;
     box-shadow: none;
-}
-
-button {
-    -webkit-transition: .3s all ease;
-    -o-transition: .3s all ease;
-    transition: .3s all ease;
-}
-
-button:hover,
-button:focus {
-    text-decoration: none !important;
-    outline: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
 }
 
 h1,
@@ -10970,8 +10943,12 @@ h5,
 .h5 {
     line-height: 1.5;
     font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Lato", Arial, sans-serif;
     color: #000;
+}
+
+.bg-primary {
+    background: #fc7fb2 !important;
 }
 
 .ftco-section {
@@ -10991,161 +10968,34 @@ h5,
     color: #000;
 }
 
-.heading-section small {
-    font-size: 18px;
-}
-
 .img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
-.navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}
-
-.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
-
-.wrapper {
+.datepickers {
     width: 100%;
 }
 
-#sidebar {
-    min-width: 300px;
-    max-width: 300px;
-    background: white;
-    color: #fff;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-#sidebar.active {
-    margin-left: -300px;
-}
-
-#sidebar .logo {
-    display: block;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-}
-
-#sidebar .logo span {
-    display: block;
-}
-
-#sidebar ul.components {
-    padding: 0;
-}
-
-#sidebar ul li {
-    font-size: 16px;
-}
-
-#sidebar ul li>ul {
-    margin-left: 10px;
-}
-
-#sidebar ul li>ul li {
+.datepickers .label-control {
     font-size: 14px;
 }
 
-#sidebar ul li a {
-    padding: 10px 0;
-    display: block;
-    color: black;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.datepickers .form-control {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px !important;
+    border-radius: 40px;
+    border: none !important;
+    -webkit-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.09) !important;
+    -moz-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.09) !important;
+    box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.09) !important;
 }
 
-#sidebar ul li a:hover {
-    color: #f8b739;
+.datepickers .form-control:focus {
+    border-radius: 40px;
+    -webkit-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important;
+    -moz-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important;
+    box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important;
 }
-
-#sidebar ul li.active>a {
-    background: transparent;
-    color: #f8b739;
-}
-
-@media (max-width: 991.98px) {
-    #sidebar {
-        margin-left: -300px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-}
-
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-@media (max-width: 991.98px) {
-    #sidebarCollapse span {
-        display: none;
-    }
-}
-
-#content {
-    width: 100%;
-    padding: 0;
-    min-height: 100vh;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-.btn.btn-primary {
-    visibility: visible;
-    background: #FF6F00;
-    border-color: #f8b739;
-}
-
-.btn.btn-primary:hover,
-.btn.btn-primary:focus {
-    background: #f8b739 !important;
-    border-color: #f8b739 !important;
-}
-
-@media only screen and (max-width: 1300px) {
-    .btn.btn-primary {
-        visibility: visible;
-    }
-}
-
-.footer p {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-
-/* 
-*/
