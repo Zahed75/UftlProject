@@ -352,6 +352,8 @@ input[type=number] {
     cursor: none;
     border: none;
     text-align: center;
+    outline: none;
+    pointer-events: none;
     width: 100px;
     font-size: 3rem;
     color: #000;
@@ -369,8 +371,26 @@ input[type=number] {
     display: none;
 }
 
-/*.dieselprice,*/
-/*.octaneprice,*/
-/*.discprice {*/
-/*    display: none;*/
-/*}*/
+.dieselprice,
+.octaneprice,
+.discprice {
+    display: none;
+}
+
+.baseprice {
+    width: 200px;
+    height: 100px;
+    border: none;
+    cursor: none;
+    outline: none;
+    pointer-events: none;
+}
+
+.disPrice {
+    width: 50px;
+    height: 20px;
+    border: none;
+    cursor: none;
+    outline: none;
+    pointer-events: none;
+}
