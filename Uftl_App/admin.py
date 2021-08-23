@@ -36,4 +36,9 @@ class cupon_codeAdmin(admin.ModelAdmin):
 
 @admin.register(Fuel_price)
 class Fuel_priceAdmin(admin.ModelAdmin):
-    list_display = ('id', 'disel_price', 'octen_price', 'delivery_charge','total_ammount')
+    list_display = ('id', 'disel_price', 'octen_price', 'delivery_charge', 'total_amount', 'fuel_amount')
+
+
+@admin.register(OrderList)
+class OrderListAdmin(admin.ModelAdmin):
+    list_display = ('id', 'time', 'date', 'fuel_amount', 'fuel_type', 'base_cost', 'total_amount', 'discount')

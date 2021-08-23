@@ -27,11 +27,12 @@
                 <ul class="list-unstyled components mb-2 p-2">
 
                     <li>
-                        <a href="#"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
+                        <a href="{% url "Uftl_App:order_fuel" %}"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
                     </li>
 
                     <li>
-                        <a href="#"><i class='bx bx-list-check setup'></i>Place an Order</a>
+                        <a href="{% url "Uftl_App:order_fuel" %}"><i class='bx bx-list-check setup'></i>Place an
+                            Order</a>
                     </li>
 
                     <li class="active">
@@ -121,7 +122,7 @@
                                                 <bold class="description-bold"> Let’s have some fuel!</bold>
                                             </p>
 
-                                            <a href="#" class="order-fuel">Order Fuel</a>
+                                            <a href="{% url "Uftl_App:order_fuel" %}" class="order-fuel">Order Fuel</a>
                                         </div>
 
                                         <div class="col-sm-2">

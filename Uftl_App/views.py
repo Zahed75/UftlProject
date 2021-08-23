@@ -77,7 +77,7 @@ def assets_contact(request):
 
         )
         contact_ins.save()
-        return redirect('/order_fuel/')
+        return redirect('/dashboard/')
 
     dict = {'ft': ft}
 
@@ -97,16 +97,22 @@ def order_fuel(request):
     ft_utils = fuel_utils.objects.all()
     from django.db.models import Q
     date_time = OrderDashboard.objects.all()
-    # d_price=date_time.disel_price
-    # print(d_price)
+    # test=Fuel_price.objects.filter().last().fuel_ammount
+    # test1=Fuel_price.objects.filter().last().total_ammount
+    # print("hello",test)
+    # print("hello",test1)
 
     reservation = False
     if request.method == "POST":
         time = request.POST.get('time')
         date = request.POST.get('date')
-
-        print("rafath", time)
-
+        fuel_amount = request.POST.get('fuel_amount')
+        base_cost = request.POST.get('base_cost')
+        discount = request.POST.get('discount')
+        total_amount = request.POST.get('total_amount')
+        Cash_on_delivery = request.POST.get('Cash_on_delivery')
+        Online_Payment = request.POST.get('Online_Payment')
+        Swipe_on_delivery = request.POST.get('Swipe_on_delivery')
         reserved = Reserved.objects.filter(Q(time=time) & Q(date=date))
         order_limits = orderlimit.objects.all().last().limit
         print(order_limits)
@@ -120,18 +126,31 @@ def order_fuel(request):
         else:
             reserved_ins = Reserved(
                 time=time,
-                date=date
-            )
+                date=date,
 
+            )
+            invoice_ins = OrderList(
+                user=request.user,
+                time=time,
+                date=date,
+                fuel_amount=fuel_amount,
+                base_cost=base_cost,
+                discount=discount,
+                total_amount=total_amount,
+                Cash_on_delivery=Cash_on_delivery,
+                Online_Payment=Online_Payment,
+                Swipe_on_delivery=Swipe_on_delivery
+            )
+            invoice_ins.save()
             reserved_ins.save()
 
-            # print("Test",time)
             return HttpResponse('Order confirmed')
-    dict = {'date_time': date_time, 'reservation': reservation, 'ft_utils': ft_utils, 'cp': cp, 'oil_price': oil_price}
+    dict = {'date_time': date_time, 'reservation': reservation, 'ft_utils': ft_utils, 'cp': cp,
+            'oil_price': oil_price}
 
     return render(request, 'Uftl_App/orderfuel.html', context=dict)
 
 
 def success_profile(request):
-    dict={}
-    return render(request,'Uftl_App/profile_congo.html',context=dict)
+    dict = {}
+    return render(request, 'Uftl_App/profile_congo.html', context=dict)
