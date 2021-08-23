@@ -7,10 +7,23 @@ var diesel_price = document.getElementById("dpd").innerText;
 var discont = document.getElementById("discountSelect");
 // var price = 65
 var discontInput = document.getElementById("discountValue");
-
+document.getElementById("discountSelect").disabled = true;
 
 function priceTotal() {
-    var total = (valueCount * parseInt(diesel_price)) + parseInt(delivery_charge) - parseInt(discontInput.value);
+    if (valueCount >= 30) {
+        document.getElementById("discountSelect").disabled = false;
+        discont.addEventListener('change', () => {
+            discontInput.value = parseInt(discont.options[discont.selectedIndex].value);
+
+            priceTotal()
+        });
+        var total = (valueCount * parseInt(diesel_price)) + parseInt(delivery_charge) - parseInt(discontInput.value);
+
+    } else {
+
+        var total = (valueCount * parseInt(diesel_price)) + parseInt(delivery_charge);
+
+    }
     var base = valueCount * parseInt(diesel_price);
     document.getElementById("price").value = total
     document.getElementById("fuel").value = base
@@ -18,11 +31,7 @@ function priceTotal() {
 }
 
 
-discont.addEventListener('change', () => {
-    discontInput.value = parseInt(discont.options[discont.selectedIndex].value);
 
-    priceTotal()
-});
 
 var discountPrice = discontInput.value
 
