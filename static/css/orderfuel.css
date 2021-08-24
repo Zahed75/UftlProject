@@ -277,10 +277,17 @@
 
 .fueltype {
     margin-top: 1rem;
-    font-size: 2rem;
+    font-size: 20px;
     line-height: 41px;
-    color: #FF6F00;
+
     font-weight: 900;
+    width: 70px;
+    height: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    pointer-events: none;
+    color: #FF6F00;
 }
 
 
@@ -361,7 +368,8 @@ input[type=number] {
     font-weight: 300;
 }
 
-.total-price {}
+.total-price {
+}
 
 .total-price .fa-rupee {
     display: inline-block;
