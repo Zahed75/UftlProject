@@ -110,9 +110,7 @@ def order_fuel(request):
         base_cost = request.POST.get('base_cost')
         discount = request.POST.get('discount')
         total_amount = request.POST.get('total_amount')
-        Cash_on_delivery = request.POST.get('Cash_on_delivery')
-        Online_Payment = request.POST.get('Online_Payment')
-        Swipe_on_delivery = request.POST.get('Swipe_on_delivery')
+        payment_method = request.POST.get('payment_method')
         reserved = Reserved.objects.filter(Q(time=time) & Q(date=date))
         order_limits = orderlimit.objects.all().last().limit
         print(order_limits)
@@ -137,9 +135,8 @@ def order_fuel(request):
                 base_cost=base_cost,
                 discount=discount,
                 total_amount=total_amount,
-                Cash_on_delivery=Cash_on_delivery,
-                Online_Payment=Online_Payment,
-                Swipe_on_delivery=Swipe_on_delivery
+                payment_method=payment_method
+                
             )
             invoice_ins.save()
             reserved_ins.save()

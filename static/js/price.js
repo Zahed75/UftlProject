@@ -64,3 +64,14 @@ document.querySelector(".minus-btn").addEventListener("click", function() {
     }
     priceTotal()
 })
+
+
+
+var dos = document.getElementById("assetname");
+var assetlocation = document.getElementById("asstLoc");
+
+dos.addEventListener('change', () => {
+
+    assetlocation.value = dos.options[dos.selectedIndex].value
+
+});

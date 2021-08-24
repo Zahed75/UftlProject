@@ -59,15 +59,15 @@ class OrderList(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     time = models.TimeField(blank=True)
     date = models.DateField(blank=True)
-    asset_type=models.CharField(max_length=300,blank=True)
+    asset_name=models.CharField(max_length=300,blank=True)
     fuel_type=models.CharField(max_length=300,blank=True)
     fuel_amount=models.IntegerField(default='1')
     base_cost=models.IntegerField(default='1')
     discount=models.IntegerField(default='1')
     total_amount=models.IntegerField(default='1')
-    Cash_on_delivery=models.CharField(max_length=300,blank=True)
-    Online_Payment=models.CharField(max_length=300,blank=True)
-    Swipe_on_delivery=models.CharField(max_length=300,blank=True)
-
+    # Cash_on_delivery=models.CharField(max_length=300,blank=True)
+    # Online_Payment=models.CharField(max_length=300,blank=True)
+    # Swipe_on_delivery=models.CharField(max_length=300,blank=True)
+    payment_method = models.CharField(max_length=300,blank=True)
 
 

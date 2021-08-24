@@ -84,6 +84,7 @@
 
 .assetselect {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: #F5F5F5;
@@ -102,7 +103,7 @@
     /* min-width: 224px; */
     outline: none;
     border: none;
-    font-size: 0.5rem;
+    font-size: 1rem;
 }
 
 .timeline {
@@ -387,6 +388,15 @@ input[type=number] {
 }
 
 .disPrice {
+    width: 50px;
+    height: 20px;
+    border: none;
+    cursor: none;
+    outline: none;
+    pointer-events: none;
+}
+
+.assetLocation {
     width: 50px;
     height: 20px;
     border: none;
