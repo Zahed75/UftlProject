@@ -13,9 +13,22 @@ from django.views.generic.edit import DeleteView
 from django.views import View
 from App_Login.models import *
 from Uftl_App.models import *
+import uuid
+import random
+import string
 
 # Create your views here.
 from Uftl_App.models import Assets, Contact_Assets
+
+
+def generate_order_id():
+    s = 6
+    global user_id
+    user_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=s))
+    user_id = "#UF" + str(user_id)
+    return user_id
+    print(user_id, "auvee")
+
 
 
 def index(request):
@@ -92,6 +105,14 @@ def Dashboard(request):
 
 @login_required()
 def order_fuel(request):
+
+
+    if request.method == "GET":
+
+        order_id = generate_order_id()
+        
+        print(user_id)
+
     cp = cupon_code.objects.all()
     oil_price = Fuel_price.objects.all()
     ai = Assets.objects.all()
@@ -105,6 +126,7 @@ def order_fuel(request):
 
     reservation = False
     if request.method == "POST":
+        order_id = request.POST.get('order_id')
         time = request.POST.get('time')
         date = request.POST.get('date')
         fuel_amount = request.POST.get('fuel_amount')
@@ -114,7 +136,12 @@ def order_fuel(request):
         payment_method = request.POST.get('payment_method')
         reserved = Reserved.objects.filter(Q(time=time) & Q(date=date))
         order_limits = orderlimit.objects.all().last().limit
+
+        print(order_id)
+
+
         print(order_limits)
+
         if reserved.count() >= order_limits:
 
             reservation = True
@@ -129,16 +156,21 @@ def order_fuel(request):
 
             )
             invoice_ins = OrderList(
-                user=request.user,
+                user=request.user.order_id,
+            
                 time=time,
                 date=date,
                 fuel_amount=fuel_amount,
                 base_cost=base_cost,
                 discount=discount,
                 total_amount=total_amount,
-                payment_method=payment_method
+                payment_method=payment_method,
+                
                 
             )
+
+            print("test",user)
+
             invoice_ins.save()
             reserved_ins.save()
 

@@ -56,7 +56,7 @@ class Fuel_price(models.Model):
 
 
 class OrderList(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE, related_name='orders')
     time = models.TimeField(blank=True)
     date = models.DateField(blank=True)
     asset_name=models.CharField(max_length=300,blank=True)
@@ -64,6 +64,7 @@ class OrderList(models.Model):
     fuel_amount=models.IntegerField(default='1')
     base_cost=models.IntegerField(default='1')
     discount=models.IntegerField(default='1')
+    order_id = models.CharField(max_length=20,blank=True)
     total_amount=models.IntegerField(default='1')
     # Cash_on_delivery=models.CharField(max_length=300,blank=True)
     # Online_Payment=models.CharField(max_length=300,blank=True)

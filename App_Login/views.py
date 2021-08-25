@@ -31,8 +31,9 @@ def generate_captcha():
 # ==============end=============================
 
 
-
 # =====================Non register order fuel start here======================
+
+
 
 def non_register(request):
     # captcha start
