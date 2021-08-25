@@ -112,11 +112,12 @@
                             <div class="assetselect">
 
                                 <select name="fuel-type" class="assetdropdown" id="assetname">
-                                        <option selected disabled value="select">Assets types*</option>
-                                            <option value="1">  my asset 1</option>
-                                            <option value="2">  my asset 2</option>
-                                            <option value="3">  my asset 3</option>
-                                            <option value="4">  my asset 4</option>
+                                        
+                                        
+                                        {% for i in ai%}
+                                        <option selected disabled value="{{i.asset_location}}">{{i.asset_name}}</option>
+                                            <option value="{{i.asset_location}}"> {{i.asset_name}}</option>
+                                        {% endfor %}
                                     </select>
 
 

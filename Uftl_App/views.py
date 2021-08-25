@@ -94,6 +94,7 @@ def Dashboard(request):
 def order_fuel(request):
     cp = cupon_code.objects.all()
     oil_price = Fuel_price.objects.all()
+    ai = Assets.objects.all()
     ft_utils = fuel_utils.objects.all()
     from django.db.models import Q
     date_time = OrderDashboard.objects.all()
@@ -143,7 +144,7 @@ def order_fuel(request):
 
             return HttpResponse('Order confirmed')
     dict = {'date_time': date_time, 'reservation': reservation, 'ft_utils': ft_utils, 'cp': cp,
-            'oil_price': oil_price}
+            'oil_price': oil_price, 'ai': ai}
 
     return render(request, 'Uftl_App/orderfuel.html', context=dict)
 
