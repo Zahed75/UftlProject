@@ -20,10 +20,14 @@
                         <span class="nav__logo-name">Bedimcode</span> -->
                 </a>
 
-                <a href="#" class="img logo rounded-circle mb-2"
-                   style="background-image: url({% static 'assets/img/saul.png' %});">
-                </a>
-                <h3 class="text-center mb-5 username">Saul Ramirez</h3>
+                <div class="ct">
+                    {% for x in ct_profile %}
+                    <a href="#" class="img logo rounded-circle mb-2"
+                       style="background-image: url({{ x.contact_photo.url }});">
+                    </a>
+                    <h3 class="text-center mb-5 username">{{ x.full_name }}</h3>
+                    {% endfor %}
+                </div>
 
 
                 <ul class="list-unstyled components mb-5">
@@ -183,8 +187,8 @@
                                             <div class="col-sm-6 col-md-3 fuel">
                                                 <select name="city" class="city">
                                                     <option selected disabled value="select">City*</option>
-                                                      {% for x in ft %}
-                                                    <option value="{{ x.city }}">{{ x.city }}</option>
+                                                    {% for x in ft %}
+                                                        <option value="{{ x.city }}">{{ x.city }}</option>
 
                                                     {% endfor %}
 

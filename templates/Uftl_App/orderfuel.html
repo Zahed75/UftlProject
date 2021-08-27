@@ -1,4 +1,6 @@
-{% extends 'profile_base.html' %} {% load static %} {% block title_block %}Order Dashboard{% endblock %}
+{% extends 'profile_base.html' %}
+{% load static %}
+{% block title_block %}Order Dashboard{% endblock %}
 {% block profile_block %}
 
 
@@ -16,10 +18,13 @@
                     </div>
 
                 </a>
-
-                <a href="#" class="img logo rounded-circle mb-2"
-                   style="background-image: url({% static 'assets/img/saul.png' %});"> </a>
-                <h3 class="text-center mb-4 username">Saul Ramirez</h3>
+                <div class="profile">
+                    {% for x in ct_profile %}
+                        <a href="#" class="img logo rounded-circle mb-2"
+                           style="background-image: url({{ x.contact_photo.url }});"> </a>
+                        <h3 class="text-center mb-4 username">{{ x.full_name }}</h3>
+                    {% endfor %}
+                </div>
 
 
                 <ul class="list-unstyled components mb-2 p-2">
@@ -89,9 +94,11 @@
 
                     <div class="float-right">
                         <div class=" menu ">
-                            <div class="header__img ">
-                                <img class="navimage" src="{% static 'assets/img/saul.png' %} " alt=" ">
 
+                            <div class="header__img ">
+                                {% for x in ct_profile %}
+                                    <img class="navimage" src="{{ x.contact_photo.url }}" alt=" ">
+                                {% endfor %}
                             </div>
 
                             <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
@@ -113,12 +120,12 @@
                             <div class="col-12  col-sm-6 col-md-4">
                                 <div class="assetselect">
 
-                                <select name="fuel-type" class="assetdropdown" id="assetname">
-                                        
-                                        
-                                        {% for i in ai%}
-                                            <option selected disabled value="{{i.asset_location}}">{{i.asset_name}}</option>
-                                            <option value="{{i.asset_location}}"> {{i.asset_name}}</option>
+                                    <select name="fuel-type" class="assetdropdown" id="assetname">
+
+
+                                        {% for i in ai %}
+                                            <option selected value="{{ i.asset_location }}">{{ i.asset_name }}</option>
+                                            <option value="{{ i.asset_location }}"> {{ i.asset_name }}</option>
                                         {% endfor %}
                                     </select>
 
@@ -131,8 +138,8 @@
 
                             <div class="col-6  col-sm-2 col-md-2">
                                 <div class="fuelfield">
-{#                                    <p id="fuelname" class="fueltype">Diesel</p>#}
-                                     <input type="text" id="fuelname" class="fueltype" placeholder="Disel" readonly>
+                                    {#                                    <p id="fuelname" class="fueltype">Diesel</p>#}
+                                    <input type="text" id="fuelname" class="fueltype" placeholder="Disel" readonly>
                                 </div>
                             </div>
 

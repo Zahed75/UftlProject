@@ -11,4 +11,7 @@ urlpatterns = [
     path('dashboard/', views.Dashboard, name='dashboard'),
     path('order_fuel/', views.order_fuel, name='order_fuel'),
     path('profile_done/',views.success_profile,name='profile_done'),
+    path('assets_list/',views.allassets,name='assets_list'),
+    path('add_assets/',views.add_assets,name='add_assets'),
+
 ]

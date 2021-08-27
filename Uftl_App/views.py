@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib import messages
 from django.core.mail import send_mail, EmailMessage
 from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
@@ -23,12 +24,11 @@ from Uftl_App.models import Assets, Contact_Assets
 
 def generate_order_id():
     s = 6
-    global user_id
-    user_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=s))
-    user_id = "#UF" + str(user_id)
-    return user_id
-    print(user_id, "auvee")
-
+    global order_id
+    order_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=s))
+    order_id = "#UF" + str(order_id)
+    return order_id
+    print(generate_order_id(), "auvee")
 
 
 def index(request):
@@ -40,12 +40,14 @@ def index(request):
 @login_required()
 def assets_profile(request):
     ft = fuel_utils.objects.all()
+    assets_info = Assets.objects.all()
     if request.method == 'POST':
         asset_name = request.POST.get('asset_name')
         asset_type = request.POST.get('asset_type')
         fuel_type = request.POST.get('fuel_type')
         asset_location = request.POST.get('asset_location')
         asset_photo = request.POST.get('asset_photo')
+
         print(asset_photo)
 
         assets_ins = Assets(
@@ -59,13 +61,14 @@ def assets_profile(request):
         assets_ins.save()
         return redirect('/contactprofile/')
 
-    dict = {'ft': ft}
+    dict = {'ft': ft, 'assets_info': assets_info}
 
     return render(request, 'Uftl_App/assetprofile.html', context=dict)
 
 
 @login_required()
 def assets_contact(request):
+    ct_profile = Contact_Assets.objects.all()
     ft = fuel_utils.objects.all()
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
@@ -92,7 +95,7 @@ def assets_contact(request):
         contact_ins.save()
         return redirect('/dashboard/')
 
-    dict = {'ft': ft}
+    dict = {'ft': ft, 'ct_profile': ct_profile}
 
     return render(request, 'Uftl_App/contactprofile.html', context=dict)
 
@@ -105,13 +108,9 @@ def Dashboard(request):
 
 @login_required()
 def order_fuel(request):
-
-
+    ct_profile = Contact_Assets.objects.all()
     if request.method == "GET":
-
-        order_id = generate_order_id()
-        
-        print(user_id)
+        pass
 
     cp = cupon_code.objects.all()
     oil_price = Fuel_price.objects.all()
@@ -126,7 +125,8 @@ def order_fuel(request):
 
     reservation = False
     if request.method == "POST":
-        order_id = request.POST.get('order_id')
+        order_id = generate_order_id()
+        print(order_id)
         time = request.POST.get('time')
         date = request.POST.get('date')
         fuel_amount = request.POST.get('fuel_amount')
@@ -139,7 +139,6 @@ def order_fuel(request):
 
         print(order_id)
 
-
         print(order_limits)
 
         if reserved.count() >= order_limits:
@@ -147,7 +146,8 @@ def order_fuel(request):
             reservation = True
 
             print(reservation)
-            return HttpResponse('Time already reserved!')
+            # return HttpResponse('Time already reserved!')
+            messages.error(request, "This time is already reserved")
 
         else:
             reserved_ins = Reserved(
@@ -156,8 +156,7 @@ def order_fuel(request):
 
             )
             invoice_ins = OrderList(
-                user=request.user.order_id,
-            
+                user=request.user,
                 time=time,
                 date=date,
                 fuel_amount=fuel_amount,
@@ -165,18 +164,18 @@ def order_fuel(request):
                 discount=discount,
                 total_amount=total_amount,
                 payment_method=payment_method,
-                
-                
-            )
+                order_id=order_id
 
-            print("test",user)
+            )
 
             invoice_ins.save()
             reserved_ins.save()
 
-            return HttpResponse('Order confirmed')
+            messages.success(request, "Your Order Has been placed")
+            return redirect('/order_fuel/')
+
     dict = {'date_time': date_time, 'reservation': reservation, 'ft_utils': ft_utils, 'cp': cp,
-            'oil_price': oil_price, 'ai': ai}
+            'oil_price': oil_price, 'ai': ai, 'ct_profile': ct_profile}
 
     return render(request, 'Uftl_App/orderfuel.html', context=dict)
 
@@ -184,3 +183,39 @@ def order_fuel(request):
 def success_profile(request):
     dict = {}
     return render(request, 'Uftl_App/profile_congo.html', context=dict)
+
+
+def allassets(request):
+    dict = {
+
+    }
+
+    return render(request, 'Uftl_App/allassets.html', context=dict)
+
+
+def add_assets(request):
+    ft_utils = fuel_utils.objects.all()
+    if request.method == 'POST':
+        asset_name = request.POST.get('asset_name')
+        asset_type = request.POST.get('asset_type')
+        fuel_type = request.POST.get('fuel_type')
+        asset_location = request.POST.get('asset_location')
+        asset_photo = request.POST.get('asset_photo')
+
+
+        asset_ins=Assets(
+            user=request.user,
+            asset_name=asset_name,
+            asset_type=asset_type,
+            fuel_type=fuel_type,
+            asset_location=asset_location,
+            asset_photo=asset_photo
+        )
+
+        asset_ins.save()
+        print("test",asset_ins.asset_photo)
+    dict = {
+        'ft_utils': ft_utils
+    }
+
+    return render(request, 'Uftl_App/addnewasset.html', context=dict)

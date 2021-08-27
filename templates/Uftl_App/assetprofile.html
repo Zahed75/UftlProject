@@ -2,13 +2,16 @@
 {% load static %}
 {% block title_block %}asset_profile{% endblock %}
 {% block profile_block %}
+    {% include 'messages.html' %}
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="p-4 pt-5">
 
                 <a href="#" class="nav__logo">
                     <div class="logoside">
+
                         <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG"/>
+
                         <div class="tex">
                             <p class="text1">URGENT</p>
                             <p class="text2">FUEL</p>
@@ -17,11 +20,11 @@
                     <!-- <i class='bx bx-layer nav__logo-icon'></i>
                         <span class="nav__logo-name">Bedimcode</span> -->
                 </a>
-
-                <a href="#" class="img logo rounded-circle mb-2"
-                   style="background-image: url({% static 'assets/img/saul.png' %});"> </a>
-                <h3 class="text-center mb-5 username">Saul Ramirez</h3>
-
+                {% for x in assets_info %}
+                    <a href="#" class="img logo rounded-circle mb-2"
+                       style="background-image: url({{ x.asset_photo.url }});"> </a>
+                    <h3 class="text-center mb-5 username">{{ x.user }}</h3>
+                {% endfor %}
 
                 <ul class="list-unstyled components mb-5">
 
@@ -59,8 +62,10 @@
                     <div class="float-right">
                         <div class=" menu ">
                             <div class="header__img ">
-                                <img class="navimage" src="{% static 'assets/img/saul.png' %} " alt=" ">
-
+                                {% for x in assets_info %}
+                                    {#                                <img class="navimage" src="{{ x.asset_photo.url }}" alt=" ">#}
+                                    <img class="navimage" src="{{ x.asset_photo.url }}" alt=" ">
+                                {% endfor %}
                             </div>
 
                             <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
@@ -76,9 +81,18 @@
                 <div class="row ">
 
 
-                    <div class="form-section d-flex justify-content-center align-items-center my-5">
-                        <form method="POST" class="form-group">
-                        {% csrf_token %}
+                    <div class="form-section d-flex justify-content-center align-items-center my-5 success">
+                        <form method="POST" class="form-group" enctype="multipart/form-data">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-info">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% csrf_token %}
+
                             <div id="div1">
                                 <div class="row justify-content-between ml-2 ipad">
 
@@ -102,9 +116,9 @@
                                             <select name="asset_type" class="selectbox">
                                                 <option selected disabled value="select">Asset type*</option>
                                                 {% for x in ft %}
-                                                <option value="{{ x.asset_type }}">{{ x.asset_type }}</option>
+                                                    <option value="{{ x.asset_type }}">{{ x.asset_type }}</option>
 
-                                                    {% endfor %}
+                                                {% endfor %}
                                             </select>
                                             <p class="help-block"></p>
                                         </div>
@@ -113,7 +127,7 @@
                                             <select name="fuel_type" class="selectbox">
                                                 <option selected disabled value="select">Fuel Type*</option>
                                                 {% for x in ft %}
-                                                <option value="{{ x.fuel_type }}">{{ x.fuel_type }}</option>
+                                                    <option value="{{ x.fuel_type }}">{{ x.fuel_type }}</option>
                                                 {% endfor %}
                                             </select>
                                             <p class="help-block"></p>
@@ -133,27 +147,30 @@
                                             <div class="file-upload">
 
 
-                                                <div class="image-upload-wrap">
+                                                <form method="POST" enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="image-upload-wrap">
 
-                                                    <input name="asset_photo" class="file-upload-input" type='file'
-                                                           onchange="readURL(this);" accept="image/*"/>
-                                                    <div class="drag-text">
-                                                        <p class="drag2">Photo/Logo (Optional)</p>
-                                                        <svg class="icon-image2" xmlns="http://www.w3.org/2000/svg"
-                                                             width="50" height="50" viewBox="0 0 24 24"
-                                                             style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
-                                                            <path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19V5h14l.002 14H5z"></path>
-                                                            <path d="m10 14-1-1-3 4h12l-5-7z"></path>
-                                                        </svg>
-                                                        <h3 class="drapanddrop">Drag and drop a photo or
-                                                            <button class="file-upload-btn" type="button"
-                                                                    onclick="$('.file-upload-input').trigger( 'click' )">
-                                                                browse
-                                                            </button>
-                                                            a file or upload!
-                                                        </h3>
+                                                        <input name="asset_photo" class="file-upload-input" type='file'
+                                                               onchange="readURL(this);" accept="image/*"/>
+                                                        <div class="drag-text">
+                                                            <p class="drag2">Photo/Logo (Optional)</p>
+                                                            <svg class="icon-image2" xmlns="http://www.w3.org/2000/svg"
+                                                                 width="50" height="50" viewBox="0 0 24 24"
+                                                                 style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                                                <path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19V5h14l.002 14H5z"></path>
+                                                                <path d="m10 14-1-1-3 4h12l-5-7z"></path>
+                                                            </svg>
+                                                            <h3 class="drapanddrop">Drag and drop a photo or
+                                                                <button class="file-upload-btn" type="button"
+                                                                        onclick="$('.file-upload-input').trigger( 'click' )">
+                                                                    browse
+                                                                </button>
+                                                                a file or upload!
+                                                            </h3>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </form>
                                                 <div class="file-upload-content">
                                                     <img class="file-upload-image" src="#" alt="your image"/>
                                                     <div class="image-title-wrap">
@@ -165,7 +182,8 @@
 
 
                                                 <a href="{% url 'Uftl_App:contactprofile' %}">
-                                                    <button class="fuel-ordery text-center" type="submit" id="sendMessageButton">
+                                                    <button class="fuel-ordery text-center" type="submit"
+                                                            id="sendMessageButton">
                                                         save & Next
                                                     </button>
                                                 </a>

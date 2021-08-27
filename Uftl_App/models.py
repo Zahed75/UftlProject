@@ -10,7 +10,7 @@ class Assets(models.Model):
     asset_type = models.CharField(max_length=220, blank=False)
     fuel_type = models.CharField(max_length=220)
     asset_location = models.TextField(max_length=400, blank=False)
-    asset_photo = models.FileField(upload_to='Asset')
+    asset_photo = models.ImageField(upload_to='gallery')
 
 
 class Contact_Assets(models.Model):
@@ -20,7 +20,7 @@ class Contact_Assets(models.Model):
     phone_number = models.IntegerField()
     email = models.EmailField(max_length=220, blank=True)
     area = models.CharField(max_length=220)
-    contact_photo = models.FileField(upload_to='contact_files')
+    contact_photo = models.ImageField(upload_to='contact_files')
     city = models.CharField(max_length=300)
     billing_add = models.CharField(max_length=300)
 

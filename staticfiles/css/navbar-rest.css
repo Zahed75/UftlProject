@@ -1,0 +1,6 @@
+.links a {
+    text-decoration: none;
+    color: white;
+    margin-right: 60px;
+    /* transition: .2s; */
+}

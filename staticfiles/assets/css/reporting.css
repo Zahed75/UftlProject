@@ -1,0 +1,185 @@
+/*===== GOOGLE FONTS =====*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/*===== VARIABLES CSS =====*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.myButton {
+    background-color: #ff6f00;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+}
+
+.reporting {}
+
+.selectanasset {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ff6f00;
+    display: inline-block;
+    cursor: pointer;
+    color: #ff6f00;
+    text-align: left;
+    font-size: 1rem;
+    padding: 1rem 2rem 1rem 0.5rem;
+    text-decoration: none;
+}
+
+.datarange {
+    margin-left: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ff6f00;
+    display: inline-block;
+    cursor: pointer;
+    color: #ff6f00;
+    text-align: left;
+    font-size: 1rem;
+    padding: 1rem 4rem 1rem 0.5rem;
+    text-decoration: none;
+}
+
+.status {
+    margin-left: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ff6f00;
+    display: inline-block;
+    cursor: pointer;
+    color: #ff6f00;
+    text-align: left;
+    font-size: 1rem;
+    padding: 1rem 6rem 1rem 0.5rem;
+    text-decoration: none;
+}
+
+.secondrow {
+    margin-top: 1rem;
+    color: #9FA2B4;
+}
+
+.devicer {
+    width: 70em;
+    display: block;
+    height: 0.1px;
+    background-color: #4b4b4d;
+    margin: 1px auto 0;
+}
+
+.results {
+    margin-top: 1rem;
+}
+
+.orderid {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: black;
+}
+
+.data {
+    margin-top: 1rem;
+    font-weight: 800;
+    color: black;
+}
+
+.time {
+    margin-top: -10px;
+    color: #9FA2B4;
+}
+
+.amount {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: black;
+}
+
+.cost {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: black;
+}
+
+.profile {
+    display: flex;
+}
+
+.profileinfo {
+    margin-left: 2rem;
+}
+
+.circleimage {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    padding: auto 1rem auto 1rem;
+}
+
+.ontheway {
+    margin-top: 1rem;
+    background-color: #0EC0E7;
+    border-radius: 9px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 30px;
+    text-decoration: none;
+}
+
+.processing {
+    margin-top: 1rem;
+    background-color: #ff6f00;
+    border-radius: 9px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 30px;
+    text-decoration: none;
+}
+
+.delivered {
+    margin-top: 1rem;
+    background-color: #00C29F;
+    border-radius: 9px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 35px;
+    text-decoration: none;
+}
+
+.cancelled {
+    margin-top: 1rem;
+    background-color: #FF4853;
+    border-radius: 9px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 35px;
+    text-decoration: none;
+}
