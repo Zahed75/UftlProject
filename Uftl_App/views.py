@@ -200,10 +200,9 @@ def add_assets(request):
         asset_type = request.POST.get('asset_type')
         fuel_type = request.POST.get('fuel_type')
         asset_location = request.POST.get('asset_location')
-        asset_photo = request.POST.get('asset_photo')
+        asset_photo = request.FILES['asset_photo']
 
-
-        asset_ins=Assets(
+        asset_ins = Assets(
             user=request.user,
             asset_name=asset_name,
             asset_type=asset_type,
@@ -213,7 +212,7 @@ def add_assets(request):
         )
 
         asset_ins.save()
-        print("test",asset_ins.asset_photo)
+        print("test", asset_ins.asset_photo)
     dict = {
         'ft_utils': ft_utils
     }

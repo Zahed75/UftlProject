@@ -10,7 +10,7 @@ class Assets(models.Model):
     asset_type = models.CharField(max_length=220, blank=False)
     fuel_type = models.CharField(max_length=220)
     asset_location = models.TextField(max_length=400, blank=False)
-    asset_photo = models.ImageField(upload_to='gallery')
+    asset_photo = models.ImageField(upload_to='gallery',blank=False)
 
 
 class Contact_Assets(models.Model):

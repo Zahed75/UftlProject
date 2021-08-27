@@ -95,7 +95,7 @@
                     <div class="float-right">
                         <div class=" menu ">
                             <div class="header__img ">
-                                <img class="navimage" src="assets/img/saul.png " alt=" ">
+                                <img class="navimage" src="{% static 'assets/img/saul.png'%}" alt=" ">
 
                             </div>
 
@@ -170,7 +170,7 @@
 
                                             <div class="image-upload-wrap">
 
-                                                <input name="asset_photo" class="file-upload-input" type='file' onchange="readURL(this);"
+                                                <input required name="asset_photo" class="file-upload-input" type='file' onchange="readURL(this);"
                                                        accept="image/*"/>
                                                 <div class="drag-text">
                                                     <p class="drag2">Photo/Logo (Optional)</p>
