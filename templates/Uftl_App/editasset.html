@@ -1,34 +1,7 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Edit Asset</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- cdn -->
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/button2.css">
-    <link rel="stylesheet" href="css/image.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/select.css">
-    <link rel="stylesheet" href="css/editprofile.css">
-    <link rel="stylesheet" href="css/setupprofile.css">
-    <link rel="stylesheet" href="draft.css">
-    <link rel="stylesheet" href="css/custom-sidebar.css">
-
-
-
-
-</head>
-
-<body>
-
+{% extends 'profile_base.html' %}
+{% load static %}
+{% block title_block %}Order Dashboard{% endblock %}
+{% block profile_block %}
     <!-- Sidebar Start  -->
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
@@ -36,7 +9,7 @@
 
                 <a href="#" class="nav__logo">
                     <div class="logoside">
-                        <img class="logoimage" src="assets/img/logo.svg" alt="My Happy SVG" />
+                        <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG"/>
                         <div class="tex">
                             <p class="text1">URGENT</p>
                             <p class="text2">FUEL</p>
@@ -44,10 +17,15 @@
                     </div>
 
                 </a>
+                <div class="user_profile">
+                    {% for x in ct_profile %}
+                        {% if user.authenticate %}
 
-                <a href="#" class="img logo rounded-circle mb-2" style="background-image: url(assets/img/saul.png);"> </a>
-                <h3 class="text-center mb-4 username">Saul Ramirez</h3>
-
+                        <a href="#" class="img logo rounded-circle mb-2" style="background-image: url({{ x.contact_photo.url }});"> </a>
+                        <h3 class="text-center mb-4 username">{{ x.user }}</h3>
+                        {% endif %}
+                    {% endfor %}
+                </div>
 
 
                 <ul class="list-unstyled components mb-2 p-2">
@@ -79,7 +57,8 @@
 
                     <li>
                         <a href="#">
-                            <ion-icon class="setup" name="settings-outline"></ion-icon>Edit Profile</a>
+                            <ion-icon class="setup" name="settings-outline"></ion-icon>
+                            Edit Profile</a>
                     </li>
 
 
@@ -115,7 +94,7 @@
                     <button type="button" id="sidebarCollapse" class="btn btn-primary">
                         <i class="fa fa-bars"></i>
                         <span class="sr-only">Toggle Menu</span>
-                     </button>
+                    </button>
 
                     <div class="float-right">
                         <div class=" menu ">
@@ -137,8 +116,6 @@
                 <div class="container">
 
 
-
-
                     <div class="form-section d-flex justify-content-center align-items-center my-5">
                         <form method="POST" class="form-group">
 
@@ -155,32 +132,34 @@
                                     </div>
                                     <div class="col-sm-6 col-md-3 fuel">
 
-                                        <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Name*">
+                                        <input type="text" name="fuel-amount" class="fuel-input"
+                                               placeholder="Asset Name*">
                                         <p class="help-block"></p>
                                     </div>
 
                                     <div class="col-sm-6 col-md-3 fuel">
                                         <select name="fuel-type" class="selectbox">
-                                                            <option selected disabled value="select">Asset type*</option>
-                                                            <option value="Diesel">Generator</option>
-                                                            <option value="Gasoline">Vehicles</option>
-                                                            <option value="Kerosene">Construction</option>
-                                                            <option value="LPG">Machines</option>
-                                                        </select>
+                                            <option selected disabled value="select">Asset type*</option>
+                                            <option value="Diesel">Generator</option>
+                                            <option value="Gasoline">Vehicles</option>
+                                            <option value="Kerosene">Construction</option>
+                                            <option value="LPG">Machines</option>
+                                        </select>
                                         <p class="help-block"></p>
                                     </div>
 
                                     <div class="col-sm-6 col-md-3 fuel">
                                         <select name="fuel-type" class="selectbox">
-                                                            <option selected disabled value="select">Fuel Type*</option>
-                                                            <option value="Diesel">Diesel</option>
-                                                            <option value="Gasoline">Octane</option>
-                                                    </select>
+                                            <option selected disabled value="select">Fuel Type*</option>
+                                            <option value="Diesel">Diesel</option>
+                                            <option value="Gasoline">Octane</option>
+                                        </select>
                                         <p class="help-block"></p>
                                     </div>
 
                                     <div class="col-sm-6 col-md-3 fuel">
-                                        <input type="text" name="fuel-amount" class="fuel-input" placeholder="Asset Location*">
+                                        <input type="text" name="fuel-amount" class="fuel-input"
+                                               placeholder="Asset Location*">
                                         <p class="help-block"></p>
                                     </div>
 
@@ -191,9 +170,15 @@
                                     <div class="col-sm-6 col-md-3 rightsection">
                                         <div class="col-sm-6 col-md-3">
                                             <img class="box1" src="assets/img/2.png" alt="">
-                                            <button class="fuel-ordery" onclick="Show1()" type="button" id="sendMessageButton">Edit</button>
-                                            <button class="fuel-ordery" onclick="Show1()" type="button" id="sendMessageButton">Delete</button>
-                                            <button class="fuel-ordery" onclick="Show1()" type="button" id="sendMessageButton">Save</button>
+                                            <button class="fuel-ordery" onclick="Show1()" type="button"
+                                                    id="sendMessageButton">Edit
+                                            </button>
+                                            <button class="fuel-ordery" onclick="Show1()" type="button"
+                                                    id="sendMessageButton">Delete
+                                            </button>
+                                            <button class="fuel-ordery" onclick="Show1()" type="button"
+                                                    id="sendMessageButton">Save
+                                            </button>
                                         </div>
 
                                     </div>
@@ -201,30 +186,16 @@
                             </div>
 
 
-
                         </form>
                     </div>
 
 
-
-
                 </div>
-
 
 
             </div>
 
         </div>
 
-        <!-- Page Content r kaj korbe  -->
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <script src="js/jquery.min.js"></script>
-        <script src="assets/js/image.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/sidebar.js"></script>
-        <script src="js/main.js"></script>
-</body>
 
-</html>
+{% endblock %}

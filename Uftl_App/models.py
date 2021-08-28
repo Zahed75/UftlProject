@@ -10,7 +10,7 @@ class Assets(models.Model):
     asset_type = models.CharField(max_length=220, blank=False)
     fuel_type = models.CharField(max_length=220)
     asset_location = models.TextField(max_length=400, blank=False)
-    asset_photo = models.ImageField(upload_to='gallery',blank=False)
+    asset_photo = models.ImageField(upload_to='gallery', blank=False)
 
 
 class Contact_Assets(models.Model):
@@ -26,11 +26,9 @@ class Contact_Assets(models.Model):
 
 
 class OrderDashboard(models.Model):
-    client=models.ForeignKey(User,on_delete=models.CASCADE)
+    client = models.ForeignKey(User, on_delete=models.CASCADE)
     time = models.TimeField(verbose_name='Please put your time', blank=True)
     reserved = models.BooleanField(default=False)
-
-
 
 
 class Reserved(models.Model):
@@ -43,12 +41,13 @@ class orderlimit(models.Model):
 
 
 class cupon_code(models.Model):
-    promo_code = models.CharField(max_length=40,blank=True)
+    promo_code = models.CharField(max_length=40, blank=True)
     discount = models.IntegerField(default='1')
 
+
 class Fuel_price(models.Model):
-    fuel_amount=models.IntegerField(default='1')
-    base_cost=models.IntegerField(default='1')
+    fuel_amount = models.IntegerField(default='1')
+    base_cost = models.IntegerField(default='1')
     disel_price = models.IntegerField(default='1', null=True)
     octen_price = models.IntegerField(default='1', null=True)
     total_amount = models.IntegerField(default='1', null=True)
@@ -56,19 +55,26 @@ class Fuel_price(models.Model):
 
 
 class OrderList(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE, related_name='orders')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     time = models.TimeField(blank=True)
     date = models.DateField(blank=True)
-    asset_name=models.CharField(max_length=300,blank=True)
-    fuel_type=models.CharField(max_length=300,blank=True)
-    fuel_amount=models.IntegerField(default='1')
-    base_cost=models.IntegerField(default='1')
-    discount=models.IntegerField(default='1')
-    order_id = models.CharField(max_length=20,blank=True)
-    total_amount=models.IntegerField(default='1')
+    asset_name = models.CharField(max_length=300, blank=True)
+    fuel_type = models.CharField(max_length=300, blank=True)
+    fuel_amount = models.IntegerField(default='1')
+    base_cost = models.IntegerField(default='1')
+    discount = models.IntegerField(default='1')
+    order_id = models.CharField(max_length=20, blank=True)
+    total_amount = models.IntegerField(default='1')
     # Cash_on_delivery=models.CharField(max_length=300,blank=True)
     # Online_Payment=models.CharField(max_length=300,blank=True)
     # Swipe_on_delivery=models.CharField(max_length=300,blank=True)
-    payment_method = models.CharField(max_length=300,blank=True)
+    payment_method = models.CharField(max_length=300, blank=True)
 
 
+# class edit_asset(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     asset_name = models.CharField(max_length=220, blank=False)
+#     asset_type = models.CharField(max_length=220, blank=False)
+#     fuel_type = models.CharField(max_length=220)
+#     asset_location = models.TextField(max_length=400, blank=False)
+#     asset_photo = models.ImageField(upload_to='gallery', blank=False)

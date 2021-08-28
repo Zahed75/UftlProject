@@ -120,11 +120,11 @@
                             <div class="col-12  col-sm-6 col-md-4">
                                 <div class="assetselect">
 
-                                    <select name="fuel-type" class="assetdropdown" id="assetname">
+                                    <select name="asset_name" class="assetdropdown" id="assetname">
 
 
                                         {% for i in ai %}
-                                            <option selected value="{{ i.asset_location }}">{{ i.asset_name }}</option>
+                                            <option  selected value="{{ i.asset_name}}">{{ i.asset_name }}</option>
                                             <option value="{{ i.asset_location }}"> {{ i.asset_name }}</option>
                                         {% endfor %}
                                     </select>
@@ -139,7 +139,7 @@
                             <div class="col-6  col-sm-2 col-md-2">
                                 <div class="fuelfield">
                                     {#                                    <p id="fuelname" class="fueltype">Diesel</p>#}
-                                    <input type="text" id="fuelname" class="fueltype" placeholder="Disel" readonly>
+                                    <input name="fuel_type" value="Disel" type="text" id="fuelname" class="fueltype" placeholder="Disel" readonly>
                                 </div>
                             </div>
 

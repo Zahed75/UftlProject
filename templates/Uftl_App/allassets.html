@@ -10,7 +10,7 @@
 
                 <a href="#" class="nav__logo">
                     <div class="logoside">
-                        <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG" />
+                        <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG"/>
                         <div class="tex">
                             <p class="text1">URGENT</p>
                             <p class="text2">FUEL</p>
@@ -18,11 +18,13 @@
                     </div>
 
                 </a>
-
-                <a href="#" class="img logo rounded-circle mb-2" style="background-image: url({% static 'assets/img/saul.png' %});"> </a>
-                <h3 class="text-center mb-4 username">Saul Ramirez</h3>
-
-
+                <div class="user_profile">
+                    {% for x in ct_profile %}
+                        <a href="#" class="img logo rounded-circle mb-2"
+                           style="background-image: url({{ x.contact_photo.url }});"> </a>
+                        <h3 class="text-center mb-4 username">{{ x.full_name }}</h3>
+                    {% endfor %}
+                </div>
 
 
                 <ul class="list-unstyled components mb-2 p-2">
@@ -40,10 +42,12 @@
                             <i class='bx bx-info-circle setup'></i>Assets</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="#"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
+                                <a href="{% url "Uftl_App:assets_list" %}"><i
+                                        class='bx bx-radio-circle-marked setup'></i>All Assets</a>
                             </li>
                             <li>
-                                <a href="#"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
+                                <a href="{% url "Uftl_App:add_assets" %}"><i
+                                        class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
                             </li>
 
                         </ul>
@@ -54,7 +58,8 @@
 
                     <li>
                         <a href="#">
-                            <ion-icon class="setup" name="settings-outline"></ion-icon>Edit Profile</a>
+                            <ion-icon class="setup" name="settings-outline"></ion-icon>
+                            Edit Profile</a>
                     </li>
 
 
@@ -87,15 +92,15 @@
                     <button type="button" id="sidebarCollapse" class="btn btn-primary">
                         <i class="fa fa-bars"></i>
                         <span class="sr-only">Toggle Menu</span>
-                     </button>
-
+                    </button>
 
 
                     <div class="float-right">
                         <div class=" menu ">
                             <div class="header__img ">
-                                <img class="navimage" src="{% static 'assets/img/saul.png' %}" alt=" ">
-
+                                {% for x in ct_profile %}
+                                    <img class="navimage" src="{{ x.contact_photo.url}}" alt=" ">
+                                {% endfor %}
                             </div>
 
                             <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
@@ -109,40 +114,25 @@
             <div class="container mt-5 allassets">
                 <p class="headingtext2">All Assets</p>
                 <div class="row all">
+                    {% for x in asset_list %}
+                        <div class="col-xs-12 col-sm-6 col-md-4 ">
 
-                    <div class="col-xs-12 col-sm-6 col-md-4 ">
+                            <div>
 
-                        <div>
+                                <img class="box1" src="{{ x.asset_photo.url }}" alt="">
+                                <h5 class="allassetstitle">{{ x.asset_name }}</h5>
+                                <p class="allassetsdecrip">{{ x.asset_location }}</p>
+                                <a href="{% url "Uftl_App:edit_assets" %}">edit</a>
+                                <a href="#">Delete</a>
 
-                            <img class="box1" src="assets/img/2.png" alt="">
-                            <h5 class="allassetstitle">My Generator 2</h5>
-                            <p class="allassetsdecrip">160, Senanibasroad, Sec-12 Mirpur</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 ">
-                        <div>
-                            <img class="box1" src="assets/img/3.png" alt="">
-                            <h5 class="allassetstitle">My Generator 3</h5>
-                            <p class="allassetsdecrip">road #6, dhanmondi r/a, dhanmondi, 12020</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 ">
-                        <div>
-                            <img class="box1" src="assets/img/4.png" alt="">
-                            <h5 class="allassetstitle">AB Construction Site Trucks</h5>
-                            <p class="allassetsdecrip">412/b, Elephant Road ( 2nd Flour), Dhaka</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 ">
-                        <div>
-                            <img class="box1" src="assets/img/5.png" alt="">
-                            <h5 class="allassetstitle">SB Hospital Generator</h5>
-                            <p class="allassetsdecrip">36/20b, Khiljee Road, Block-b, Mohammadpur</p>
-                        </div>
-                    </div>
+                    {% endfor %}
+
+
                     <div class="col-xs-12 col-sm-6 col-md-4  ">
                         <div class="box1">
-                            <i class='bx bx-plus addasset'></i>
+                            <a href="{% url "Uftl_App:add_assets" %}"><i class='bx bx-plus addasset'></i></a>
                         </div>
                     </div>
                 </div>

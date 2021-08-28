@@ -13,5 +13,6 @@ urlpatterns = [
     path('profile_done/',views.success_profile,name='profile_done'),
     path('assets_list/',views.allassets,name='assets_list'),
     path('add_assets/',views.add_assets,name='add_assets'),
+    path('edit_assets/',views.edit_assets,name='edit_assets'),
 
 ]

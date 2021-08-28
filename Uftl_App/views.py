@@ -46,7 +46,7 @@ def assets_profile(request):
         asset_type = request.POST.get('asset_type')
         fuel_type = request.POST.get('fuel_type')
         asset_location = request.POST.get('asset_location')
-        asset_photo = request.POST.get('asset_photo')
+        asset_photo = request.FILES['asset_photo']
 
         print(asset_photo)
 
@@ -76,7 +76,7 @@ def assets_contact(request):
         phone_number = request.POST.get('phone_number')
         email = request.POST.get('email')
         area = request.POST.get('area')
-        contact_photo = request.POST.get('contact_photo')
+        contact_photo = request.FILES['contact_photo']
         city = request.POST.get('city')
         billing_add = request.POST.get('billing_add')
 
@@ -134,6 +134,8 @@ def order_fuel(request):
         discount = request.POST.get('discount')
         total_amount = request.POST.get('total_amount')
         payment_method = request.POST.get('payment_method')
+        asset_name = request.POST.get('asset_name')
+        fuel_type = request.POST.get('fuel_type')
         reserved = Reserved.objects.filter(Q(time=time) & Q(date=date))
         order_limits = orderlimit.objects.all().last().limit
 
@@ -164,9 +166,12 @@ def order_fuel(request):
                 discount=discount,
                 total_amount=total_amount,
                 payment_method=payment_method,
-                order_id=order_id
+                order_id=order_id,
+                asset_name=asset_name,
+                fuel_type=fuel_type
 
             )
+            print(asset_name)
 
             invoice_ins.save()
             reserved_ins.save()
@@ -186,7 +191,11 @@ def success_profile(request):
 
 
 def allassets(request):
+    ct_profile = Contact_Assets.objects.all()
+    asset_list = Assets.objects.all()
     dict = {
+        'ct_profile': ct_profile,
+        'asset_list': asset_list
 
     }
 
@@ -218,3 +227,14 @@ def add_assets(request):
     }
 
     return render(request, 'Uftl_App/addnewasset.html', context=dict)
+
+
+def edit_assets(request):
+    all_assets = Assets.objects.all()
+    ct_profile= Contact_Assets.objects.all()
+    dict = {
+        'all_assets': all_assets,
+        'ct_profile':ct_profile
+    }
+
+    return render(request, 'Uftl_App/editasset.html', context=dict)
