@@ -22,8 +22,10 @@
                     {% for x in ct_profile %}
                         <a href="#" class="img logo rounded-circle mb-2"
                            style="background-image: url({{ x.contact_photo.url }});"> </a>
-                        <h3 class="text-center mb-4 username">{{ x.full_name }}</h3>
                     {% endfor %}
+
+                    <h3 class="text-center mb-4 username">{{ request.user.username }}</h3>
+
                 </div>
 
 
@@ -99,7 +101,7 @@
                         <div class=" menu ">
                             <div class="header__img ">
                                 {% for x in ct_profile %}
-                                    <img class="navimage" src="{{ x.contact_photo.url}}" alt=" ">
+                                    <img class="navimage" src="{{ x.contact_photo.url }}" alt=" ">
                                 {% endfor %}
                             </div>
 

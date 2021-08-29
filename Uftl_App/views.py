@@ -38,41 +38,8 @@ def index(request):
 
 
 @login_required()
-def assets_profile(request):
-    ft = fuel_utils.objects.all()
-    assets_info = Assets.objects.filter(user=request.user)
-    if request.method == 'POST':
-        asset_name = request.POST.get('asset_name')
-        asset_type = request.POST.get('asset_type')
-        fuel_type = request.POST.get('fuel_type')
-        asset_location = request.POST.get('asset_location')
-        asset_photo = request.FILES['asset_photo']
-
-
-        print(asset_photo)
-
-        assets_ins = Assets(
-            user=request.user,
-            asset_name=asset_name,
-            asset_type=asset_type,
-            fuel_type=fuel_type,
-            asset_location=asset_location,
-            asset_photo=asset_photo
-        )
-        assets_ins.save()
-        return redirect('/contactprofile/')
-
-
-
-    dict = {'ft': ft, 'assets_info': assets_info}
-    print(assets_info)
-
-    return render(request, 'Uftl_App/assetprofile.html', context=dict)
-
-
-@login_required()
 def assets_contact(request):
-    ct_profile = Contact_Assets.objects.filter(id=request.user.id)
+    ct_profile = Contact_Assets.objects.filter(user=request.user)
     ft = fuel_utils.objects.all()
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
@@ -97,11 +64,44 @@ def assets_contact(request):
 
         )
         contact_ins.save()
-        return redirect('/dashboard/')
+        return redirect('/assets/')
+        print(contact_photo)
 
     dict = {'ft': ft, 'ct_profile': ct_profile}
 
     return render(request, 'Uftl_App/contactprofile.html', context=dict)
+
+
+
+
+@login_required()
+def assets_profile(request):
+    ft = fuel_utils.objects.all()
+    assets_info = Assets.objects.filter(user=request.user)
+    if request.method == 'POST':
+        asset_name = request.POST.get('asset_name')
+        asset_type = request.POST.get('asset_type')
+        fuel_type = request.POST.get('fuel_type')
+        asset_location = request.POST.get('asset_location')
+        asset_photo = request.FILES['asset_photo']
+
+        print(asset_photo)
+
+        assets_ins = Assets(
+            user=request.user,
+            asset_name=asset_name,
+            asset_type=asset_type,
+            fuel_type=fuel_type,
+            asset_location=asset_location,
+            asset_photo=asset_photo
+        )
+        assets_ins.save()
+        return redirect('/dashboard/')
+
+    dict = {'ft': ft, 'assets_info': assets_info}
+    print(assets_info)
+
+    return render(request, 'Uftl_App/assetprofile.html', context=dict)
 
 
 @login_required()
@@ -112,7 +112,7 @@ def Dashboard(request):
 
 @login_required()
 def order_fuel(request):
-    ct_profile = Contact_Assets.objects.filter(id=request.user.id)
+    ct_profile = Contact_Assets.objects.filter(user=request.user)
     if request.method == "GET":
         pass
 
@@ -195,8 +195,8 @@ def success_profile(request):
 
 
 def allassets(request):
-    ct_profile = Contact_Assets.objects.filter(id=request.user.id)
-    asset_list = Assets.objects.all()
+    ct_profile = Contact_Assets.objects.filter(user=request.user)
+    asset_list = Assets.objects.filter(user=request.user)
     dict = {
         'ct_profile': ct_profile,
         'asset_list': asset_list
@@ -207,7 +207,7 @@ def allassets(request):
 
 
 def add_assets(request):
-    ft_utils = fuel_utils.objects.filter(id=request.user.id)
+    ft_utils = fuel_utils.objects.all()
     if request.method == 'POST':
         asset_name = request.POST.get('asset_name')
         asset_type = request.POST.get('asset_type')
@@ -234,11 +234,11 @@ def add_assets(request):
 
 
 def edit_assets(request):
-    all_assets = Assets.objects.filter(id=request.user.id)
-    ct_profile= Contact_Assets.objects.all()
+    all_assets = Assets.objects.filter(user=request.user)
+    ct_profile = Contact_Assets.objects.all()
     dict = {
         'all_assets': all_assets,
-        'ct_profile':ct_profile
+        'ct_profile': ct_profile
     }
 
     return render(request, 'Uftl_App/editasset.html', context=dict)

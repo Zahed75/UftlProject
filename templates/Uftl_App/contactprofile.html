@@ -25,8 +25,9 @@
                     <a href="#" class="img logo rounded-circle mb-2"
                        style="background-image: url({{ x.contact_photo.url }});">
                     </a>
-                    <h3 class="text-center mb-5 username">{{ x.full_name }}</h3>
                     {% endfor %}
+                    <h3 class="text-center mb-5 username">{{ request.user.username }}</h3>
+
                 </div>
 
 
