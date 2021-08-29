@@ -40,13 +40,14 @@ def index(request):
 @login_required()
 def assets_profile(request):
     ft = fuel_utils.objects.all()
-    assets_info = Assets.objects.all()
+    assets_info = Assets.objects.filter(user=request.user)
     if request.method == 'POST':
         asset_name = request.POST.get('asset_name')
         asset_type = request.POST.get('asset_type')
         fuel_type = request.POST.get('fuel_type')
         asset_location = request.POST.get('asset_location')
         asset_photo = request.FILES['asset_photo']
+
 
         print(asset_photo)
 
@@ -61,14 +62,17 @@ def assets_profile(request):
         assets_ins.save()
         return redirect('/contactprofile/')
 
+
+
     dict = {'ft': ft, 'assets_info': assets_info}
+    print(assets_info)
 
     return render(request, 'Uftl_App/assetprofile.html', context=dict)
 
 
 @login_required()
 def assets_contact(request):
-    ct_profile = Contact_Assets.objects.all()
+    ct_profile = Contact_Assets.objects.filter(id=request.user.id)
     ft = fuel_utils.objects.all()
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
@@ -108,7 +112,7 @@ def Dashboard(request):
 
 @login_required()
 def order_fuel(request):
-    ct_profile = Contact_Assets.objects.all()
+    ct_profile = Contact_Assets.objects.filter(id=request.user.id)
     if request.method == "GET":
         pass
 
@@ -191,7 +195,7 @@ def success_profile(request):
 
 
 def allassets(request):
-    ct_profile = Contact_Assets.objects.all()
+    ct_profile = Contact_Assets.objects.filter(id=request.user.id)
     asset_list = Assets.objects.all()
     dict = {
         'ct_profile': ct_profile,
@@ -203,7 +207,7 @@ def allassets(request):
 
 
 def add_assets(request):
-    ft_utils = fuel_utils.objects.all()
+    ft_utils = fuel_utils.objects.filter(id=request.user.id)
     if request.method == 'POST':
         asset_name = request.POST.get('asset_name')
         asset_type = request.POST.get('asset_type')
@@ -230,7 +234,7 @@ def add_assets(request):
 
 
 def edit_assets(request):
-    all_assets = Assets.objects.all()
+    all_assets = Assets.objects.filter(id=request.user.id)
     ct_profile= Contact_Assets.objects.all()
     dict = {
         'all_assets': all_assets,
