@@ -244,8 +244,8 @@ def edit_assets(request):
     return render(request, 'Uftl_App/editasset.html', context=dict)
 
 def delete_asset(request, id):
-    if request.method == 'POST':
+    if request.method == 'GET':
         pi = Assets.objects.get(pk=id)
         pi.delete()
-        return HttpResponseRedirect('/Uftl_App/allassets.html')
+        return HttpResponseRedirect(reverse('uftl.assets_list'))
 

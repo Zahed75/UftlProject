@@ -1,225 +1,213 @@
-{% extends 'profile_base.html' %}
-{% load static %}
-{% block title_block %}Order Dashboard{% endblock %}
-{% block profile_block %}
+{% extends 'profile_base.html' %} {% load static %} {% block title_block %}Order Dashboard{% endblock %} {% block profile_block %}
 
-    <!-- Sidebar Start  -->
-    <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar">
-            <div class="p-2 pt-1">
+<!-- Sidebar Start  -->
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="p-2 pt-1">
 
-                <a href="#" class="nav__logo">
-                    <div class="logoside">
-                        <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG"/>
-                        <div class="tex">
-                            <p class="text1">URGENT</p>
-                            <p class="text2">FUEL</p>
-                        </div>
+            <a href="#" class="nav__logo">
+                <div class="logoside">
+                    <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG" />
+                    <div class="tex">
+                        <p class="text1">URGENT</p>
+                        <p class="text2">FUEL</p>
                     </div>
+                </div>
 
-                </a>
+            </a>
 
-                <a href="#" class="img logo rounded-circle mb-2"
-                   style="background-image: url(assets/img/saul.png);"> </a>
-                <h3 class="text-center mb-4 username">Saul Ramirez</h3>
+            <a href="#" class="img logo rounded-circle mb-2" style="background-image: url(assets/img/saul.png);"> </a>
+            <h3 class="text-center mb-4 username">Saul Ramirez</h3>
 
 
-                <ul class="list-unstyled components mb-2 p-2">
+            <ul class="list-unstyled components mb-2 p-2">
 
-                    <li>
-                        <a href="#"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
-                    </li>
+                <li>
+                    <a href="#"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
+                </li>
 
-                    <li>
-                        <a href="#"><i class='bx bx-list-check setup'></i>Place an Order</a>
-                    </li>
+                <li>
+                    <a href="#"><i class='bx bx-list-check setup'></i>Place an Order</a>
+                </li>
 
-                    <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class='bx bx-info-circle setup'></i>Assets</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li>
-                                <a href="{% url "Uftl_App:assets_list" %}"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
-                            </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class='bx bx-info-circle setup'></i>Assets</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="{% url 'uftl.assets_list' %}"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
+                        </li>
 
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class='bx bx-clipboard setup'></i>Reporting</a>
-                    </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class='bx bx-clipboard setup'></i>Reporting</a>
+                </li>
 
+                <li>
+                    <a href="#">
+                        <ion-icon class="setup" name="settings-outline"></ion-icon>
+                        Edit Profile</a>
+                </li>
+
+
+                <div class="logout">
+                    <button class="livechat" type="submit" id="sendMessageButton">Live Chat</button>
+                    <div class="logoutline"></div>
                     <li>
                         <a href="#">
-                            <ion-icon class="setup" name="settings-outline"></ion-icon>
-                            Edit Profile</a>
+                            <ion-icon class="setup" name="log-out-outline"></ion-icon>
+                            </ion-icon>Log Out</a>
                     </li>
+                </div>
+            </ul>
+
+            <div class="footer">
+                <p>
+
+                </p>
+            </div>
+
+        </div>
+    </nav>
 
 
-                    <div class="logout">
-                        <button class="livechat" type="submit" id="sendMessageButton">Live Chat</button>
-                        <div class="logoutline"></div>
-                        <li>
-                            <a href="#">
-                                <ion-icon class="setup" name="log-out-outline"></ion-icon>
-                                </ion-icon>Log Out</a>
-                        </li>
+    <!-- Sidebar End  -->
+
+    <!-- Page Content r kaj korbe  -->
+    <div id="content" class="p-4 p-md-3">
+
+        <nav class="">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+
+                <div class="float-right">
+                    <div class=" menu ">
+                        <div class="header__img ">
+                            <img class="navimage" src="{% static 'assets/img/saul.png'%}" alt=" ">
+
+                        </div>
+
+                        <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
+                        <p class="back">Back to Home</p>
                     </div>
-                </ul>
-
-                <div class="footer">
-                    <p>
-
-                    </p>
                 </div>
 
             </div>
         </nav>
 
+        <div id="content" class="p-4 p-md-5">
 
-        <!-- Sidebar End  -->
-
-        <!-- Page Content r kaj korbe  -->
-        <div id="content" class="p-4 p-md-3">
-
-            <nav class="">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
-                        <span class="sr-only">Toggle Menu</span>
-                    </button>
-
-                    <div class="float-right">
-                        <div class=" menu ">
-                            <div class="header__img ">
-                                <img class="navimage" src="{% static 'assets/img/saul.png'%}" alt=" ">
-
-                            </div>
-
-                            <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
-                            <p class="back">Back to Home</p>
-                        </div>
-                    </div>
-
-                </div>
-            </nav>
-
-            <div id="content" class="p-4 p-md-5">
-
-                <div class="container">
+            <div class="container">
 
 
-                    <div class="form-section d-flex justify-content-center align-items-center my-5">
-                        <form method="POST" class="form-group" enctype="multipart/form-data">
-                                {% csrf_token %}
-                            <div class="row justify-content-around ipad">
+                <div class="form-section d-flex justify-content-center align-items-center my-5">
+                    <form method="POST" class="form-group" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row justify-content-around ipad">
 
-                                <div class="col-sm-6 col-md-6 ">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="headingtext2">Add an Asset
+                            <div class="col-sm-6 col-md-6 ">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="headingtext2">Add an Asset
 
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-6 col-md-3 fuel">
-
-                                        <input type="text" name="asset_name" class="fuel-input"
-                                               placeholder="Asset Name*">
-                                        <p class="help-block"></p>
+                                        </p>
                                     </div>
 
-                                    <div class="col-sm-6 col-md-3 fuel">
-                                        <select name="asset_type" class="selectbox">
+                                </div>
+                                <div class="col-sm-6 col-md-3 fuel">
+
+                                    <input type="text" name="asset_name" class="fuel-input" placeholder="Asset Name*">
+                                    <p class="help-block"></p>
+                                </div>
+
+                                <div class="col-sm-6 col-md-3 fuel">
+                                    <select name="asset_type" class="selectbox">
                                             <option selected disabled value="select">Asset type*</option>
                                             {% for x in ft_utils %}
                                                 <option value="{{ x.asset_type }}">{{ x.asset_type }}</option>
                                             {% endfor %}
                                         </select>
-                                        <p class="help-block"></p>
-                                    </div>
+                                    <p class="help-block"></p>
+                                </div>
 
-                                    <div class="col-sm-6 col-md-3 fuel">
-                                        <select name="fuel_type" class="selectbox">
+                                <div class="col-sm-6 col-md-3 fuel">
+                                    <select name="fuel_type" class="selectbox">
                                             <option selected disabled value="select">Fuel Type*</option>
                                             {% for x in ft_utils %}
                                             <option value="{{ x.fuel_type }}">{{ x.fuel_type }}</option>
                                             {% endfor %}
 
                                         </select>
-                                        <p class="help-block"></p>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-3 fuel">
-                                        <input type="text" name="asset_location" class="fuel-input"
-                                               placeholder="Asset Location*">
-                                        <p class="help-block"></p>
-                                    </div>
-
+                                    <p class="help-block"></p>
                                 </div>
 
-                                <div class="col-sm-7 col-md-3">
+                                <div class="col-sm-6 col-md-3 fuel">
+                                    <input type="text" name="asset_location" class="fuel-input" placeholder="Asset Location*">
+                                    <p class="help-block"></p>
+                                </div>
 
-                                    <div class="col-sm-6 col-md-3 rightsection">
-                                        <div class="file-upload">
+                            </div>
+
+                            <div class="col-sm-7 col-md-3">
+
+                                <div class="col-sm-6 col-md-3 rightsection">
+                                    <div class="file-upload">
 
 
-                                            <div class="image-upload-wrap">
+                                        <div class="image-upload-wrap">
 
-                                                <input required name="asset_photo" class="file-upload-input" type='file' onchange="readURL(this);"
-                                                       accept="image/*"/>
-                                                <div class="drag-text">
-                                                    <p class="drag2">Photo/Logo (Optional)</p>
-                                                    <svg class="icon-image2" xmlns="http://www.w3.org/2000/svg"
-                                                         width="50" height="50" viewBox="0 0 24 24"
-                                                         style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                            <input required name="asset_photo" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                            <div class="drag-text">
+                                                <p class="drag2">Photo/Logo (Optional)</p>
+                                                <svg class="icon-image2" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
                                                         <path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19V5h14l.002 14H5z"></path>
                                                         <path d="m10 14-1-1-3 4h12l-5-7z"></path>
                                                     </svg>
-                                                    <h3 class="drapanddrop">Drag and drop a photo or
-                                                        <button class="file-upload-btn" type="button"
-                                                                onclick="$('.file-upload-input').trigger( 'click' )">
+                                                <h3 class="drapanddrop">Drag and drop a photo or
+                                                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">
                                                             browse
-                                                        </button>
-                                                        a file or upload!
-                                                    </h3>
-                                                </div>
+                                                        </button> a file or upload!
+                                                </h3>
                                             </div>
-                                            <div class="file-upload-content">
-                                                <img class="file-upload-image" src="#" alt="your image"/>
-                                                <div class="image-title-wrap">
-                                                    <button type="button" onclick="removeUpload()" class="remove-image">
+                                        </div>
+                                        <div class="file-upload-content">
+                                            <img class="file-upload-image" src="#" alt="your image" />
+                                            <div class="image-title-wrap">
+                                                <button type="button" onclick="removeUpload()" class="remove-image">
                                                         Remove <span class="image-title">Uploaded Image</span></button>
-                                                </div>
                                             </div>
-
-
-                                            <button  class="fuel-ordery" onclick="Show1()" type="submit"
-                                                    id="sendMessageButton">Save
-                                            </button>
-
                                         </div>
 
+
+                                        <button class="fuel-ordery" onclick="Show1()" type="submit" id="sendMessageButton">Save
+                                            </button>
+
                                     </div>
+
                                 </div>
                             </div>
+                        </div>
 
 
-                        </form>
-                    </div>
-
-
+                    </form>
                 </div>
 
 
             </div>
 
+
         </div>
+
     </div>
+</div>
 
 
 

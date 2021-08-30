@@ -43,11 +43,11 @@
                         <i class='bx bx-info-circle setup'></i>Assets</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="{% url " Uftl_App:assets_list " %}"><i
+                            <a href="{% url 'uftl.assets_list' %}"><i
                                         class='bx bx-radio-circle-marked setup'></i>All Assets</a>
                         </li>
                         <li>
-                            <a href="{% url " Uftl_App:add_assets " %}"><i
+                            <a href="{% url 'add_assets' %}"><i
                                         class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
                         </li>
 
@@ -122,8 +122,8 @@
                         <img class="box1" src="{{ x.asset_photo.url }}" alt="">
                         <h5 class="allassetstitle">{{ x.asset_name }}</h5>
                         <p class="allassetsdecrip">{{ x.asset_location }}</p>
-                        <a href="{% url " Uftl_App:edit_assets " %}">edit</a>
-                        <a href="{% url " Uftl_App:deleteasset " x.id %}">Delete</a>
+                        <a href="{% url 'edit_assets' %}">edit</a>
+                        <a href="{% url 'deleteasset' x.id %}">Delete</a>
 
                     </div>
                 </div>
@@ -132,7 +132,7 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-4  ">
                     <div class="box1">
-                        <a href="{% url " Uftl_App:add_assets " %}"><i class='bx bx-plus addasset'></i></a>
+                        <a href="{% url "add_assets" %}"><i class='bx bx-plus addasset'></i></a>
                     </div>
                 </div>
             </div>
