@@ -251,3 +251,7 @@ def delete_asset(request, id):
 
 
 
+def report(request):
+
+    dict={}
+    return render(request,'Uftl_App/reporting.html',context=dict)

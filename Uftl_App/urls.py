@@ -15,5 +15,6 @@ urlpatterns = [
     path('add_assets/',views.add_assets,name='add_assets'),
     path('edit_assets/',views.edit_assets,name='edit_assets'),
     path('delete/<int:id>/', views.delete_asset, name='deleteasset'),
+    path('user-report/',views.report,name='report'),
 
 ]
