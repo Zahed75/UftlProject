@@ -249,3 +249,5 @@ def delete_asset(request, id):
         pi.delete()
         return HttpResponseRedirect(reverse('uftl.assets_list'))
 
+
+

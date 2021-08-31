@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.urls import path
 from App_Login import views
 
-app_name = 'App_Login'
+# app_name = 'App_Login'
 
 urlpatterns = [
     path('Sign_in/', views.Sign_in, name='Sign_in'),

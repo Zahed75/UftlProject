@@ -23,7 +23,7 @@
 
                 <a href="#" class="img logo rounded-circle mb-2"
                    style="background-image: url({% static 'assets/img/1.png' %});"> </a>
-                <h3 class="text-center mb-5 username">{{ request.user.username}}</h3>
+                <h3 class="text-center mb-5 username">{{ request.user.username }}</h3>
 
 
                 <ul class="list-unstyled components mb-5">
@@ -69,7 +69,7 @@
                             </div>
 
                             <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
-                            <a href="{% url 'Uftl_App:index' %}"><p class="back">Back to Home</p></a>
+                            <a href="{% url 'index' %}"><p class="back">Back to Home</p></a>
                         </div>
                     </div>
 
@@ -181,7 +181,7 @@
                                                 </div>
 
 
-                                                <a href="{% url 'Uftl_App:contactprofile' %}">
+                                                <a href="{% url 'contactprofile' %}">
                                                     <button class="fuel-ordery text-center" type="submit"
                                                             id="sendMessageButton">
                                                         save & Next

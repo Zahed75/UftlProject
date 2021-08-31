@@ -27,11 +27,11 @@
                 <ul class="list-unstyled components mb-2 p-2">
 
                     <li>
-                        <a href="{% url "Uftl_App:order_fuel" %}"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
+                        <a href="{% url 'order_fuel' %}"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
                     </li>
 
                     <li>
-                        <a href="{% url "Uftl_App:order_fuel" %}"><i class='bx bx-list-check setup'></i>Place an
+                        <a href="{% url 'order_fuel' %}"><i class='bx bx-list-check setup'></i>Place an
                             Order</a>
                     </li>
 
@@ -40,10 +40,10 @@
                             <i class='bx bx-info-circle setup'></i>Assets</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="{% url "Uftl_App:assets_list" %}"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
+                                <a href="{% url 'assets_list' %}"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
                             </li>
                             <li>
-                                <a href="{% url "Uftl_App:add_assets" %}"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
+                                <a href="{% url 'add_assets' %}"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
                             </li>
 
                         </ul>
@@ -122,7 +122,7 @@
                                                 <bold class="description-bold"> Let’s have some fuel!</bold>
                                             </p>
 
-                                            <a href="{% url "Uftl_App:order_fuel" %}" class="order-fuel">Order Fuel</a>
+                                            <a href="{% url 'order_fuel' %}" class="order-fuel">Order Fuel</a>
                                         </div>
 
                                         <div class="col-sm-2">
