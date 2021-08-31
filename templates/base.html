@@ -46,8 +46,8 @@
                     <div class="links d-flex flex-row align-items-center">
                         <a href="{% url 'index' %}" class="to-close">Home</a>
                         <a href="#" class="to-close">Service</a>
-                        <a href="blog.html" class="to-close">Blog</a>
-                        <a href="about.html" class="to-close">About Us</a>
+                        <a href="#" class="to-close">Blog</a>
+                        <a href="#" class="to-close">About Us</a>
                         <a href="#" class="to-close">Contact</a>
                     </div>
                     <div class="search">
@@ -61,12 +61,11 @@
                         </div>
                     </div>
 
-{#                    <p>{{ request.user.username }} </p>#}
                     <div class="buttons">
-                        <a href="{% url 'App_Login:Sign_in' %}" class="to-close">
+                        <a href="{% url 'Sign_in' %}" class="to-close">
                             <button class="custom-btn">Login</button>
                         </a>
-                        <a href="{% url 'App_Login:Signup' %}" class="to-close">
+                        <a href="{% url 'Signup' %}" class="to-close">
                             <button class="custom-btn">Signup</button>
                         </a>
                         {# {% endif %}#}
@@ -98,11 +97,11 @@
                             now</a>
                         </div>
                         <div class="buttons-phone mt-2">
-                            <a href="{% url 'App_Login:Sign_in' %}">
+                            <a href="{% url 'Sign_in' %}">
                                 <button><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;Login
                             </button>
                             </a><br>
-                            <a href="{% url 'App_Login:Signup' %}">
+                            <a href="{% url 'Signup' %}">
                                 <button><i class="far fa-user"></i>&nbsp;&nbsp;&nbsp;Signup</button>
                             </a>
 
