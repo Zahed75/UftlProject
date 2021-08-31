@@ -9,7 +9,7 @@
 
                 <a href="#" class="nav__logo">
                     <div class="logoside">
-                        <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG" />
+                        <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG"/>
                         <div class="tex">
                             <p class="text1">URGENT</p>
                             <p class="text2">FUEL</p>
@@ -18,10 +18,9 @@
 
                 </a>
 
-                <a href="#" class="img logo rounded-circle mb-2" style="background-image: url({% static 'assets/img/saul.png' %});"> </a>
+                <a href="#" class="img logo rounded-circle mb-2"
+                   style="background-image: url({% static 'assets/img/saul.png' %});"> </a>
                 <h3 class="text-center mb-4 username">Saul Ramirez</h3>
-
-
 
 
                 <ul class="list-unstyled components mb-2 p-2">
@@ -39,10 +38,12 @@
                             <i class='bx bx-info-circle setup'></i>Assets</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="{% url 'uftl.assets_list' %}"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
+                                <a href="{% url 'uftl.assets_list' %}"><i class='bx bx-radio-circle-marked setup'></i>All
+                                    Assets</a>
                             </li>
                             <li>
-                                <a href="{% url 'add_assets' %}"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
+                                <a href="{% url 'add_assets' %}"><i class='bx bx-radio-circle-marked setup'></i>Add an
+                                    Asset</a>
                             </li>
 
                         </ul>
@@ -53,7 +54,8 @@
 
                     <li>
                         <a href="#">
-                            <ion-icon class="setup" name="settings-outline"></ion-icon>Edit Profile</a>
+                            <ion-icon class="setup" name="settings-outline"></ion-icon>
+                            Edit Profile</a>
                     </li>
 
 
@@ -87,8 +89,7 @@
                     <button type="button" id="sidebarCollapse" class="btn btn-primary">
                         <i class="fa fa-bars"></i>
                         <span class="sr-only">Toggle Menu</span>
-                     </button>
-
+                    </button>
 
 
                     <div class="float-right">
@@ -98,8 +99,9 @@
 
                             </div>
 
-                            <a href="{% url 'dashboard' %}"><ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
-                            <p class="back">Back to Home</p></a>
+                            <a href="{% url 'dashboard' %}">
+                                <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
+                                <p class="back">Back to Dashboard</p></a>
                         </div>
                     </div>
 
@@ -117,7 +119,8 @@
                         </select>
                     </div>
                     <div class="col-2">
-                        <input type="date" id="birthday" class="datarange" placeholder="Date Range" onchange="this.className=(this.value!=''?'has-value':'')">
+                        <input type="date" id="birthday" class="datarange" placeholder="Date Range"
+                               onchange="this.className=(this.value!=''?'has-value':'')">
                     </div>
                     <div class="col-2">
                         <select name="fuel-type" class="status">
@@ -162,117 +165,25 @@
                 <div class="row">
                     <div class="devicer"></div>
                 </div>
-
+                    {% for x in user_order %}
                 <div class="row results">
                     <div class="col-2">
-                        <p class="orderid">#UF080001</p>
+                        <p class="orderid">{{ x.order_id }}</p>
                     </div>
                     <div class="col-4">
                         <div class="profile">
                             <img class="circleimage" src="assets/img/e1.png" alt="">
                             <div class="profileinfo">
-                                <p class="data">My Generator 2</p>
-                                <p class="time">160, Senanibasroad, Sec-12 Mirpur</p>
+                                <p class="data">{{ x.asset_name }}</p>
+
+                                <p class="time">Azimipur test</p>
+
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-2">
-                        <p class="data">31/07</p>
-                        <p class="time">06:00 PM</p>
-                    </div>
-                    <div class="col-1">
-                        <p class="amount">50L</p>
-                    </div>
-                    <div class="col-1">
-                        <p class="cost">4850</p>
-                    </div>
-                    <div class="col-2 btnmargin">
-                        <a href="#" class="ontheway ">On the way</a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="devicer"></div>
-                </div>
-
-                <div class="row results">
-                    <div class="col-2">
-                        <p class="orderid">#UF080001</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="profile">
-                            <img class="circleimage" src="assets/img/e2.png" alt="">
-                            <div class="profileinfo">
-                                <p class="data">My Generator 3</p>
-                                <p class="time">road #6, dhanmondi r/a, dhanmondi, 12020</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <p class="data">31/07</p>
-                        <p class="time">06:00 PM</p>
-                    </div>
-                    <div class="col-1">
-                        <p class="amount">80L</p>
-                    </div>
-                    <div class="col-1">
-                        <p class="cost">8740</p>
-                    </div>
-                    <div class="col-2 btnmargin">
-                        <a href="#" class="processing">Processing</a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="devicer"></div>
-                </div>
-
-                <div class="row results">
-                    <div class="col-2">
-                        <p class="orderid">#UF080001</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="profile">
-                            <img class="circleimage" src="assets/img/e1.png" alt="">
-                            <div class="profileinfo">
-                                <p class="data">SB Hospital Generator</p>
-                                <p class="time">412/b, Elephant Road ( 2nd Flour), Dhaka</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <p class="data">31/07</p>
-                        <p class="time">06:00 PM</p>
-                    </div>
-                    <div class="col-1">
-                        <p class="amount">30L</p>
-                    </div>
-                    <div class="col-1">
-                        <p class="cost">3350</p>
-                    </div>
-                    <div class="col-2 btnmargin">
-                        <a href="#" class="cancelled">Cancelled</a>
-                    </div>
-                </div>
 
 
-                <div class="row">
-                    <div class="devicer"></div>
-                </div>
-
-                <div class="row results">
-                    <div class="col-2">
-                        <p class="orderid">#UF080001</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="profile">
-                            <img class="circleimage" src="assets/img/e3.png" alt="">
-                            <div class="profileinfo">
-                                <p class="data">AB Construction Site Trucks</p>
-                                <p class="time">412/b, Elephant Road ( 2nd Flour), Dhaka</p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-2">
                         <p class="data">31/07</p>
                         <p class="time">06:00 PM</p>
@@ -287,10 +198,10 @@
                         <a href="#" class="delivered">Delivered</a>
                     </div>
                 </div>
+                {% endfor %}
 
 
             </div>
-
 
 
         </div>

@@ -30,11 +30,11 @@
                 <ul class="list-unstyled components mb-2 p-2">
 
                     <li>
-                        <a href="#"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
+                        <a href="{% url 'dashboard' %}"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
                     </li>
 
                     <li>
-                        <a href="#"><i class='bx bx-list-check setup'></i>Place an Order</a>
+                        <a href="{% url 'order_fuel' %}"><i class='bx bx-list-check setup'></i>Place an Order</a>
                     </li>
 
                     <li class="active">
@@ -42,7 +42,7 @@
                             <i class='bx bx-info-circle setup'></i>Assets</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="{% url 'assets_list %}"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
+                                <a href="{% url 'uftl.assets_list' %}"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
                             </li>
                             <li>
                                 <a href="{% url 'asset' %}"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>

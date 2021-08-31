@@ -72,8 +72,6 @@ def assets_contact(request):
     return render(request, 'Uftl_App/contactprofile.html', context=dict)
 
 
-
-
 @login_required()
 def assets_profile(request):
     ft = fuel_utils.objects.all()
@@ -243,6 +241,7 @@ def edit_assets(request):
 
     return render(request, 'Uftl_App/editasset.html', context=dict)
 
+
 def delete_asset(request, id):
     if request.method == 'GET':
         pi = Assets.objects.get(pk=id)
@@ -250,8 +249,11 @@ def delete_asset(request, id):
         return HttpResponseRedirect(reverse('uftl.assets_list'))
 
 
-
 def report(request):
+    user_order = OrderList.objects.filter(user=request.user)
+    ct_profile = Contact_Assets.objects.filter(user=request.user)
+    at=Assets.objects.filter(user=request.user)
+    dict = {'user_order': user_order, 'ct_profile': ct_profile,'at':at}
 
-    dict={}
-    return render(request,'Uftl_App/reporting.html',context=dict)
+    print(user_order)
+    return render(request, 'Uftl_App/reporting.html', context=dict)
