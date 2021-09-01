@@ -231,12 +231,29 @@ def add_assets(request):
     return render(request, 'Uftl_App/addnewasset.html', context=dict)
 
 
-def edit_assets(request):
-    all_assets = Assets.objects.filter(user=request.user)
-    ct_profile = Contact_Assets.objects.all()
+def edit_assets(request, id):
+    all_assets = Assets.objects.get(pk=id)
+    # all_assets.asset_name = "hello"
+    
+    ct_profile = Contact_Assets.objects.filter(user=request.user)
+    # ft_utils = fuel_utils.objects.get(pk=id)
+    ft_utils = fuel_utils.objects.all()
+
+    if request.method == 'POST':
+        all_assets.asset_name = request.POST.get('asset_name')
+        all_assets.asset_type = request.POST.get('asset_type')
+        all_assets.asset_location = request.POST.get('asset_location')
+        all_assets.fuel_type = request.POST.get('fuel_type')   
+        all_assets.asset_photo = request.FILES['asset_photo']
+    all_assets.save()
+
+
+    print(all_assets)
+    
     dict = {
         'all_assets': all_assets,
-        'ct_profile': ct_profile
+        'ct_profile': ct_profile,
+        'ft_utils' : ft_utils,
     }
 
     return render(request, 'Uftl_App/editasset.html', context=dict)

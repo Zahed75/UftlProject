@@ -6,7 +6,7 @@ from .models import *
 
 @admin.register(Assets)
 class AssetsAdmin(admin.ModelAdmin):
-    list_display = ('user', 'asset_name', 'asset_type', 'asset_location')
+    list_display = ('user', 'asset_name', 'asset_type', 'asset_location', 'fuel_type')
 
 
 @admin.register(Contact_Assets)
