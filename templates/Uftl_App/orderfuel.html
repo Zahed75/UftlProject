@@ -110,6 +110,7 @@
             </nav>
 
             <form method="POST">
+             {% include 'messages.html' %}
                 {% csrf_token %}
 
                 <div id="content" class="p-4 p-md-5">
@@ -124,16 +125,22 @@
 
 
                                         {% for i in ai %}
-                                            <option  selected value="{{ i.asset_name}}">{{ i.asset_name }}</option>
+                                            <option  selected value="{{ i.asset_location}}">{{ i.asset_name }}</option>
 
-                                            <option  value="{{ i.asset_name }}"> {{ i.asset_name }}</option>
+{#                                            <option  value="{{ i.asset_location }}"> {{ i.asset_location }}</option>#}
                                         {% endfor %}
                                     </select>
+
+                                    <input type="text" class="assetLocation" id="asstLoc" readonly>
+{#                                    <input type="text"  class="assetnamehidethakbe" id="assetname" readonly>#}
+
+
+
 
 
                                     <p class="help-block"></p>
 
-                                    <input type="text" class="assetLocation" id="asstLoc" readonly>
+
                                 </div>
                             </div>
 
@@ -318,7 +325,7 @@
                     </div>
 
                 </div>
-                <button class="btn btn-info" type="submit"> submit</button>
+                <button id="btn" class="btn btn-info" type="submit"> submit</button>
 
             </form>
         </div>

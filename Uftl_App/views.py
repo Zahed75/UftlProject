@@ -172,7 +172,6 @@ def order_fuel(request):
                 asset_name=asset_name,
                 fuel_type=fuel_type,
 
-
             )
             print(asset_name)
 
@@ -235,7 +234,7 @@ def add_assets(request):
 def edit_assets(request, id):
     all_assets = Assets.objects.get(pk=id)
     # all_assets.asset_name = "hello"
-    
+
     ct_profile = Contact_Assets.objects.filter(user=request.user)
     # ft_utils = fuel_utils.objects.get(pk=id)
     ft_utils = fuel_utils.objects.all()
@@ -244,17 +243,16 @@ def edit_assets(request, id):
         all_assets.asset_name = request.POST.get('asset_name')
         all_assets.asset_type = request.POST.get('asset_type')
         all_assets.asset_location = request.POST.get('asset_location')
-        all_assets.fuel_type = request.POST.get('fuel_type')   
+        all_assets.fuel_type = request.POST.get('fuel_type')
         all_assets.asset_photo = request.FILES['asset_photo']
     all_assets.save()
 
-
     print(all_assets)
-    
+
     dict = {
         'all_assets': all_assets,
         'ct_profile': ct_profile,
-        'ft_utils' : ft_utils,
+        'ft_utils': ft_utils,
     }
 
     return render(request, 'Uftl_App/editasset.html', context=dict)
@@ -270,8 +268,8 @@ def delete_asset(request, id):
 def report(request):
     user_order = OrderList.objects.filter(user=request.user)
     ct_profile = Contact_Assets.objects.filter(user=request.user)
-    at=Assets.objects.filter(user=request.user)
-    dict = {'user_order': user_order, 'ct_profile': ct_profile,'at':at}
+    at = Assets.objects.filter(user=request.user)
+    dict = {'user_order': user_order, 'ct_profile': ct_profile, 'at': at}
 
     print(user_order)
     return render(request, 'Uftl_App/reporting.html', context=dict)

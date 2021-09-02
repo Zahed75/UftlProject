@@ -65,10 +65,23 @@ document.querySelector(".minus-btn").addEventListener("click", function () {
 
 
 var dos = document.getElementById("assetname");
+
 var assetlocation = document.getElementById("asstLoc");
+
 assetlocation.value = dos.options[dos.selectedIndex].value
+
 dos.addEventListener('change', () => {
 
     assetlocation.value = dos.options[dos.selectedIndex].value
 
 });
+
+const btn = document.querySelector('#btn');
+const sb = document.querySelector('#framework');
+btn.onclick = (e) => {
+            e.preventDefault();
+            const selectedValues = [].filter
+                .call(sb.options, option => option.selected)
+                .map(option => option.text);
+            alert(selectedValues);
+};

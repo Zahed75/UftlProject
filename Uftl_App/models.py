@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+
 class Assets(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     asset_name = models.CharField(max_length=220, blank=False)
@@ -69,7 +71,11 @@ class OrderList(models.Model):
     # Online_Payment=models.CharField(max_length=300,blank=True)
     # Swipe_on_delivery=models.CharField(max_length=300,blank=True)
     payment_method = models.CharField(max_length=300, blank=True)
-
+    # STATUS = (
+    #     ('REGULAR', 'REGULAR'),
+    #     ('RETAKE', 'RETAKE'),
+    # )
+    # status = models.CharField(max_length=30, choices=STATUS, default=STATUS[0])
 
 # class edit_asset(models.Model):
 #     user = models.ForeignKey(User, on_delete=models.CASCADE)
