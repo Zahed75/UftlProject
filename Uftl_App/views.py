@@ -170,7 +170,8 @@ def order_fuel(request):
                 payment_method=payment_method,
                 order_id=order_id,
                 asset_name=asset_name,
-                fuel_type=fuel_type
+                fuel_type=fuel_type,
+
 
             )
             print(asset_name)

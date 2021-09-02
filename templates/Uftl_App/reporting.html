@@ -172,12 +172,12 @@
                     </div>
                     <div class="col-4">
                         <div class="profile">
-                            <img class="circleimage" src="assets/img/e1.png" alt="">
+                            <img class="circleimage" src="{{ x.asset_photo.url }}" alt="">
                             <div class="profileinfo">
                                 <p class="data">{{ x.asset_name }}</p>
-
-                                <p class="time">Azimipur test</p>
-
+                                    {% for x in at %}
+                                <p class="time">{{ x.asset_location }}</p>
+                                    {% endfor %}
 
                             </div>
                         </div>
@@ -185,14 +185,14 @@
 
 
                     <div class="col-2">
-                        <p class="data">31/07</p>
-                        <p class="time">06:00 PM</p>
+                        <p class="data">{{ x.date }}</p>
+                        <p class="time">{{ x.time }}</p>
                     </div>
                     <div class="col-1">
-                        <p class="amount">50L</p>
+                        <p class="amount">{{ x.fuel_amount }}</p>
                     </div>
                     <div class="col-1">
-                        <p class="cost">9850</p>
+                        <p class="cost">{{ x.total_amount }}</p>
                     </div>
                     <div class="col-2 btnmargin">
                         <a href="#" class="delivered">Delivered</a>
