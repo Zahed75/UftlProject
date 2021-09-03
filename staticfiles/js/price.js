@@ -65,13 +65,9 @@ document.querySelector(".minus-btn").addEventListener("click", function() {
 
 
 var dos = document.getElementById("assetname");
-
 var asset_name = document.getElementById("asstnam");
-
 var assetlocation = document.getElementById("asstLoc");
-
 // asset_name.value = dos.options[dos.selectedIndex].text
-
 
 assetlocation.value = dos.options[dos.selectedIndex].value
 
