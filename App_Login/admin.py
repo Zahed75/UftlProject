@@ -14,7 +14,7 @@ class OrderFuelAdmin(admin.ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user','created_at')
+    list_display = ( 'user','created_at')
 
 @admin.register(fuel_utils)
 class fuel_utilsAdmin(admin.ModelAdmin):

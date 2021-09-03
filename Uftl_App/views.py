@@ -191,7 +191,7 @@ def success_profile(request):
     dict = {}
     return render(request, 'Uftl_App/profile_congo.html', context=dict)
 
-
+@login_required()
 def allassets(request):
     ct_profile = Contact_Assets.objects.filter(user=request.user)
     asset_list = Assets.objects.filter(user=request.user)
@@ -203,7 +203,7 @@ def allassets(request):
 
     return render(request, 'Uftl_App/allassets.html', context=dict)
 
-
+@login_required()
 def add_assets(request):
     ft_utils = fuel_utils.objects.all()
     if request.method == 'POST':
@@ -230,11 +230,10 @@ def add_assets(request):
 
     return render(request, 'Uftl_App/addnewasset.html', context=dict)
 
-
+@login_required()
 def edit_assets(request, id):
     all_assets = Assets.objects.get(pk=id)
     # all_assets.asset_name = "hello"
-    
     ct_profile = Contact_Assets.objects.filter(user=request.user)
     # ft_utils = fuel_utils.objects.get(pk=id)
     ft_utils = fuel_utils.objects.all()
@@ -245,6 +244,7 @@ def edit_assets(request, id):
         all_assets.asset_location = request.POST.get('asset_location')
         all_assets.fuel_type = request.POST.get('fuel_type')   
         all_assets.asset_photo = request.FILES['asset_photo']
+
     all_assets.save()
 
 
@@ -258,7 +258,7 @@ def edit_assets(request, id):
 
     return render(request, 'Uftl_App/editasset.html', context=dict)
 
-
+@login_required()
 def delete_asset(request, id):
     if request.method == 'GET':
         pi = Assets.objects.get(pk=id)
@@ -274,3 +274,31 @@ def report(request):
 
     print(user_order)
     return render(request, 'Uftl_App/reporting.html', context=dict)
+
+
+@login_required()
+def edit_profile(request):
+    my_profile = Contact_Assets.objects.get(user=request.user)
+    my_ft = fuel_utils.objects.all()
+    if request.method == 'POST':
+        my_profile.full_name = request.POST.get('full_name')
+        my_profile.company_name = request.POST.get('company_name')
+        my_profile.phone_number = request.POST.get('phone_number')
+        my_profile.email = request.POST.get('email')
+        my_profile.area = request.POST.get('area')
+        # my_profile.contact_photo = request.FILES['contact_photo']
+        my_profile.city = request.POST.get('city')
+        my_profile.billing_add = request.POST.get('billing_add')
+    my_profile.save()
+
+
+    print(my_profile)
+    print(my_profile.area)
+
+    dict = {
+        'my_profile' : my_profile,
+        'my_ft' : my_ft,
+    }
+
+    # messages.success(request, "Your account has been updated successfully")
+    return render(request, 'Uftl_App/editprofile.html', context=dict)

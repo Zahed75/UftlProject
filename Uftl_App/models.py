@@ -25,6 +25,7 @@ class Contact_Assets(models.Model):
     billing_add = models.CharField(max_length=300)
 
 
+
 class OrderDashboard(models.Model):
     client = models.ForeignKey(User, on_delete=models.CASCADE)
     time = models.TimeField(verbose_name='Please put your time', blank=True)

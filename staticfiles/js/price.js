@@ -41,7 +41,7 @@ function priceTotal() {
 var discountPrice = discontInput.value
 
 
-document.querySelector(".plus-btn").addEventListener("click", function () {
+document.querySelector(".plus-btn").addEventListener("click", function() {
     valueCount = document.getElementById("quantity").value;
     valueCount++;
     document.getElementById("quantity").value = valueCount;
@@ -52,7 +52,7 @@ document.querySelector(".plus-btn").addEventListener("click", function () {
     }
     priceTotal()
 })
-document.querySelector(".minus-btn").addEventListener("click", function () {
+document.querySelector(".minus-btn").addEventListener("click", function() {
     valueCount = document.getElementById("quantity").value;
     valueCount--;
     document.getElementById("quantity").value = valueCount
@@ -65,10 +65,20 @@ document.querySelector(".minus-btn").addEventListener("click", function () {
 
 
 var dos = document.getElementById("assetname");
-var assetlocation = document.getElementById("asstLoc");
-assetlocation.value = dos.options[dos.selectedIndex].value
-dos.addEventListener('change', () => {
 
+var asset_name = document.getElementById("asstnam");
+
+var assetlocation = document.getElementById("asstLoc");
+
+// asset_name.value = dos.options[dos.selectedIndex].text
+
+
+assetlocation.value = dos.options[dos.selectedIndex].value
+
+console.log(assetlocation.value)
+
+dos.addEventListener('change', () => {
+    // asset_name.value = dos.options[dos.selectedIndex].text
     assetlocation.value = dos.options[dos.selectedIndex].value
 
 });

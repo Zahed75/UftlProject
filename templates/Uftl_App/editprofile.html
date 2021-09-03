@@ -1,274 +1,244 @@
-<!doctype html>
-<html lang="en">
+{% extends 'profile_base.html' %} {% load static %} {% block title_block %}Order Dashboard{% endblock %} {% block profile_block %}
 
-<head>
-    <title>Edit Profile</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Sidebar Start  -->
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="p-2 pt-1">
 
-    <!-- cdn -->
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/button2.css">
-    <link rel="stylesheet" href="css/image.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/select.css">
-    <link rel="stylesheet" href="css/editprofile.css">
-    <link rel="stylesheet" href="css/custom-sidebar.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-
-</head>
-
-<body>
-
-    <!-- Sidebar Start  -->
-    <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar">
-            <div class="p-2 pt-1">
-
-                <a href="#" class="nav__logo">
-                    <div class="logoside">
-                        <img class="logoimage" src="assets/img/logo.svg" alt="My Happy SVG" />
-                        <div class="tex">
-                            <p class="text1">URGENT</p>
-                            <p class="text2">FUEL</p>
-                        </div>
+            <a href="#" class="nav__logo">
+                <div class="logoside">
+                    <img class="logoimage" src="{% static 'assets/img/logo.svg'%}" alt="My Happy SVG" />
+                    <div class="tex">
+                        <p class="text1">URGENT</p>
+                        <p class="text2">FUEL</p>
                     </div>
+                </div>
 
-                </a>
+            </a>
 
-                <a href="#" class="img logo rounded-circle mb-2" style="background-image: url(assets/img/saul.png);"> </a>
-                <h3 class="text-center mb-4 username">Saul Ramirez</h3>
+            <a href="#" class="img logo rounded-circle mb-2" style="background-image: url({% static 'assets/img/saul.png'%});"> </a>
+            <h3 class="text-center mb-4 username">Saul Ramirez</h3>
 
 
 
-                <ul class="list-unstyled components mb-2 p-2">
+            <ul class="list-unstyled components mb-2 p-2">
 
-                    <li>
-                        <a href="#"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
-                    </li>
+                <li>
+                    <a href="#"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
+                </li>
 
-                    <li>
-                        <a href="#"><i class='bx bx-list-check setup'></i>Place an Order</a>
-                    </li>
+                <li>
+                    <a href="#"><i class='bx bx-list-check setup'></i>Place an Order</a>
+                </li>
 
-                    <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class='bx bx-info-circle setup'></i>Assets</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li>
-                                <a href="#"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
-                            </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class='bx bx-info-circle setup'></i>Assets</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
+                        </li>
 
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class='bx bx-clipboard setup'></i>Reporting</a>
-                    </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class='bx bx-clipboard setup'></i>Reporting</a>
+                </li>
 
+                <li>
+                    <a href="#">
+                        <ion-icon class="setup" name="settings-outline"></ion-icon>Edit Profile</a>
+                </li>
+
+
+                <div class="logout">
+                    <button class="livechat" type="submit" id="sendMessageButton">Live Chat</button>
+                    <div class="logoutline"></div>
                     <li>
                         <a href="#">
-                            <ion-icon class="setup" name="settings-outline"></ion-icon>Edit Profile</a>
+                            <ion-icon class="setup" name="log-out-outline"></ion-icon>
+                            </ion-icon>Log Out</a>
                     </li>
+                </div>
+            </ul>
+
+            <div class="footer">
+                <p>
+
+                </p>
+            </div>
+
+        </div>
+    </nav>
 
 
-                    <div class="logout">
-                        <button class="livechat" type="submit" id="sendMessageButton">Live Chat</button>
-                        <div class="logoutline"></div>
-                        <li>
-                            <a href="#">
-                                <ion-icon class="setup" name="log-out-outline"></ion-icon>
-                                </ion-icon>Log Out</a>
-                        </li>
+    <!-- Sidebar End  -->
+
+    <!-- Page Content r kaj korbe  -->
+    <div id="content" class="p-4 p-md-3">
+
+        <nav class="">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                     </button>
+
+                <div class="float-right">
+                    <div class=" menu ">
+                        <div class="header__img ">
+                            <img class="navimage" src="assets/img/saul.png " alt=" ">
+
+                        </div>
+
+                        <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
+                        <p class="back">Back to Home</p>
                     </div>
-                </ul>
-
-                <div class="footer">
-                    <p>
-
-                    </p>
                 </div>
 
             </div>
         </nav>
 
+        <div id="content" class="p-4 p-md-5">
+            <div class="container">
 
-        <!-- Sidebar End  -->
 
-        <!-- Page Content r kaj korbe  -->
-        <div id="content" class="p-4 p-md-3">
 
-            <nav class="">
-                <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-sm-9 justify-content-start">
+                        <p class="headingtext3">Edit Profile
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
-                        <span class="sr-only">Toggle Menu</span>
-                     </button>
-
-                    <div class="float-right">
-                        <div class=" menu ">
-                            <div class="header__img ">
-                                <img class="navimage" src="assets/img/saul.png " alt=" ">
-
-                            </div>
-
-                            <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
-                            <p class="back">Back to Home</p>
-                        </div>
+                        </p>
                     </div>
-
                 </div>
-            </nav>
-
-            <div id="content" class="p-4 p-md-5">
-                <div class="container">
 
 
+                <div class="row justify-content-center">
+                    <div class="col-sm- justify-content-center">
 
-                    <div class="row justify-content-center">
-                        <div class="col-sm-9 justify-content-start">
-                            <p class="headingtext3">Edit Profile
-
-                            </p>
-                        </div>
+                        <img src="{% static 'assets/img/saul.png' %}" class="editimage" alt="">
                     </div>
-
-
-                    <div class="row justify-content-center">
-                        <div class="col-sm- justify-content-center">
-
-                            <img src="assets/img/saul.png" class="editimage" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <div class="col-sm- justify-content-center">
-
-                            <div class="profile_info2">
-                                <h3 class="user-name">SAUL RAMIREZ</h3>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <div class="col-sm- justify-content-center">
-
-                            <div class="">
-                                <h6 class="user-name2">@saul.ramirez</h6>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-                    <div class="form-section d-flex justify-content-center align-items-center my-5">
-                        <form method="POST" class="form-group">
-                            <div class="row justify-content-around">
-                                <div class="col-sm-6 col-md-3 fuel">
-                                    <span class="labelname">Full Name:</span>
-                                    <input type="text" name="fuel-amount" class="fuel-input" placeholder="Saul Ramirez">
-                                    <p class="help-block"></p>
-                                </div>
-
-                                <div class="col-sm-6 col-md-3 fuel">
-                                    <span class="labelname">Company Name:</span>
-                                    <input type="text" name="fuel-amount" class="fuel-input" placeholder="AB Construction">
-                                    <p class="help-block"></p>
-                                </div>
-                            </div>
-
-
-                            <div class="row justify-content-around">
-                                <div class="col-sm-6 col-md-3 fuel">
-                                    <span class="labelname">Phone Number:</span>
-                                    <input type="number" name="fuel-amount" class="fuel-input" placeholder="01248710741">
-                                    <p class="help-block"></p>
-                                </div>
-
-                                <div class="col-sm-6 col-md-3 fuel">
-                                    <span class="labelname">Email:</span>
-                                    <input type="email" name="fuel-amount" class="fuel-input" placeholder="saul.ramirez321@gmail.com">
-                                    <p class="help-block"></p>
-                                </div>
-                            </div>
-
-
-                            <div class="row justify-content-around">
-                                <div class="col-sm-6 col-md-3 fuel">
-                                    <span class="labelname">Area:</span>
-                                    <select name="fuel-type" class="area">
-                                                <option selected disabled value="select">Area*</option>
-                                                <option value="Diesel">Generator</option>
-                                                <option value="Gasoline">Vehicles</option>
-                                                <option value="Kerosene">Construction</option>
-                                                <option value="LPG">Machines</option>
-                                            </select>
-                                    <p class="help-block"></p>
-                                </div>
-
-                                <div class="col-sm-6 col-md-3 fuel">
-                                    <span class="labelname">City:</span>
-                                    <select name="fuel-type" class="cityedit">
-                                                <option selected disabled value="select">City*</option>
-                                                <option value="Dhaka">Dhaka</option>
-                                                <option value="Chittagong">Chittagong</option>
-                                                
-                                            </select>
-                                    <p class="help-block"></p>
-                                </div>
-                            </div>
-
-
-                            <div class="row justify-content-around">
-
-                                <div class="col-sm-6 col-md-3 fuel">
-                                    <span class="labelname">Billing Address:</span>
-                                    <input type="text" name="fuel-amount" class="billingaddressedit" placeholder="160, Senanibasroad, Sec-12 Mirpur">
-                                    <p class="help-block"></p>
-                                </div>
-
-                                <div class="col-sm-6 col-md-3 fuel">
-                                    <button class="saveedit" type="submit" id="sendMessageButton">Save</button>
-                                </div>
-
-                            </div>
-
-                        </form>
-                    </div>
-
-
-
-
-
                 </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm- justify-content-center">
+
+                        <div class="profile_info2">
+                            <h3 class="user-name">SAUL RAMIREZ</h3>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm- justify-content-center">
+
+                        <div class="">
+                            <h6 class="user-name2">@saul.ramirez</h6>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="form-section d-flex justify-content-center align-items-center my-5">
+                    <form method="POST" class="form-group" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row justify-content-around">
+                            <div class="col-sm-6 col-md-3 fuel">
+                                <span class="labelname">Full Name:</span>
+                                <input type="text" required name="full_name" class="fuel-input" placeholder="{{my_profile.full_name}}*">
+                                <p class="help-block"></p>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3 fuel">
+                                <span class="labelname">Company Name:</span>
+                                <input type="text" name="company_name" class="fuel-input" placeholder="{{my_profile.company_name}}">
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="row justify-content-around">
+                            <div class="col-sm-6 col-md-3 fuel">
+                                <span class="labelname">Phone Number:</span>
+                                <input type="number" required name="phone_number" class="fuel-input" placeholder="{{my_profile.phone_number}}*">
+                                <p class="help-block"></p>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3 fuel">
+                                <span class="labelname">Email:</span>
+                                <input type="email" name="email" class="fuel-input" placeholder="{{my_profile.email}}">
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="row justify-content-around">
+                            <div class="col-sm-6 col-md-3 fuel">
+                                <span class="labelname">Area:</span>
+                                <select name="area" class="area">
+                                        {% for x in my_ft %}
+                                            {% if my_profile.area == x.order_area %}
+                                                <option selected value="{{x.order_area}}">{{x.order_area}}</option>
+                                             {% else %}
+                                                <option value="{{x.order_area}}">{{x.order_area}}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                </select>
+                                <p class="help-block"></p>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3 fuel">
+                                <span class="labelname">City:</span>
+                                <select name="city" class="cityedit">
+                                    {% for x in my_ft %}
+                                        {% if my_profile.city == x.city %}
+                                            <option selected value="{{x.city}}">{{x.city}}</option>
+                                        {% else %}
+                                            <option value="{{x.city}}">{{x.city}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="row justify-content-around">
+
+                            <div class="col-sm-6 col-md-3 fuel">
+                                <span class="labelname">Billing Address:</span>
+                                <input type="text" name="billing_add" class="billingaddress" placeholder="{{my_profile.billing_add}}*">
+                                <p class="help-block"></p>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3 fuel">
+                                <button class="saveedit" type="submit" id="sendMessageButton">Save</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+
 
 
 
             </div>
 
+
+
         </div>
 
-        <!-- Page Content r kaj korbe  -->
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <script src="js/jquery.min.js"></script>
-        <script src="assets/js/image.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/sidebar.js"></script>
-        <script src="js/main.js"></script>
-</body>
+    </div>
 
-</html>
+    {%endblock%}
