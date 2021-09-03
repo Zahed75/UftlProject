@@ -1,320 +1,328 @@
 {% extends 'profile_base.html' %}
- {% load static %}
-  {% block title_block %}Order Dashboard{% endblock %}
-   {% block profile_block %}
+{% load static %}
+{% block title_block %}Order Dashboard{% endblock %}
+{% block profile_block %}
 
 
-<div class="wrapper d-flex align-items-stretch" xmlns="http://www.w3.org/1999/html">
-    <nav id="sidebar">
-        <div class="p-2 pt-1">
+    <div class="wrapper d-flex align-items-stretch" xmlns="http://www.w3.org/1999/html">
+        <nav id="sidebar">
+            <div class="p-2 pt-1">
 
-            <a href="#" class="nav__logo">
-                <div class="logoside">
-                    <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG" />
-                    <div class="tex">
-                        <p class="text1">URGENT</p>
-                        <p class="text2">FUEL</p>
+                <a href="#" class="nav__logo">
+                    <div class="logoside">
+                        <img class="logoimage" src="{% static 'assets/img/logo.svg' %}" alt="My Happy SVG"/>
+                        <div class="tex">
+                            <p class="text1">URGENT</p>
+                            <p class="text2">FUEL</p>
+                        </div>
                     </div>
+
+                </a>
+                <div class="profile">
+                    {% for x in ct_profile %}
+                        <a href="#" class="img logo rounded-circle mb-2"
+                           style="background-image: url({{ x.contact_photo.url }});"> </a>
+                        <h3 class="text-center mb-4 username">{{ x.full_name }}</h3>
+                    {% endfor %}
                 </div>
 
-            </a>
-            <div class="profile">
-                {% for x in ct_profile %}
-                <a href="#" class="img logo rounded-circle mb-2" style="background-image: url({{ x.contact_photo.url }});"> </a>
-                <h3 class="text-center mb-4 username">{{ x.full_name }}</h3>
-                {% endfor %}
-            </div>
 
+                <ul class="list-unstyled components mb-2 p-2">
 
-            <ul class="list-unstyled components mb-2 p-2">
+                    <li>
+                        <a href="{% url 'dashboard' %}"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
+                    </li>
 
-                <li>
-                    <a href="{% url 'dashboard' %}"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
-                </li>
+                    <li>
+                        <a href="{% url 'order_fuel' %}"><i class='bx bx-list-check setup'></i>Place an Order</a>
+                    </li>
 
-                <li>
-                    <a href="{% url 'order_fuel' %}"><i class='bx bx-list-check setup'></i>Place an Order</a>
-                </li>
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class='bx bx-info-circle setup'></i>Assets</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="{% url 'uftl.assets_list' %}"><i class='bx bx-radio-circle-marked setup'></i>All
+                                    Assets</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'asset' %}"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
+                            </li>
 
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class='bx bx-info-circle setup'></i>Assets</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="{% url 'uftl.assets_list' %}"><i class='bx bx-radio-circle-marked setup'></i>All Assets</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'asset' %}"><i class='bx bx-radio-circle-marked setup'></i>Add an Asset</a>
-                        </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class='bx bx-clipboard setup'></i>Reporting</a>
+                    </li>
 
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class='bx bx-clipboard setup'></i>Reporting</a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <ion-icon class="setup" name="settings-outline"></ion-icon>
-                        Edit Profile</a>
-                </li>
-
-
-                <div class="logout">
-                    <button class="livechat" type="submit" id="sendMessageButton">Live Chat</button>
-                    <div class="logoutline"></div>
                     <li>
                         <a href="#">
-                            <ion-icon class="setup" name="log-out-outline"></ion-icon>
-                            </ion-icon>Log Out</a>
+                            <ion-icon class="setup" name="settings-outline"></ion-icon>
+                            Edit Profile</a>
                     </li>
-                </div>
-            </ul>
 
-            <div class="footer">
-                <p>
 
-                </p>
-            </div>
-
-        </div>
-    </nav>
-
-    <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-3">
-
-        <nav class="">
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
-                        <span class="sr-only">Toggle Menu</span>
-                    </button>
-
-                <div class="float-right">
-                    <div class=" menu ">
-
-                        <div class="header__img ">
-                            {% for x in ct_profile %}
-                            <img class="navimage" src="{{ x.contact_photo.url }}" alt=" "> {% endfor %}
-                        </div>
-
-                        <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
-                        <p class="back">Back to Home</p>
+                    <div class="logout">
+                        <button class="livechat" type="submit" id="sendMessageButton">Live Chat</button>
+                        <div class="logoutline"></div>
+                        <li>
+                            <a href="#">
+                                <ion-icon class="setup" name="log-out-outline"></ion-icon>
+                                </ion-icon>Log Out</a>
+                        </li>
                     </div>
+                </ul>
+
+                <div class="footer">
+                    <p>
+
+                    </p>
                 </div>
 
             </div>
         </nav>
 
-        <form method="POST">
-            {% csrf_token %}
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-3">
 
-            <div id="content" class="p-4 p-md-5">
-
+            <nav class="">
                 <div class="container-fluid">
-                    <div class="row">
 
-                        <div class="col-12  col-sm-6 col-md-4">
-                            <div class="assetselect">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
 
-                                <select name="asset_name" class="assetdropdown" id="assetname">
-                                        
+                    <div class="float-right">
+                        <div class=" menu ">
+
+                            <div class="header__img ">
+                                {% for x in ct_profile %}
+                                    <img class="navimage" src="{{ x.contact_photo.url }}" alt=" "> {% endfor %}
+                            </div>
+
+                            <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
+                            <p class="back">Back to Home</p>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+
+            <form method="POST">
+                {% csrf_token %}
+                {% include 'messages.html' %}
+
+                <div id="content" class="p-4 p-md-5">
+
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-12  col-sm-6 col-md-4">
+                                <div class="assetselect">
+
+                                    <select name="asset_name" class="assetdropdown" id="assetname">
+
                                         {% for i in ai %}
-                                            <option  selected value="{{ i.asset_location }}">{{ i.asset_name }}</option>
+                                            <option selected value="{{ i.asset_location }}">{{ i.asset_name }}</option>
                                         {% endfor %}
 
-                                </select>
+                                    </select>
 
-    
 
-                                {% comment %} <p class="help-block"></p> {% endcomment %}
+                                    {% comment %} <p class="help-block"></p> {% endcomment %}
 
-                                <input type="text" class="assetLocation" id="asstLoc" readonly>
-                                
-                                <input type="text" class="assetLocation" value="" id="asstnam" readonly>
-                             
+                                    <input type="text" class="assetLocation" id="asstLoc" readonly>
+
+                                    <input type="text" class="assetLocation" value="" id="asstnam" readonly>
+
+                                </div>
+
                             </div>
-                       
-                        </div>
 
-                        <div class="col-6  col-sm-2 col-md-2">
-                            <div class="fuelfield">
-                                {#<p id="fuelname" class="fueltype">Diesel</p>#}
-                                <input name="fuel_type" value="Disel" type="text" id="fuelname" class="fueltype" placeholder="Disel" readonly>
+                            <div class="col-6  col-sm-2 col-md-2">
+                                <div class="fuelfield">
+                                    {#<p id="fuelname" class="fueltype">Diesel</p>#}
+                                    <input name="fuel_type" value="Disel" type="text" id="fuelname" class="fueltype"
+                                           placeholder="Disel" readonly>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-6  col-sm-2 col-md-3">
+                            <div class="col-6  col-sm-2 col-md-3">
 
-                            <div class="fuelfield">
-                                <div class="quantity">
-                                    <input type="text" id="quantity" name="fuel_amount" value="20" readonly>L
+                                <div class="fuelfield">
+                                    <div class="quantity">
+                                        <input type="text" id="quantity" name="fuel_amount" value="20" readonly>L
 
 
-                                    <div class="plusminus">
-                                        <button class="btn plus-btn" type="button">+</button>
-                                        <button class="btn minus-btn disabled" type="button">-</button>
+                                        <div class="plusminus">
+                                            <button class="btn plus-btn" type="button">+</button>
+                                            <button class="btn minus-btn disabled" type="button">-</button>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-12  col-sm-2 col-md-3">
-                            <div class="fuelprice">
-                                <!-- <p id="fuel" class="fuel">0/-</p> -->
-                                <input type="text" class="baseprice" name="base_cost" id="fuel" value="0" readonly>
+                            <div class="col-12  col-sm-2 col-md-3">
+                                <div class="fuelprice">
+                                    <!-- <p id="fuel" class="fuel">0/-</p> -->
+                                    <input type="text" class="baseprice" name="base_cost" id="fuel" value="0" readonly>
 
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-sm-6">
-                            <div class="row">
-                                {% for item in date_time %} {% if reservation %}
-                                <label style="color: red;">{{ item.time }}</label>
-                                <input disabled type="radio" name="time" value="{{ item.time }}"> {% endif %}
-
-
-                                <label style="color: darkorchid;">{{ item.time }}</label>
-                                <input type="radio" name="time" value="{{ item.time }}"> {% endfor %}
+                                </div>
                             </div>
 
-
                         </div>
-                        {% for x in oil_price %}
-                        <div class="col-12 col-sm-6">
-                            <div class="price p-4">
-                                <div class="row justify-content-evenly">
-                                    <div class="col-7 tol ">
-                                        Delivery Fee:
-                                    </div>
-                                    <div class="col-5 tol" id="delicharge">
-                                        {{ x.delivery_charge }}
-                                        <small>(5% VAT)</small>
-                                    </div>
-                                </div>
-
-
-                                <!-- diesel value -->
-                                <div class="row justify-content-evenly diesel">
-                                    <div class="col-7 dieselprice" id="dpd">
-                                        {{ x.disel_price }}
-                                    </div>
-                                </div>
-
-
-                                <!-- octane value -->
-                                <div class="row justify-content-evenly octane">
-                                    <div class="col-7 tol octaneprice" id="opd">
-                                        {{ x.octen_price }}
-                                    </div>
-                                </div>
-
-                                <!-- discount -->
-                                <div class="row justify-content-evenly disc">
-                                    <div class="col-7 tol dieselprice " id="discopd">
-                                        {{ x.discount }}
-                                    </div>
-                                </div>
-
-
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
                                 <div class="row">
-                                    <div class="col-7 tol">
-                                        Discount:
-                                    </div>
+                                    {% for item in date_time %} {% if reservation %}
+                                        <label style="color: red;">{{ item.time }}</label>
+                                        <input disabled type="radio" name="time" value="{{ item.time }}"> {% endif %}
 
-                                    <div class="col-5 tol" id="dp">
-                                        <input type="text" class="disPrice" name="discount" id="discountValue" value="0" readonly>
-                                        <!-- {# {% for x in cp %}#} {# <span>{{ x.discount}}</span>#} {# {% endfor %}#} 0/- BDT -->
-                                    </div>
 
+                                        <label style="color: darkorchid;">{{ item.time }}</label>
+                                        <input type="radio" name="time" value="{{ item.time }}"> {% endfor %}
                                 </div>
 
 
-                                <div class="row">
-                                    <div class="col-7 tol">
-                                        Total Price
+                            </div>
+                            {% for x in oil_price %}
+                                <div class="col-12 col-sm-6">
+                                <div class="price p-4">
+                                    <div class="row justify-content-evenly">
+                                        <div class="col-7 tol ">
+                                            Delivery Fee:
+                                        </div>
+                                        <div class="col-5 tol" id="delicharge">
+                                            {{ x.delivery_charge }}
+                                            <small>(5% VAT)</small>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- diesel value -->
+                                    <div class="row justify-content-evenly diesel">
+                                        <div class="col-7 dieselprice" id="dpd">
+                                            {{ x.disel_price }}
+                                        </div>
+                                    </div>
+
+
+                                    <!-- octane value -->
+                                    <div class="row justify-content-evenly octane">
+                                        <div class="col-7 tol octaneprice" id="opd">
+                                            {{ x.octen_price }}
+                                        </div>
+                                    </div>
+
+                                    <!-- discount -->
+                                    <div class="row justify-content-evenly disc">
+                                        <div class="col-7 tol dieselprice " id="discopd">
+                                            {{ x.discount }}
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-7 tol">
+                                            Discount:
+                                        </div>
+
+                                        <div class="col-5 tol" id="dp">
+                                            <input type="text" class="disPrice" name="discount" id="discountValue"
+                                                   value="0" readonly>
+                                            <!-- {# {% for x in cp %}#} {# <span>{{ x.discount}}</span>#} {# {% endfor %}#} 0/- BDT -->
+                                        </div>
 
                                     </div>
-                                    <div class="col-5 tol">
-                                        <p class="total-price">
-                                            <!-- <span><i class="fa fa-rupee"></i></span> -->
-                                            <!-- <span id="price">{{ x.total_ammount|floatformat:2 }}/-</span> -->
-                                            <input type="text" name="total_amount" class="disPrice" id="price" value="0" readonly>
 
-                                            <span> BDT</span>
-                                        </p>
+
+                                    <div class="row">
+                                        <div class="col-7 tol">
+                                            Total Price
+
+                                        </div>
+                                        <div class="col-5 tol">
+                                            <p class="total-price">
+                                                <!-- <span><i class="fa fa-rupee"></i></span> -->
+                                                <!-- <span id="price">{{ x.total_ammount|floatformat:2 }}/-</span> -->
+                                                <input type="text" name="total_amount" class="disPrice" id="price"
+                                                       value="0" readonly>
+
+                                                <span> BDT</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
 
-                                <div class="row">
-                                    <div class="col-12 tol">
-                                        {#vouhcer:{{ x.promo_code }} {{ x.discount}}#}
+                                    <div class="row">
+                                        <div class="col-12 tol">
+                                            {#vouhcer:{{ x.promo_code }} {{ x.discount}}#}
 
-                                        <select name="fuel-type" id="discountSelect" class="assetdropdown">
+                                            <select name="fuel-type" id="discountSelect" class="assetdropdown">
                                                 <option selected value="0">Apply Voucher*</option>
                                                 {% for x in cp %}
                                                     <option value="{{ x.discount }}">{{ x.promo_code }}</option>
                                                 {% endfor %}
                                             </select>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             {% endfor %}
+                            </div>
+
                         </div>
+                        <div class="row">
 
-                    </div>
-                    <div class="row">
-
-                        <div class="col-xs-12 col-sm-12 col-md-6">
-                            <div class="">
-                                <div class="row justify-content-evenly timeline">
-                                    <div class="col">
-                                        <input type="date" name="date" value="" placeholder="" />
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="">
+                                    <div class="row justify-content-evenly timeline">
+                                        <div class="col">
+                                            <input type="date" name="date" value="" placeholder=""/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                        <div class="col-xs-12 col-sm-6 col-md-2">
-                            <input class="checkbox-budget" type="radio" value="Cash on delivery" name="payment_method" id="budget-1">
-                            <label class="for-checkbox-budget" for="budget-1">
+                            <div class="col-xs-12 col-sm-6 col-md-2">
+                                <input class="checkbox-budget" type="radio" value="Cash on delivery"
+                                       name="payment_method" id="budget-1">
+                                <label class="for-checkbox-budget" for="budget-1">
                                     <i class='bx bx-money money'></i>
                                     <span data-hover="Cash on delivery">Cash on delivery</span>
                                 </label>
-                        </div>
+                            </div>
 
-                        <div class="col-xs-12 col-sm-6 col-md-2">
-                            <input class="checkbox-budget" type="radio" value="Online Payment" name="payment_method" id="budget-2">
-                            <label class="for-checkbox-budget" for="budget-2">
+                            <div class="col-xs-12 col-sm-6 col-md-2">
+                                <input class="checkbox-budget" type="radio" value="Online Payment" name="payment_method"
+                                       id="budget-2">
+                                <label class="for-checkbox-budget" for="budget-2">
                                     <i class='bx bxs-credit-card cardfront'></i>
                                     <span data-hover="Online Payment">Online Payment</span>
                                 </label>
-                        </div>
+                            </div>
 
-                        <div class="col-xs-12 col-sm-6 col-md-2">
-                            <input class="checkbox-budget" type="radio" value="Swipe on delivery" name="payment_method" id="budget-3">
-                            <label class="for-checkbox-budget" for="budget-3">
+                            <div class="col-xs-12 col-sm-6 col-md-2">
+                                <input class="checkbox-budget" type="radio" value="Swipe on delivery"
+                                       name="payment_method" id="budget-3">
+                                <label class="for-checkbox-budget" for="budget-3">
                                     <img class="cardpunch" src="{% static 'img/swipe.png' %}" alt="">
                                     <span data-hover="Swipe on delivery">Swipe on delivery</span>
                                 </label>
+                            </div>
+
                         </div>
 
                     </div>
 
                 </div>
+                <button class="btn btn-info" type="submit"> submit</button>
 
-            </div>
-            <button class="btn btn-info" type="submit"> submit</button>
-
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
 {% endblock %}

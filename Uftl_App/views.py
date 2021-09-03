@@ -1,3 +1,4 @@
+from django.core import paginator
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
 from django.views.generic import CreateView, UpdateView, ListView, DetailView, View, TemplateView, DeleteView
 from django.urls import reverse, reverse_lazy
@@ -8,6 +9,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib import messages
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.mail import send_mail, EmailMessage
 from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
@@ -191,6 +193,7 @@ def success_profile(request):
     dict = {}
     return render(request, 'Uftl_App/profile_congo.html', context=dict)
 
+
 @login_required()
 def allassets(request):
     ct_profile = Contact_Assets.objects.filter(user=request.user)
@@ -202,6 +205,7 @@ def allassets(request):
     }
 
     return render(request, 'Uftl_App/allassets.html', context=dict)
+
 
 @login_required()
 def add_assets(request):
@@ -230,6 +234,7 @@ def add_assets(request):
 
     return render(request, 'Uftl_App/addnewasset.html', context=dict)
 
+
 @login_required()
 def edit_assets(request, id):
     all_assets = Assets.objects.get(pk=id)
@@ -257,6 +262,7 @@ def edit_assets(request, id):
 
     return render(request, 'Uftl_App/editasset.html', context=dict)
 
+
 @login_required()
 def delete_asset(request, id):
     if request.method == 'GET':
@@ -266,12 +272,21 @@ def delete_asset(request, id):
 
 
 def report(request):
-    user_order = OrderList.objects.filter(user=request.user)
+    user_order = OrderList.objects.filter(user=request.user).order_by('id')
+    paginator=Paginator(user_order,5) #pagination start
+    page_number=request.GET.get('page')
+    page_obj=paginator.get_page(page_number)
     ct_profile = Contact_Assets.objects.filter(user=request.user)
     at = Assets.objects.filter(user=request.user)
-    dict = {'user_order': user_order, 'ct_profile': ct_profile, 'at': at}
+    dict = {'user_order': user_order,
+            'ct_profile': ct_profile,
+            'at': at,
+            'page_obj':page_obj
+            }
 
     print(user_order)
+    print(page_obj)
+
     return render(request, 'Uftl_App/reporting.html', context=dict)
 
 
@@ -290,13 +305,12 @@ def edit_profile(request):
         my_profile.billing_add = request.POST.get('billing_add')
     my_profile.save()
 
-
     print(my_profile)
     print(my_profile.area)
 
     dict = {
-        'my_profile' : my_profile,
-        'my_ft' : my_ft,
+        'my_profile': my_profile,
+        'my_ft': my_ft,
     }
 
     # messages.success(request, "Your account has been updated successfully")
