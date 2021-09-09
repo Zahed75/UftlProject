@@ -290,6 +290,16 @@ def report(request):
     return render(request, 'Uftl_App/reporting.html', context=dict)
 
 
+
+@login_required()
+def order_details(request,pk):
+    od_list=OrderList.objects.filter(user=request.user).get(order_id=pk)
+    dict={'od_list':od_list}
+    print(od_list)
+
+    return render(request,'Uftl_App/reporting_details.html',context=dict)
+
+
 @login_required()
 def edit_profile(request):
     my_profile = Contact_Assets.objects.get(user=request.user)
@@ -315,3 +325,7 @@ def edit_profile(request):
 
     # messages.success(request, "Your account has been updated successfully")
     return render(request, 'Uftl_App/editprofile.html', context=dict)
+
+
+
+
