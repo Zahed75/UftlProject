@@ -108,122 +108,117 @@
                 </div>
             </nav>
 
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="container-fluid reporting p-4 ">
+                    <div class="row">
+                        <div class="col-2">
+                            <input type="date" id="birthday" name="fromdate" class="datarange" placeholder=" ">
+                        </div>
+                        <div class="col-2">
+                            <input type="date" id="birthday" name="todate" class="datarange" placeholder=" ">
+                        </div>
+                        <div class="col-2">
+                            <input type="submit"></input>
+                        </div>
+                        <div class="col-2">
 
-            <div class="container-fluid reporting p-4 ">
-                <div class="row">
-                    <div class="col-2">
-                        <select name="fuel-type" class="selectanasset">
-                            <option selected disabled value="select">Search by Asset</option>
-                            <option value="Diesel">Diesel</option>
-                            <option value="Gasoline">Octane</option>
-                        </select>
+                        </div>
+                        <div class="col-2">
+                            <a href="{% url 'pdf_download' %}" class="myButton">Export PDF</a>
+                        </div>
+                        <div class="col-2">
+                            <a href="#" class="myButton">Export xls</a>
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <input type="date" id="birthday" class="datarange" placeholder="Date Range">
-                    </div>
-                    <div class="col-2">
-                        <select name="fuel-type" class="status">
-                            <option selected disabled value="select">Status</option>
-                            <option value="Diesel">Diesel</option>
-                            <option value="Gasoline">Octane</option>
-                        </select>
-                    </div>
-                    <div class="col-2">
 
+                    <div class="row secondrow">
+                        <div class="col-2">
+                            <p>Order ID</p>
+                        </div>
+                        <div class="col-4">
+                            <p>Assets</p>
+                        </div>
+                        <div class="col-2">
+                            <p class="dandt"> Data & Time
+                            </p>
+                        </div>
+                        <div class="col-1  ">
+                            <p class="amounttile">Amount</p>
+                        </div>
+                        <div class="col-1 costtitle">
+                            <p>Cost</p>
+                        </div>
+                        <div class="col-2">
+                            <p>Status</p>
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <a href="#" class="myButton">Export PDF</a>
-                    </div>
-                    <div class="col-2">
-                        <a href="#" class="myButton">Export xls</a>
-                    </div>
-                </div>
 
-                <div class="row secondrow">
-                    <div class="col-2">
-                        <p>Order ID</p>
+                    <div class="row">
+                        <div class="devicer"></div>
                     </div>
-                    <div class="col-4">
-                        <p>Assets</p>
-                    </div>
-                    <div class="col-2">
-                        <p class="dandt"> Data & Time
-                        </p>
-                    </div>
-                    <div class="col-1  ">
-                        <p class="amounttile">Amount</p>
-                    </div>
-                    <div class="col-1 costtitle">
-                        <p>Cost</p>
-                    </div>
-                    <div class="col-2">
-                        <p>Status</p>
-                    </div>
-                </div>
+                    {% for x in page_obj %}
 
-                <div class="row">
-                    <div class="devicer"></div>
-                </div>
-                {% for x in page_obj %}
+                            <div class="row results">
+                                <div class="col-2">
+                                    <p class="orderid">{{ x.order_id }}</p>
+                                </div>
+                                <div class="col-4">
+                                    <div class="profile">
+                                        <img class="circleimage" src="{{ x.asset_photo.url }}" alt="">
+                                        <div class="profileinfo">
+                                            <p class="data">{{ x.asset_name }}</p>
+                                            {% comment %} {% for x in at %}
+                                                <p class="time">{{ x.asset_location }}</p>
+                                            {% endfor %} {% endcomment %}
 
-                        <div class="row results">
-                            <div class="col-2">
-                                <p class="orderid">{{ x.order_id }}</p>
-                            </div>
-                            <div class="col-4">
-                                <div class="profile">
-                                    <img class="circleimage" src="{{ x.asset_photo.url }}" alt="">
-                                    <div class="profileinfo">
-                                        <p class="data">{{ x.asset_name }}</p>
-                                        {% for x in at %}
-                                            <p class="time">{{ x.asset_location }}</p>
-                                        {% endfor %}
-
+                                        </div>
                                     </div>
+                                </div>
+
+
+                                <div class="col-2">
+                                    <p class="data">{{ x.date }}</p>
+                                    <p class="time">{{ x.time }}</p>
+                                </div>
+                                <div class="col-1">
+                                    <p class="amount">{{ x.fuel_amount }}</p>
+                                </div>
+                                <div class="col-1">
+                                    <p class="cost">{{ x.total_amount }}</p>
+                                </div>
+                                <div class="col-2 btnmargin">
+                                    <a href="#" class="delivered">Delivered</a>
                                 </div>
                             </div>
 
+                    {% endfor %}
 
-                            <div class="col-2">
-                                <p class="data">{{ x.date }}</p>
-                                <p class="time">{{ x.time }}</p>
-                            </div>
-                            <div class="col-1">
-                                <p class="amount">{{ x.fuel_amount }}</p>
-                            </div>
-                            <div class="col-1">
-                                <p class="cost">{{ x.total_amount }}</p>
-                            </div>
-                            <div class="col-2 btnmargin">
-                                <a href="#" class="delivered">Delivered</a>
-                            </div>
+
+                </div>
+    {#          =============Pagination start here      #}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8">
+
                         </div>
 
-                {% endfor %}
+                        <div class="col-2">
+                            {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}"><button type="button" class="btn btn-primary">Prev</button></a>
+                            {% endif %}
+                        </div>
+                            <span>{{ page_obj.number }}</span>
 
-
-            </div>
-{#          =============Pagination start here      #}
-            <div class="container">
-                <div class="row">
-                    <div class="col-8">
-
-                    </div>
-
-                    <div class="col-2">
-                        {% if page_obj.has_previous %}
-                        <a href="?page={{ page_obj.previous_page_number }}"><button type="button" class="btn btn-primary">Prev</button></a>
-                        {% endif %}
-                    </div>
-                        <span>{{ page_obj.number }}</span>
-
-                    <div class="col-2">
-                        {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}"><button type="button" class="btn btn-primary">Next</button></a>
-                        {% endif %}
+                        <div class="col-2">
+                            {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}"><button type="button" class="btn btn-primary">Next</button></a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
 {#        ===========pagination end here==========#}
 
         </div>

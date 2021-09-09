@@ -16,6 +16,11 @@ from django.views.generic.edit import DeleteView
 from django.views import View
 from App_Login.models import *
 from Uftl_App.models import *
+from io import BytesIO
+from django.http import HttpResponse
+from django.template.loader import get_template
+from django.views import View
+from xhtml2pdf import pisa
 import uuid
 import random
 import string
@@ -270,22 +275,34 @@ def delete_asset(request, id):
         pi.delete()
         return HttpResponseRedirect(reverse('uftl.assets_list'))
 
-
+@login_required()
 def report(request):
+    
     user_order = OrderList.objects.filter(user=request.user).order_by('id')
     paginator=Paginator(user_order,5) #pagination start
     page_number=request.GET.get('page')
+    
     page_obj=paginator.get_page(page_number)
     ct_profile = Contact_Assets.objects.filter(user=request.user)
     at = Assets.objects.filter(user=request.user)
+
+    # if request.method == "POST":
+    #     fromdate = request.POST.get['fromdate']
+    #     todate = request.POST.get['todate']
+    #     displaydata = page_obj.objects.raw('select order_id,asset_name,fuel_amount,total_amount,joindate from employee where joindate between "'+fromdate+'" and "'+todate+'"')
+    #     render(request, 'Uftl_App/reporting.html', {'data': displaydata})    
+    #     rd = OrderList.objects.filter(Q(report_date__gte = fd) & Q(report_date__lte=td))
+
+
     dict = {'user_order': user_order,
             'ct_profile': ct_profile,
             'at': at,
             'page_obj':page_obj
             }
 
-    print(user_order)
-    print(page_obj)
+    # print(user_order)
+    # print(page_obj)
+
 
     return render(request, 'Uftl_App/reporting.html', context=dict)
 
@@ -315,3 +332,37 @@ def edit_profile(request):
 
     # messages.success(request, "Your account has been updated successfully")
     return render(request, 'Uftl_App/editprofile.html', context=dict)
+
+data = {
+	"company": "Dennnis Ivanov Company",
+	"address": "123 Street name",
+	"city": "Vancouver",
+	"state": "WA",
+	"zipcode": "98663",
+
+
+	"phone": "555-555-2345",
+	"email": "youremail@dennisivy.com",
+	"website": "dennisivy.com",
+	}
+
+def render_to_pdf(template_src, context_dict={}):
+	template = get_template(template_src)
+	html  = template.render(context_dict)
+	result = BytesIO()
+	pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+	if not pdf.err:
+		return HttpResponse(result.getvalue(), content_type='application/pdf')
+	return None
+
+class DownloadPDF(View):
+	def get(self, request, *args, **kwargs):
+		
+		pdf = render_to_pdf('Uftl_App/reporting.html', data)
+
+		response = HttpResponse(pdf, content_type='application/pdf')
+		filename = "Invoice_%s.pdf" %("12341231")
+		content = "attachment; filename='%s'" %(filename)
+		response['Content-Disposition'] = content
+		return response
+
