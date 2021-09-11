@@ -85,3 +85,8 @@ class OrderList(models.Model):
 #     fuel_type = models.CharField(max_length=220)
 #     asset_location = models.TextField(max_length=400, blank=False)
 #     asset_photo = models.ImageField(upload_to='gallery', blank=False)
+
+
+class driver_dashboard(models.Model):
+    driver_name=models.CharField(max_length=220,blank=True)
+    order_info=models.ForeignKey(OrderList,on_delete=models.CASCADE)
