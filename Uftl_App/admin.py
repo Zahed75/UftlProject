@@ -43,3 +43,9 @@ class Fuel_priceAdmin(admin.ModelAdmin):
 class OrderListAdmin(admin.ModelAdmin):
     list_display = ('id', 'time', 'date', 'fuel_amount', 'fuel_type', 'asset_name', 'base_cost', 'total_amount', 'discount',
                     'payment_method','order_id')
+
+
+
+@admin.register(driver_dashboard)
+class driver_dashboard(admin.ModelAdmin):
+    list_display = ('id', 'driver_name','order_info')
