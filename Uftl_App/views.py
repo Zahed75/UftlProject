@@ -17,13 +17,18 @@ from django.views import View
 from App_Login.models import *
 from Uftl_App.models import *
 from io import BytesIO
-from django.http import HttpResponse
-from django.template.loader import get_template
 from django.views import View
-from xhtml2pdf import pisa
+
+import xlwt
+
 import uuid
 import random
 import string
+
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+
 
 # Create your views here.
 from Uftl_App.models import Assets, Contact_Assets
@@ -307,6 +312,16 @@ def report(request):
     return render(request, 'Uftl_App/reporting.html', context=dict)
 
 
+
+@login_required()
+def order_details(request,pk):
+    od_list=OrderList.objects.filter(user=request.user).get(order_id=pk)
+    dict={'od_list':od_list}
+    print(od_list)
+
+    return render(request,'Uftl_App/reporting_details.html',context=dict)
+
+
 @login_required()
 def edit_profile(request):
     my_profile = Contact_Assets.objects.get(user=request.user)
@@ -333,36 +348,100 @@ def edit_profile(request):
     # messages.success(request, "Your account has been updated successfully")
     return render(request, 'Uftl_App/editprofile.html', context=dict)
 
-data = {
-	"company": "Dennnis Ivanov Company",
-	"address": "123 Street name",
-	"city": "Vancouver",
-	"state": "WA",
-	"zipcode": "98663",
+def link_callback(uri, rel):
+            """
+            Convert HTML URIs to absolute system paths so xhtml2pdf can access those
+            resources
+            """
+            result = finders.find(uri)
+            if result:
+                    if not isinstance(result, (list, tuple)):
+                            result = [result]
+                    result = list(os.path.realpath(path) for path in result)
+                    path=result[0]
+            else:
+                    sUrl = settings.STATIC_URL        # Typically /static/
+                    sRoot = settings.STATIC_ROOT      # Typically /home/userX/project_static/
+                    mUrl = settings.MEDIA_URL         # Typically /media/
+                    mRoot = settings.MEDIA_ROOT       # Typically /home/userX/project_static/media/
+
+                    if uri.startswith(mUrl):
+                            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+                    elif uri.startswith(sUrl):
+                            path = os.path.join(sRoot, uri.replace(sUrl, ""))
+                    else:
+                            return uri
+
+            # make sure that file exists
+            if not os.path.isfile(path):
+                    raise Exception(
+                            'media URI must start with %s or %s' % (sUrl, mUrl)
+                    )
+            return path
 
 
-	"phone": "555-555-2345",
-	"email": "youremail@dennisivy.com",
-	"website": "dennisivy.com",
-	}
+def render_pdf_view(request):
 
-def render_to_pdf(template_src, context_dict={}):
-	template = get_template(template_src)
-	html  = template.render(context_dict)
-	result = BytesIO()
-	pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-	if not pdf.err:
-		return HttpResponse(result.getvalue(), content_type='application/pdf')
-	return None
+    user_order = OrderList.objects.filter(user=request.user).order_by('id')
+    paginator=Paginator(user_order,5) #pagination start
+    page_number=request.GET.get('page')
+    
+    page_obj=paginator.get_page(page_number)
+    ct_profile = Contact_Assets.objects.filter(user=request.user)
+    at = Assets.objects.filter(user=request.user)
 
-class DownloadPDF(View):
-	def get(self, request, *args, **kwargs):
-		
-		pdf = render_to_pdf('Uftl_App/reporting.html', data)
+    template_path = 'Uftl_App/user_printer.html'
 
-		response = HttpResponse(pdf, content_type='application/pdf')
-		filename = "Invoice_%s.pdf" %("12341231")
-		content = "attachment; filename='%s'" %(filename)
-		response['Content-Disposition'] = content
-		return response
+    dict = {'user_order': user_order,
+            'ct_profile': ct_profile,
+            'at': at,
+            'page_obj':page_obj
+            }
 
+    context = dict
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response, link_callback=link_callback)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+
+def export_users_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="users.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Users Data') # this will make a sheet named Users Data
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Username', 'First Name', 'Last Name', 'Email Address', ]
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    rows = User.objects.all().values_list('username', 'first_name', 'last_name', 'email')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response

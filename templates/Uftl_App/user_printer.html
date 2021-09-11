@@ -1,0 +1,57 @@
+{% load static %}
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container">
+        {% for x in page_obj %}
+
+        <div class="row results">
+            <div class="col-2">
+                <a href="{% url 'order_details' pk=x.id %}">
+                    <p class="orderid">{{ x.order_id }}</p>
+                </a>
+            </div>
+            <div class="col-4">
+                <div class="profile">
+                    <img class="circleimage" src="{{ x.asset_photo.url }}" alt="">
+                    <div class="profileinfo">
+                        <p class="data">{{ x.asset_name }}</p>
+                        {% comment %} {% for x in at %}
+                        <p class="time">{{ x.asset_location }}</p>
+                        {% endfor %} {% endcomment %}
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-2">
+                <p class="data">{{ x.date }}</p>
+                <p class="time">{{ x.time }}</p>
+            </div>
+            <div class="col-1">
+                <p class="amount">{{ x.fuel_amount }}</p>
+            </div>
+            <div class="col-1">
+                <p class="cost">{{ x.total_amount }}</p>
+            </div>
+            <div class="col-2 btnmargin">
+                <a href="#" class="delivered">Delivered</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>

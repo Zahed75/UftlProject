@@ -12,11 +12,13 @@ urlpatterns = [
     path('dashboard/', views.Dashboard, name='dashboard'),
     path('order_fuel/', views.order_fuel, name='order_fuel'),
     path('profile_done/',views.success_profile,name='profile_done'),
-
     path('assets_list/',views.allassets,name='uftl.assets_list'),
     path('add_assets/',views.add_assets,name='add_assets'),
     path('edit_assets/<int:id>',views.edit_assets,name='edit_assets'),
     path('delete/<int:id>/', views.delete_asset, name='deleteasset'),
     path('user-report/',views.report,name='report'),
-    path('pdf_download/', views.DownloadPDF.as_view(), name="pdf_download"),
+    path('details_order/<int:pk>/',views.order_details,name='order_details'),
+    path('pdf/', views.render_pdf_view, name='test-view'),
+    path('excel/', views.export_users_xls, name='export_excel'),
+
 ]
