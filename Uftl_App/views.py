@@ -315,7 +315,7 @@ def report(request):
 
 @login_required()
 def order_details(request,pk):
-    od_list=OrderList.objects.filter(user=request.user).get(order_id=pk)
+    od_list=OrderList.objects.filter(user=request.user).get(id=pk)
     dict={'od_list':od_list}
     print(od_list)
 
@@ -428,7 +428,7 @@ def export_users_xls(request):
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
 
-    columns = ['Username', 'First Name', 'Last Name', 'Email Address', ]
+    columns = ['asset_name', 'fuel_type', 'fuel_amount', 'base_cost', ]
 
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
@@ -436,7 +436,7 @@ def export_users_xls(request):
     # Sheet body, remaining rows
     font_style = xlwt.XFStyle()
 
-    rows = User.objects.all().values_list('username', 'first_name', 'last_name', 'email')
+    rows = OrderList.objects.filter(user=request.user).order_by('id').values_list('asset_name', 'fuel_type', 'fuel_amount', 'base_cost')
     for row in rows:
         row_num += 1
         for col_num in range(len(row)):

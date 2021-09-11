@@ -27,20 +27,22 @@
             <div class="col-md-6 mt-5 auvback">
                 <h5 class="mt-5">Order Details</h5>
                 <ul>
-                    <li>Order ID:{{ user.request.order_id }}</li>
-                    <li>Date: 01/08/2021</li>
-                    <li>Time: 3:00 PM</li>
-                    <li>Customer Name: Saul Ramirez</li>
-                    <li>Company Name: AB Construction</li>
-                    <li>Contact:012748741226</li>
-                    <li>Address:412/b, Elephant Road ( 2nd Flour), Dhaka</li>
-                    <li>Asset Type: Vehicles</li>
-                    <li>Fuel Type: Diesel</li>
-                    <li>Payment Method: Swipe on Delivery</li>
-                    <li>Amount: 60L</li>
-                    <li>Cost: 3900</li>
-                    <li>Delivery Charge: 126 BDT (+5% Vat)</li>
-                    <li>Total Amount: 4026</li>
+                    {% for x in od_list%}
+                        <li>Order ID:{{ x.order_id }}</li>
+                        <li>Date: 01/08/2021</li>
+                        <li>Time: 3:00 PM</li>
+                        <li>Customer Name: Saul Ramirez</li>
+                        <li>Company Name: AB Construction</li>
+                        <li>Contact:012748741226</li>
+                        <li>Address:412/b, Elephant Road ( 2nd Flour), Dhaka</li>
+                        <li>Asset Type: Vehicles</li>
+                        <li>Fuel Type: Diesel</li>
+                        <li>Payment Method: Swipe on Delivery</li>
+                        <li>Amount: 60L</li>
+                        <li>Cost: 3900</li>
+                        <li>Delivery Charge: 126 BDT (+5% Vat)</li>
+                        <li>Total Amount: 4026</li>
+                    {% endfor %}
                 </ul>
             </div>
 
