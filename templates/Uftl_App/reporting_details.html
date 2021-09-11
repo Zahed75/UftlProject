@@ -27,8 +27,8 @@
             <div class="col-md-6 mt-5 auvback">
                 <h5 class="mt-5">Order Details</h5>
                 <ul>
-                    <li>Order ID:{{ user.request.order_id }}</li>
-                    <li>Date: 01/08/2021</li>
+                    <li>Order ID:{{ od_list.order_id }}</li>
+                    <li>Date: {{ od_list.date }}</li>
                     <li>Time: 3:00 PM</li>
                     <li>Customer Name: Saul Ramirez</li>
                     <li>Company Name: AB Construction</li>
@@ -47,8 +47,8 @@
 
             <div class="col-md-6 mt-5 order_track ">
                 <h5>Track Order:</h5>
-                <h5>Order id</h5>
-                <h3>#UF080001</h3>
+                <h5></h5>
+                <h3>{{ od_list.order_id }}</h3>
 
                 <ul>
                     <li>Order confirmed <br> <span>31/07, 06:00 PM</span></li>

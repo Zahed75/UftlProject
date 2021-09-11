@@ -293,7 +293,7 @@ def report(request):
 
 @login_required()
 def order_details(request,pk):
-    od_list=OrderList.objects.filter(user=request.user).get(order_id=pk)
+    od_list=OrderList.objects.filter(user=request.user).get(id=pk)
     dict={'od_list':od_list}
     print(od_list)
 
