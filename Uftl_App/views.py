@@ -144,6 +144,7 @@ def order_fuel(request):
         time = request.POST.get('time')
         date = request.POST.get('date')
         fuel_amount = request.POST.get('fuel_amount')
+        location = request.POST.get('asset_location')
         base_cost = request.POST.get('base_cost')
         discount = request.POST.get('discount')
         total_amount = request.POST.get('total_amount')
@@ -178,6 +179,7 @@ def order_fuel(request):
                 fuel_amount=fuel_amount,
                 base_cost=base_cost,
                 discount=discount,
+                location = location,
                 total_amount=total_amount,
                 payment_method=payment_method,
                 order_id=order_id,
@@ -448,22 +450,16 @@ def export_users_xls(request):
 
 
 def driver_dashboard(request):
-        
-    user_order = OrderList.objects.all()
-    paginator=Paginator(user_order,5) #pagination start
-    page_number=request.GET.get('page')
-    
-    page_obj=paginator.get_page(page_number)
-    ct_profile = Contact_Assets.objects.filter(user=request.user)
-    at = Assets.objects.filter(user=request.user)
 
-    dict = {
-
-        'user_order': user_order,
-        'ct_profile': ct_profile,
-        'at': at,
-        'page_obj':page_obj
-
+    od_list=OrderList.objects.all()
+    # if request==date:
+    #     od_list.filter(order_id=date)
+    # else:
+    #     messages.error(request,"No oder has been created today")
+    dict={
+        'od_list':od_list
     }
+
+
 
     return render(request, 'Uftl_App/driver_dashboard.html', context=dict)
