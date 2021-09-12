@@ -1,3 +1,4 @@
+# import xhtml2pdf
 from django.core import paginator
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
 from django.views.generic import CreateView, UpdateView, ListView, DetailView, View, TemplateView, DeleteView
@@ -16,22 +17,20 @@ from django.views.generic.edit import DeleteView
 from django.views import View
 from App_Login.models import *
 from Uftl_App.models import *
-from io import BytesIO
-from django.views import View
+from datetime import datetime,date
 
 import xlwt
 
 import uuid
 import random
 import string
-
 from django.http import HttpResponse
 from django.template.loader import get_template
-from xhtml2pdf import pisa
+# import xhtml2pdf
 
 
 # Create your views here.
-from Uftl_App.models import Assets, Contact_Assets
+
 
 
 def generate_order_id():
@@ -282,11 +281,11 @@ def delete_asset(request, id):
 
 @login_required()
 def report(request):
-    
+
     user_order = OrderList.objects.filter(user=request.user).order_by('id')
     paginator=Paginator(user_order,5) #pagination start
     page_number=request.GET.get('page')
-    
+
     page_obj=paginator.get_page(page_number)
     ct_profile = Contact_Assets.objects.filter(user=request.user)
     at = Assets.objects.filter(user=request.user)
@@ -348,6 +347,7 @@ def edit_profile(request):
     # messages.success(request, "Your account has been updated successfully")
     return render(request, 'Uftl_App/editprofile.html', context=dict)
 
+
 def link_callback(uri, rel):
             """
             Convert HTML URIs to absolute system paths so xhtml2pdf can access those
@@ -385,7 +385,7 @@ def render_pdf_view(request):
     user_order = OrderList.objects.filter(user=request.user).order_by('id')
     paginator=Paginator(user_order,5) #pagination start
     page_number=request.GET.get('page')
-    
+
     page_obj=paginator.get_page(page_number)
     ct_profile = Contact_Assets.objects.filter(user=request.user)
     at = Assets.objects.filter(user=request.user)
@@ -407,7 +407,7 @@ def render_pdf_view(request):
     html = template.render(context)
 
     # create a pdf
-    pisa_status = pisa.CreatePDF(
+    pisa_status = xhtml2pdf.pisa.CreatePDF(
        html, dest=response, link_callback=link_callback)
     # if error then show some funy view
     if pisa_status.err:
@@ -431,7 +431,7 @@ def export_users_xls(request):
     columns = ['asset_name', 'fuel_type', 'fuel_amount', 'base_cost', ]
 
     for col_num in range(len(columns)):
-        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column
 
     # Sheet body, remaining rows
     font_style = xlwt.XFStyle()
@@ -448,22 +448,16 @@ def export_users_xls(request):
 
 
 def driver_dashboard(request):
-        
-    user_order = OrderList.objects.all()
-    paginator=Paginator(user_order,5) #pagination start
-    page_number=request.GET.get('page')
-    
-    page_obj=paginator.get_page(page_number)
-    ct_profile = Contact_Assets.objects.filter(user=request.user)
-    at = Assets.objects.filter(user=request.user)
+    current_time=datetime.now().strftime("%Y-%m-%d")
+    # current_time = datetime.strptime("2021-09-12","%Y-%m-%d")
+    od_list=OrderList.objects.filter(date=current_time)
 
-    dict = {
-
-        'user_order': user_order,
-        'ct_profile': ct_profile,
-        'at': at,
-        'page_obj':page_obj
-
+    dict={
+        'od_list':od_list,
+        'current_time':current_time
     }
 
+
+
     return render(request, 'Uftl_App/driver_dashboard.html', context=dict)
+

@@ -46,6 +46,3 @@ class OrderListAdmin(admin.ModelAdmin):
 
 
 
-@admin.register(driver_dashboard)
-class driver_dashboard(admin.ModelAdmin):
-    list_display = ('id', 'driver_name','order_info')

@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/UFTL2.0" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/env" vcs="Git" />
   </component>
 </project>

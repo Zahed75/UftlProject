@@ -68,26 +68,22 @@ class OrderList(models.Model):
     discount = models.IntegerField(default='1')
     order_id = models.CharField(max_length=20, blank=True)
     total_amount = models.IntegerField(default='1')
-    # Cash_on_delivery=models.CharField(max_length=300,blank=True)
-    # Online_Payment=models.CharField(max_length=300,blank=True)
-    # Swipe_on_delivery=models.CharField(max_length=300,blank=True)
     payment_method = models.CharField(max_length=300, blank=True)
     # STATUS = (
-    #     ('REGULAR', 'REGULAR'),
-    #     ('RETAKE', 'RETAKE'),
+    #     ('PROCESSING', 'PROCESSING'),
+    #     ('ON THE WAY', 'ON THE WAY'),
+    #     ('DELIVERED', 'DELIVERED'),
     # )
-    # status = models.CharField(max_length=30, choices=STATUS, default=STATUS[0])
-
-# class edit_asset(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     asset_name = models.CharField(max_length=220, blank=False)
-#     asset_type = models.CharField(max_length=220, blank=False)
-#     fuel_type = models.CharField(max_length=220)
-#     asset_location = models.TextField(max_length=400, blank=False)
-#     asset_photo = models.ImageField(upload_to='gallery', blank=False)
+    STATUS = (
+        (1, 'PROCESSING'),
+        (2, 'ON THE WAY'),
+        (3, 'DELIVERED'),
+    )
+    status = models.CharField(max_length=30, choices=STATUS, default=STATUS[0])
 
 
-class driver_dashboard(models.Model):
-    driver_name=models.CharField(max_length=220,blank=True)
-    order_info=models.ForeignKey(OrderList,on_delete=models.CASCADE)
-    date=models.DateField(auto_now_add=True)
+
+# class driver_dashboard(models.Model):
+#     driver_name=models.CharField(max_length=220,blank=True)
+#     order_info=models.ForeignKey(OrderList,on_delete=models.CASCADE,related_name='driver_data')
+#     date=models.DateField(auto_now_add=True)
