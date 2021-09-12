@@ -445,3 +445,25 @@ def export_users_xls(request):
     wb.save(response)
 
     return response
+
+
+def driver_dashboard(request):
+        
+    user_order = OrderList.objects.all()
+    paginator=Paginator(user_order,5) #pagination start
+    page_number=request.GET.get('page')
+    
+    page_obj=paginator.get_page(page_number)
+    ct_profile = Contact_Assets.objects.filter(user=request.user)
+    at = Assets.objects.filter(user=request.user)
+
+    dict = {
+
+        'user_order': user_order,
+        'ct_profile': ct_profile,
+        'at': at,
+        'page_obj':page_obj
+
+    }
+
+    return render(request, 'Uftl_App/driver_dashboard.html', context=dict)

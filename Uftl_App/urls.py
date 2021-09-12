@@ -20,5 +20,6 @@ urlpatterns = [
     path('details_order/<int:pk>/',views.order_details,name='order_details'),
     path('pdf/', views.render_pdf_view, name='test-view'),
     path('excel/', views.export_users_xls, name='export_excel'),
+    path('driver_dashboard/', views.driver_dashboard, name='driver_dashboard'),
 
 ]

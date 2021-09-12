@@ -1,0 +1,89 @@
+{% extends 'profile_base.html' %} {% load static %} {% block title_block %}User Report{% endblock %} {% block profile_block %}
+
+<div class="top mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <img src="{% static 'img/logo.png' %}" alt="">
+            </div>
+            <div class="col-md-2">
+                <div class="back">
+                    <a href=""><img src="img2/Vector (8).png" alt="">Back to Home</a>
+                </div>
+            </div>p
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="container-fluid reporting p-4 ">
+        <div class="row secondrow">
+            <div class="col-2">
+                <p>Order ID</p>
+            </div>
+            <div class="col-4">
+                <p>Assets</p>
+            </div>
+            <div class="col-2">
+                <p class="dandt"> Data & Time
+                </p>
+            </div>
+            <div class="col-1  ">
+                <p class="amounttile">Amount</p>
+            </div>
+            <div class="col-1 costtitle">
+                <p>Cost</p>
+            </div>
+            <div class="col-2">
+                <p>Status</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="devicer"></div>
+        </div>
+        {% for x in page_obj %}
+
+        <div class="row results">
+            <div class="col-2">
+                <a href="{% url 'order_details' pk=x.id %}">
+                    <p class="orderid">{{ x.order_id }}</p>
+                </a>
+            </div>
+            <div class="col-4">
+                <div class="profile">
+                    <img class="circleimage" src="{{ x.asset_photo.url }}" alt="">
+                    <div class="profileinfo">
+                        <p class="data">{{ x.asset_name }}</p>
+                        {% comment %} {% for x in at %}
+                        <p class="time">{{ x.asset_location }}</p>
+                        {% endfor %} {% endcomment %}
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-2">
+                <p class="data">{{ x.date }}</p>
+                <p class="time">{{ x.time }}</p>
+            </div>
+            <div class="col-1">
+                <p class="amount">{{ x.fuel_amount }}</p>
+            </div>
+            <div class="col-1">
+                <p class="cost">{{ x.total_amount }}</p>
+            </div>
+            <div class="col-2 btnmargin">
+                <a href="#" class="delivered">Delivered</a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+</div>
+
+{% endblock %}
