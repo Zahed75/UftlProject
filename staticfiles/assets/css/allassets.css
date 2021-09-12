@@ -1,0 +1,44 @@
+.allassets {
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    color: #202020;
+    z-index: -1;
+}
+
+.box1 {
+    width: 299px;
+    height: 160px;
+    border: 1.5px solid #FF6F00;
+    box-sizing: border-box;
+    border-radius: 17px;
+    margin-bottom: 8rem;
+}
+
+.all {
+    margin-top: 2rem;
+}
+
+.allassetsdecrip {
+    color: #454545;
+}
+
+.allassetstitle {
+    margin-top: 1rem;
+}
+
+.addasset {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    font-size: 6rem;
+    color: #FF6F00;
+    ;
+}
+
+.assets {
+    font-size: 2rem;
+    color: #FF6F00;
+    font-weight: 700;
+}

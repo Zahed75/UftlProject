@@ -1,0 +1,88 @@
+.fuel-order {
+    background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+    text-align: center;
+    color: white;
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 5rem 1rem 5rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.fuel-order2 {
+    background: white;
+    text-align: center;
+    color: #EF3C26;
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 5rem 1rem 5rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.fuel-input {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 4.4rem 1rem 0rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    min-width: 224px;
+    outline: none;
+    padding-left: 20px;
+}
+
+.fuel-input2 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 9.5rem 1rem 0rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    /* min-width: 224px; */
+    outline: none;
+    padding-left: 20px;
+}
+
+.fuel-input3 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 11rem 1rem 0rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    /* min-width: 224px; */
+    outline: none;
+    padding-left: 20px;
+}
+
+::placeholder {
+    font-size: 1em;
+    color: black;
+    background: none;
+    padding: 5px;
+}
+
+.fuel-input4 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 10rem 1rem 0rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    /* min-width: 224px; */
+    outline: none;
+    padding-left: 20px;
+}
+
+.fuel-input41 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 8rem 1rem 0rem;
+    outline: none;
+    padding-left: 20px;
+}

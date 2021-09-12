@@ -1,0 +1,24 @@
+{% extends "user_base.html" %}
+{% load static %}
+{% block title_block %} Success {% endblock %}
+{% block user_block %}
+
+
+
+<div class="global-container container mt-5">
+    <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">Hurray your mail is verified </h3>
+            <div class="card-text text-center">
+                Please login
+            </div>
+            <div class="text-center">
+                <a class="btn btn-primary" href="{% url 'Sign_in' %}">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

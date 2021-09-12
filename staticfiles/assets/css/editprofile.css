@@ -1,0 +1,36 @@
+.selected {
+    color: #FF6F00;
+}
+
+.arrow {
+    margin-left: 4.5rem;
+    font-size: 1.25rem;
+    color: #FF6F00;
+    position: relative;
+}
+
+.save {
+    height: 60px;
+    width: 350px;
+    border-radius: 10px;
+    background: #DEDEDE;
+    color: #989898;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+
+.livechat {
+    background: linear-gradient(90deg, #F8962C 0%, #EF3C26 100%);
+    text-align: center;
+    color: white;
+    border: 2px solid #F57329;
+    border-radius: 10px;
+    padding: 0.9rem 3rem 0.9rem 3rem;
+    font-style: normal;
+    margin-left: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    margin-top: 0.1rem;
+}

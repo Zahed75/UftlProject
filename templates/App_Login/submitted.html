@@ -1,0 +1,28 @@
+{% extends "user_base.html" %}
+{% load static %}
+{% block title_block %} Submitted {% endblock %}
+{% block user_block %}
+
+    <body class=" text-center  text-white">
+    <section id="verification">
+        <p class="back mb-5  mr-5 text-right">
+            <a href="{% url 'index' %}"><span><img src="{% static 'img2/leftarrow.png' %}" alt="">
+            </span><span class="home ">Back to Home</span></a>
+        </p>
+        <div class="container">
+
+            <img src="{% static 'img2/tick.png' %}">
+            <br>
+            <p class=" submission mt-4">
+                <span class="submitted">Submitted</span><br>
+                <span class="contact">We will contact you soon! </span> <br>
+                <br></p>
+            <p class="text-center">
+            <div class="register">Want to Register?</div>
+            <div class="registering text-center mt-4"><a href="{% url 'Signup' %}">Register Now!</a></div></p>
+
+
+        </div>
+    </section>
+
+{% endblock %}

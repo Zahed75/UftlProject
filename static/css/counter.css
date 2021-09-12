@@ -1,0 +1,52 @@
+
+.cities
+{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.pos{
+    /* margin-top: 100px; */
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.pos2{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 88px;
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.count{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 88px;
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.count
+{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 88px;
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+}

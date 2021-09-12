@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Edit Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- cdn -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button2.css">
+    <link rel="stylesheet" href="css/image.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/select.css">
+    <link rel="stylesheet" href="css/editprofile.css">
+    <link rel="stylesheet" href="css/custom-sidebar.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/driver_dashboard.css">
+    <link rel="stylesheet" href="css/pending_order.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar Start  -->
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-2 pt-1">
+
+                <a href="#" class="nav__logo">
+                    <div class="logoside">
+                        <img class="logoimage" src="assets/img/logo.svg" alt="My Happy SVG" />
+                        <div class="tex">
+                            <p class="text1">URGENT</p>
+                            <p class="text2">FUEL</p>
+                        </div>
+                    </div>
+
+                </a>
+
+                <a href="#" class="img logo rounded-circle mb-2" style="background-image: url(img/Tahsin.png);">
+                </a>
+                <h3 class="text-center mb-4 username">Shahriar Tasin</h3>
+                <p class="text-center mb-4 username">Certified UFTL Pilot</p>
+
+
+
+
+                <ul class="list-unstyled components mb-2 p-2">
+
+
+                    <li>
+                        <a href="#"><i class='bx bxs-dashboard setup'></i>Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class='bx bx-list-check setup'></i>Orders History</a>
+                    </li>
+
+
+
+
+
+
+
+                    <div class="logout">
+
+                        <div class="logoutline"></div>
+                        <li>
+                            <a href="#">
+                                <ion-icon class="setup" name="log-out-outline"></ion-icon>
+                                </ion-icon>Log Out
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+
+                <div class="footer">
+                    <p>
+
+                    </p>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <!-- Sidebar End  -->
+
+
+
+        <!-- Page Content r kaj korbe  -->
+        <div id="content" class="p-4 p-md-3">
+
+            <nav class="">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+
+                    <div class="float-right">
+                        <div class=" menu ">
+                            <div class="header__img ">
+                                <img class="navimage" src="img/Tahsin.png " alt=" ">
+
+                            </div>
+
+                            <ion-icon class="arrowleft" name="arrow-back-outline"></ion-icon>
+                            <p class="back">Back to Home</p>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+
+
+            <div id="content" class="p-4 p-md-5">
+                <div class="container driver_oder">
+
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <h3>Pending Order info</h3>
+                            <div class="order_data">
+                                <ul>
+                                    <li>Order ID &nbsp; &nbsp;:&nbsp; #UF321321 </li>
+                                    <li>Date &nbsp; &nbsp;:&nbsp; 01/08/2021</li>
+                                    <li>Time &nbsp; &nbsp;:&nbsp; 3:00 PM </li>
+                                    <li>Customer Name &nbsp; &nbsp;:&nbsp; Saul Ramirez </li>
+                                    <li>Company Name &nbsp; &nbsp;:&nbsp; AB Construction</li>
+                                    <li>Contact &nbsp; &nbsp;:&nbsp; 012748741226 </li>
+                                    <li>Address &nbsp; &nbsp;:&nbsp; 412/b, Elephant Road ( 2nd Flour), Dhaka </li>
+                                    <li>Asset Type &nbsp; &nbsp;:&nbsp; Vehicles </li>
+                                    <li>Fuel Type &nbsp; &nbsp;:&nbsp; Diesel </li>
+                                    <li>Payment Method &nbsp; &nbsp;:&nbsp; Swipe on Delivery</li>
+                                    <li>Amount &nbsp; &nbsp;:&nbsp; 60L </li>
+                                    <li>Cost &nbsp; &nbsp;:&nbsp; 3900</li>
+                                    <li>Delivery Charge &nbsp; &nbsp;:&nbsp; 126 BDT (+5% Vat) </li>
+                                    <li>Total Amount &nbsp; &nbsp;:&nbsp;4026 </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 btngroup">
+                            <div class="col-3">
+                                <button class="btn_d">Processing</button>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn_one">Processing</button>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn_two">Delivered</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- Page Content r kaj korbe  -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="assets/js/image.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/sidebar.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>

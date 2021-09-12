@@ -1,0 +1,108 @@
+@media (max-width: 770px)
+{
+
+    .propic
+    {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+
+    .teams{
+        height: auto;
+        width:100%;
+    }
+    
+    .teams p{
+        color: #F57329;
+        font-style: normal;   
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 0.7rem;
+    
+    }
+    
+    .teams a img{
+        width: 30%;
+        margin-bottom: 3rem;
+        height:auto;
+        margin-left: 10.5rem;
+        margin-top: -1.5rem;
+        /* margin-right: auto; */
+        
+    }
+
+    
+
+    
+
+    .bttn{
+        padding-left:1rem;
+    }
+    
+    .teams h2{
+        font-weight: bold;
+        font-size: 64px;
+        color: #F57329;
+    }
+       
+    .teams h6{
+        text-align: center;
+        text-align: left;
+        margin-left: 1.2rem;
+      
+    }
+}
+
+@media (max-width: 995px)
+{
+    .teams p
+    {
+        line-height: 1.0rem;
+    }
+}
+
+@media (max-width: 750px)
+{
+    .teams p{
+        text-align: center;
+        font-size: 1rem;
+        margin-right: 2rem;
+    }
+
+    .teams h6{
+        text-align: center;
+        margin-right: 3rem;
+        font-size: 0.7rem;
+    }
+}
+
+
+.name {
+    margin-top: 0.8rem;
+}
+
+
+@media (max-width: 414px){
+    .teams a img{
+        margin-left: 7.7rem;
+    }
+
+    .teams p{
+        margin-right: 3.5rem;
+    }
+    .teams h6{
+        margin-right: 4rem;
+    }
+}
+
+
+@media  only screen and (max-width: 375px){
+    .teams a img{
+        margin-left: 5.7rem;
+    width: 10rem;
+    }
+}
+
+

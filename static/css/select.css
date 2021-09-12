@@ -1,0 +1,83 @@
+.headingtext2 {
+    font-size: 2rem;
+    color: #FF6F00;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.rightsection {
+    margin-top: 4.3rem;
+}
+
+@media only screen and (max-width: 1300px) {
+    .rightsection {
+        margin-top: 5rem;
+        margin-left: -7rem;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .rightsection {
+        margin-top: 5rem;
+        margin-left: -7rem;
+    }
+}
+
+@media only screen and (max-width: 1204px) {
+    .rightsection {
+        margin-left: -6rem;
+    }
+}
+
+@media only screen and (max-width: 1154px) {
+    .ipad {
+        margin-left: -7rem;
+    }
+    .rightsection {
+        margin-left: 0rem;
+    }
+}
+
+@media only screen and (max-width: 1010px) {
+    .ipad {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10rem;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .ipad {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ipad {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .ipad {
+        display: flex;
+        flex-direction: column;
+        padding-left: 15rem;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    .ipad {
+        padding-left: 0rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    /* .file-upload {
+        padding-right: 3rem;
+    } */
+}

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset-
+    "UTF-8">
+    <meta name="viewport" content="width=device-width, initial">
+    <title>Order Congress
+    </title>
+
+    <!--CSS LINK======================================================-->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/congo.css' %}">
+    <!--BOOTSTRAP CSS=================================================-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class=" text-center  text-white">
+<section id="congo_body">
+    <p class="back mb-5  mr-5 text-right">
+        <a href="{% url "index" %} "> <span> <img src="{% static 'img/arrow.png' %}" alt=""></span>
+            <span class="home ">Back to Home</span> </a>
+    </p>
+    <div class="container">
+
+        <img src="{% static 'img/congo.png' %}">
+        <br>
+        <p class=" order_congo mt-4">
+            <span class="order_congo">You have successfully completed your account!!</span><br>
+
+            <br>
+        </p>
+
+        <a href="{% url 'dashboard' %}">
+            <button class="btn btn-dark">Visit Dashboard</button>
+        </a>
+
+
+    </div>
+</section>
+
+
+<!--Bootstrap JQuery,  Popper.JS, Bootstrap js LINK===================================================================================================================================================-->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

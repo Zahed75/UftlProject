@@ -1,0 +1,86 @@
+{% extends "user_base.html" %}
+{% load static %}
+{% block title_block %} FuelOrder Form {% endblock %}
+{% block user_block %}
+
+<div class="container">
+
+    <div class="form-section d-flex justify-content-center align-items-center my-5">
+
+        <form method="POST" class="form-group">
+        {% include 'messages.html' %}
+            {% csrf_token %}
+            <div class="row-fields d-flex flex-row flex-wrap">
+                <input type="text" placeholder="Full Name*" name="full_name" class="form-control custom-form">
+                <input type="text" placeholder="Company Name" name="company_name" class="form-control custom-form">
+            </div>
+
+            <div class="row-fields d-flex flex-row flex-wrap">
+                <input type="number" placeholder="Phone Number*" name="phone_number" class="form-control custom-form">
+                <input type="email" placeholder="Email (Optional)" name="email" class="form-control custom-form">
+            </div>
+
+            <div class="row-fields d-flex flex-row flex-wrap">
+                <select class="custom-form" name="fuel_type">
+                    <option selected disabled>Fuel Type*</option>
+                    {% for x in fuel_des_area %}
+                        <option value="{{ x.fuel_type }}">{{ x.fuel_type }}</option>
+                    {% endfor %}
+                </select>
+
+                <select class="custom-form" name="order_area">
+                    <option selected disabled>Order Area*</option>
+                    {% for x in fuel_des_area %}
+                        <option value="{{ x.order_area }}">{{ x.order_area }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+            <div class="row-fields d-flex flex-row flex-wrap">
+                <input id="name" type="text" name="fuel_amount" placeholder="Fuel Amount*" class="form-control custom-form">
+                <input name="captcha_input" id="captcha-field" type="text" placeholder="Type {{ captcha }} to pass the captcha"
+                       class="form-control custom-form">
+                <input id="captcha_bool" type="text" name="captcha_result" value="" disabled hidden>
+            </div>
+
+
+            <textarea name="message" rows="5" class="form-control custom-message"
+                      placeholder="Message (Optional)"></textarea>
+            <div class="d-flex flex-row-reverse">
+                <input id="submit-btn" type="submit" value="Submit" class="btn custom-btn">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{#<script>#}
+{#var canvas = document.getElementById("myCanvas");#}
+{#var ctx = canvas.getContext("2d");#}
+{#ctx.font = "30px Comic Sans MS";#}
+{#ctx.fillStyle = "red";#}
+{#ctx.textAlign = "center";#}
+{#ctx.fillText("{{img}}", canvas.width/2, canvas.height/2);#}
+{#</script>#}
+
+{#<script>#}
+{#    var captcha = {{ img }};#}
+{#    console.log(captcha);#}
+{#    console.log(typeof(captcha));#}
+{#    var user_cap = document.getElementById('captcha-field').value;#}
+{##}
+{#    document.getElementById('submit-btn').addEventListener('click', () => {#}
+{#        if (captcha == user_cap) {#}
+{#            document.getElementById('captcha_bool').value = "Match";#}
+{#            console.log(user_cap);#}
+{#        } else {#}
+{#            document.getElementById('captcha_bool').value = "Not match";#}
+{#            console.log(user_cap);#}
+{#        }#}
+{#    });#}
+{##}
+{##}
+{#</script>#}
+
+{% endblock %}

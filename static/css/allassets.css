@@ -1,0 +1,17 @@
+.box1 {
+    width: 299px;
+    position: relative;
+    height: 160px;
+    border: 1.5px solid #FF6F00;
+    box-sizing: border-box;
+    border-radius: 17px;
+    margin-bottom: 1rem;
+}
+
+.addasset {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    font-size: 6rem;
+    color: #FF6F00;
+}

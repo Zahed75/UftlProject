@@ -1,0 +1,85 @@
+.selectflex {
+    display: flex;
+    flex-direction: column;
+}
+
+.save {
+    margin-top: 1rem;
+}
+
+.name {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 1rem 1rem 1rem;
+    font-style: normal;
+    font-weight: bold;
+    outline: none;
+}
+
+.name2 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 1rem 1rem 1rem;
+    font-style: normal;
+    font-weight: bold;
+    outline: none;
+}
+
+.name3 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 1rem 1rem 1rem;
+    font-style: normal;
+    font-weight: bold;
+    outline: none;
+}
+
+.row-fields input::placeholder,
+.custom-message::placeholder {
+    color: black;
+}
+
+.name4 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 1rem 1rem 1rem;
+    font-style: normal;
+    font-weight: bold;
+    outline: none;
+}
+
+.name5 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 1rem 1rem 1rem;
+    font-style: normal;
+    font-weight: bold;
+    outline: none;
+}
+
+.name6 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 1rem 1rem 1rem;
+    font-style: normal;
+    font-weight: bold;
+    outline: none;
+}
+
+.name7 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 15rem 1rem 1rem;
+    font-style: normal;
+    font-weight: bold;
+    outline: none;
+}
+
+.name8 {
+    border: 2px solid #F57329;
+    border-radius: 15px;
+    padding: 1rem 11.5rem 1rem 1rem;
+    font-style: normal;
+    font-weight: bold;
+    outline: none;
+}

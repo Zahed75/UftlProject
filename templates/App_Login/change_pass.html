@@ -1,0 +1,208 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Change_pass</title>
+      {% block css_block %}
+            <style>
+       *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(246, 255, 255);
+
+}
+
+
+.continer{
+
+    background-color: rgb(253, 253, 253);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    width: 400px;
+
+}
+
+.continer h1{
+
+    text-align: center;
+    margin: 50px;
+}
+
+.form{
+
+    padding: 30px 40px;
+}
+
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.form-control label{
+    display: block;
+    margin-bottom: 5px;
+
+}
+
+.form-control input{
+    width: 100%;
+    padding: 5px 15px;
+    font-size: 16px;
+    border: 1px solid rgb(158, 158, 158);
+}
+
+
+.form-control i.fa-check{
+
+    position: absolute;
+    top: 35px;
+    bottom: 0px;
+    right: 0px;
+    margin-right: 10px;
+    color: rgb(60, 199, 94);
+    visibility: hidden;
+
+}
+
+
+.form-control i.fa-close{
+
+    position: absolute;
+    top: 35px;
+    bottom: 0px;
+    right: 0px;
+    margin-right: 10px;
+    color: rgb(199, 60, 60);
+    visibility: hidden;
+
+}
+
+.form-control input:focus{
+    outline: none;
+    border: 1px solid rgb(110, 110, 110)
+}
+
+.form-control small{
+    color: rgb(199, 60, 60);
+    visibility: hidden;
+}
+
+.form-control span{
+    font-size: 14px;
+    position: absolute;
+    top: 35px;
+    right: 0px;
+    margin-right: 30px;
+    visibility: hidden;
+
+
+}
+.form-control span.strong{
+    color: rgb(60, 199, 94);
+    visibility: hidden;
+
+}
+
+.form-control span.middle{
+    color: rgb(248, 211, 0);
+    visibility: hidden;
+
+}
+
+.form-control span.week{
+    color: rgb(199, 60, 60);
+    visibility: hidden;
+
+}
+
+.form button.btn{
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(238, 155, 0);
+    color: #fff;
+
+
+}
+
+.form-control .sucsess input{
+    border: 1px solid rgb(60, 199, 94);
+}
+
+.form-control.error input{
+    border: 1px solid rgb(199, 60, 60);
+}
+
+.form-control.error small{
+    visibility: visible;
+}
+
+
+  </style>
+      {% endblock %}
+  </head>
+  <body>
+
+  <div class="continer">
+    <form method="POST" class="form" id="form">
+        {% csrf_token %}
+        <h4>Change Password</h4>
+        {% if messages %}
+
+        {% for message in messages %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" name="new_password"  class="form-control">
+
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="password">Re confirm password</label>
+            <input type="text" name="reconfirm_password"   class="form-control">
+
+        </div>
+
+
+        <input type="hidden" name="user_id" value="{{user_id}}">
+
+
+        <button class="btn" type="submit">Submit</button>
+
+    </form>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

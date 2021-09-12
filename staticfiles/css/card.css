@@ -1,0 +1,40 @@
+#iconsvg path {
+    fill: #F57329;
+ }
+/*  
+ #iconsvg:hover path{
+    fill: white;
+ } */
+ 
+/* svg {
+    padding-top: 3rem;
+    width:  5rem;
+    height: auto;
+} */
+
+#iconsvg{
+    padding-top: 3rem;
+    width: 3.5rem;
+    height: auto;
+}
+
+
+
+
+#iconsvg2 path {
+    fill: #F57329;
+ }
+ 
+
+ 
+/* svg {
+    padding-top: 3rem;
+    width:  5rem;
+    height: auto;
+} */
+
+#iconsvg2{
+    padding-top: 3.5rem;
+    width: 5rem;
+    height: auto;
+}
