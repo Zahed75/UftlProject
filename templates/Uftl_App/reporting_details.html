@@ -1,73 +1,70 @@
-{% extends 'profile_base.html' %}
-{% load static %}
-{% block title_block %}User Report{% endblock %}
-{% block profile_block %}
+{% extends 'profile_base.html' %} {% load static %} {% block title_block %}User Report{% endblock %} {% block profile_block %}
 
-    <div class="top mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <img src="{% static 'img/logo.png' %}" alt="">
-                </div>
-                <div class="col-md-2">
-                    <div class="back">
-                        <a href=""><img src="img2/Vector (8).png" alt="">Back to Home</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
+<div class="top mt-5">
     <div class="container">
-        <div class="row ">
-            <div class="col-md-6 mt-5 auvback">
-                <h5 class="mt-5">Order Details</h5>
-                <ul>
-                    <li>Order ID:{{ od_list.order_id }}</li>
-                    <li>Date: {{ od_list.date }}</li>
-                    <li>Time: 3:00 PM</li>
-                    <li>Customer Name: Saul Ramirez</li>
-                    <li>Company Name: AB Construction</li>
-                    <li>Contact:012748741226</li>
-                    <li>Address:412/b, Elephant Road ( 2nd Flour), Dhaka</li>
-                    <li>Asset Type: Vehicles</li>
-                    <li>Fuel Type: Diesel</li>
-                    <li>Payment Method: Swipe on Delivery</li>
-                    <li>Amount: 60L</li>
-                    <li>Cost: 3900</li>
-                    <li>Delivery Charge: 126 BDT (+5% Vat)</li>
-                    <li>Total Amount: 4026</li>
-                </ul>
+        <div class="row">
+            <div class="col-md-10">
+                <img src="{% static 'img/logo.png' %}" alt="">
             </div>
-
-
-            <div class="col-md-6 mt-5 order_track ">
-                <h5>Track Order:</h5>
-                <h5></h5>
-                <h3>{{ od_list.order_id }}</h3>
-
-                <ul>
-                    <li>Order confirmed <br> <span>31/07, 06:00 PM</span></li>
-                    <li>On the way</li>
-                    <li>Delivered</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="row ">
-
-            <div class="col-md-6 mt-5">
-                <a href="#" class="report">Report an Issue</a>
-                <a href="#" class="report2">Back to Dashboard</a>
+            <div class="col-md-2">
+                <div class="back">
+                    <a href=""><img src="img2/Vector (8).png" alt="">Back to Home</a>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
+
+
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-6 mt-5 auvback">
+            <h5 class="mt-5">Order Details</h5>
+            <ul>
+                <li>Order ID:{{ od_list.order_id }}</li>
+                <li>Date: {{ od_list.date }}</li>
+                <li>Time: 3:00 PM</li>
+                <li>Customer Name: Saul Ramirez</li>
+                <li>Company Name: AB Construction</li>
+                <li>Contact:012748741226</li>
+                <li>Address:412/b, Elephant Road ( 2nd Flour), Dhaka</li>
+                <li>Asset Type: Vehicles</li>
+                <li>Fuel Type: Diesel</li>
+                <li>Payment Method: Swipe on Delivery</li>
+                <li>Amount: 60L</li>
+                <li>Cost: 3900</li>
+                <li>Delivery Charge: 126 BDT (+5% Vat)</li>
+                <li>Total Amount: 4026</li>
+            </ul>
+        </div>
+
+
+        <div class="col-md-6 mt-5 order_track ">
+            <h5>Track Order:</h5>
+            <h5></h5>
+            <h3>{{ od_list.order_id }}</h3>
+
+            <ul>
+                <li>Order confirmed <br> <span>31/07, 06:00 PM</span></li>
+                <li>On the way</li>
+                <li>Delivered</li>
+            </ul>
+        </div>
     </div>
+
+    <div class="row ">
+
+        <div class="col-md-6 mt-5">
+            <a href="#" class="report">Report an Issue</a>
+            <a href="#" class="report2">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+</div>
 
 
 
