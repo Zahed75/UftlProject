@@ -41,7 +41,7 @@ function priceTotal() {
 var discountPrice = discontInput.value
 
 
-document.querySelector(".plus-btn").addEventListener("click", function () {
+document.querySelector(".plus-btn").addEventListener("click", function() {
     valueCount = document.getElementById("quantity").value;
     valueCount++;
     document.getElementById("quantity").value = valueCount;
@@ -52,7 +52,7 @@ document.querySelector(".plus-btn").addEventListener("click", function () {
     }
     priceTotal()
 })
-document.querySelector(".minus-btn").addEventListener("click", function () {
+document.querySelector(".minus-btn").addEventListener("click", function() {
     valueCount = document.getElementById("quantity").value;
     valueCount--;
     document.getElementById("quantity").value = valueCount
@@ -65,10 +65,19 @@ document.querySelector(".minus-btn").addEventListener("click", function () {
 
 
 var dos = document.getElementById("assetname");
-var assetlocation = document.getElementById("asstLoc");
-assetlocation.value = dos.options[dos.selectedIndex].value
-dos.addEventListener('change', () => {
 
-    assetlocation.value = dos.options[dos.selectedIndex].value
+const words = dos.options[dos.selectedIndex].value.split('_');
+
+var asset_name = document.getElementById("asstnam");
+var assetlocation = document.getElementById("asstLoc");
+
+// assetlocation.value = dos.options[dos.selectedIndex].value
+assetlocation.value = words[0];
+asset_name.value = words[1];
+dos.addEventListener('change', () => {
+    const words = dos.options[dos.selectedIndex].value.split('_');
+    assetlocation.value = words[0];
+    asset_name.value = words[1];
+    // assetlocation.value = dos.options[dos.selectedIndex].value
 
 });
