@@ -273,15 +273,15 @@ def delete_asset(request, id):
 
 def report(request):
     user_order = OrderList.objects.filter(user=request.user).order_by('id')
-    paginator=Paginator(user_order,5) #pagination start
-    page_number=request.GET.get('page')
-    page_obj=paginator.get_page(page_number)
+    paginator = Paginator(user_order, 5)  # pagination start
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     ct_profile = Contact_Assets.objects.filter(user=request.user)
     at = Assets.objects.filter(user=request.user)
     dict = {'user_order': user_order,
             'ct_profile': ct_profile,
             'at': at,
-            'page_obj':page_obj
+            'page_obj': page_obj
             }
 
     print(user_order)
@@ -290,15 +290,14 @@ def report(request):
     return render(request, 'Uftl_App/reporting.html', context=dict)
 
 
-
 @login_required()
-def order_details(request,pk):
-    ct=Contact_Assets.objects.filter(user=request.user)
-    od_list=OrderList.objects.filter(user=request.user).get(id=pk)
-    dict={'od_list':od_list,'ct':ct}
+def order_details(request, pk):
+    ct = Contact_Assets.objects.filter(user=request.user)
+    od_list = OrderList.objects.filter(user=request.user).get(id=pk)
+    dict = {'od_list': od_list, 'ct': ct}
     print(od_list)
 
-    return render(request,'Uftl_App/reporting_details.html',context=dict)
+    return render(request, 'Uftl_App/reporting_details.html', context=dict)
 
 
 @login_required()
@@ -326,7 +325,3 @@ def edit_profile(request):
 
     # messages.success(request, "Your account has been updated successfully")
     return render(request, 'Uftl_App/editprofile.html', context=dict)
-
-
-
-
