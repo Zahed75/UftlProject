@@ -41,7 +41,7 @@ class Fuel_priceAdmin(admin.ModelAdmin):
 
 @admin.register(OrderList)
 class OrderListAdmin(admin.ModelAdmin):
-    list_display = ('id', 'time', 'date', 'fuel_amount', 'fuel_type', 'asset_name', 'base_cost', 'total_amount', 'discount',
+    list_display = ('id', 'time', 'date', 'fuel_amount', 'fuel_type', 'asset_name', 'asset_location' , 'base_cost', 'total_amount', 'discount',
                     'payment_method','order_id')
 
 

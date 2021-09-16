@@ -367,8 +367,6 @@ input[type=number] {
     font-weight: 300;
 }
 
-.total-price {}
-
 .total-price .fa-rupee {
     display: inline-block;
     font-size: 90%;
@@ -404,6 +402,16 @@ input[type=number] {
 
 .assetLocation {
     width: 250px;
+    background: grey;
+    height: 20px;
+    border: none;
+    cursor: none;
+    outline: none;
+    pointer-events: none;
+}
+
+.al {
+    width: 100px;
     background: grey;
     height: 20px;
     border: none;

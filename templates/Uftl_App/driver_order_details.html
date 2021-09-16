@@ -47,9 +47,45 @@
             <h5></h5>
             <h3>{{ od_list.order_id }}</h3>
 
-            <ul>
-                {{ od_list.driver_status }}
-            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                    <input class="checkbox-budget" type="radio" value="Processing" name="driver_status" id="budget-1">
+                    <label class="for-checkbox-budget" for="budget-1">
+                             <span>Processing</span>
+                        </label>
+                </div>
+
+
+
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                    <input class="checkbox-budget" type="radio" value="On the way" name="driver_status" id="budget-2">
+                    <label class="for-checkbox-budget" for="budget-2">
+                            <span >On the way</span>
+                        </label>
+                </div>
+
+
+
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                    <input class="checkbox-budget" type="radio" value="Delivered" name="driver_status" id="budget-3">
+                    <label class="for-checkbox-budget" for="budget-3">
+                            <span>Delivered</span>
+                        </label>
+                </div>
+
+
+
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                    <input class="checkbox-budget" type="radio" value="Cancelled" name="driver_status" id="budget-4">
+                    <label class="for-checkbox-budget" for="budget-4">
+                            <span>Cancelled</span>
+                        </label>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+
         </div>
     </div>
 

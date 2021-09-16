@@ -47,7 +47,7 @@
 
         <div class="row results">
             <div class="col-2">
-                <a href="{% url 'driver_order_status' pk=x.id %}">
+                <a href="{% url 'order_details' pk=x.id %}">
                     <p class="orderid">{{ x.order_id }}</p>
                 </a>
             </div>
@@ -58,7 +58,6 @@
                         <p class="data">{{ x.asset_name }}</p>
 
                         <p class="time">{{ x.asset_location }}</p>
-
 
                     </div>
                 </div>
