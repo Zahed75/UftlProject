@@ -159,16 +159,17 @@
 
                 <div class="row results">
                     <div class="col-2">
-                        <a href = "{% url 'order_details' pk=x.id %}"><p class="orderid">{{ x.order_id }}</p> </a>
+                        <a href="{% url 'order_details' pk=x.id %}">
+                            <p class="orderid">{{ x.order_id }}</p>
+                        </a>
                     </div>
                     <div class="col-4">
                         <div class="profile">
                             <img class="circleimage" src="{{ x.asset_photo.url }}" alt="">
                             <div class="profileinfo">
                                 <p class="data">{{ x.asset_name }}</p>
-                                {% comment %} {% for x in at %}
+
                                 <p class="time">{{ x.asset_location }}</p>
-                                {% endfor %} {% endcomment %}
 
                             </div>
                         </div>
@@ -186,7 +187,7 @@
                         <p class="cost">{{ x.total_amount }}</p>
                     </div>
                     <div class="col-2 btnmargin">
-                        <a href="#" class="delivered">Delivered</a>
+                        <a href="#" class="delivered">{{ x.driver_status }}</a>
                     </div>
                 </div>
 

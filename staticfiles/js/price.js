@@ -65,16 +65,19 @@ document.querySelector(".minus-btn").addEventListener("click", function() {
 
 
 var dos = document.getElementById("assetname");
+
+const words = dos.options[dos.selectedIndex].value.split('_');
+
 var asset_name = document.getElementById("asstnam");
 var assetlocation = document.getElementById("asstLoc");
-// asset_name.value = dos.options[dos.selectedIndex].text
 
-assetlocation.value = dos.options[dos.selectedIndex].value
-
-console.log(assetlocation.value)
-
+// assetlocation.value = dos.options[dos.selectedIndex].value
+assetlocation.value = words[0];
+asset_name.value = words[1];
 dos.addEventListener('change', () => {
-    // asset_name.value = dos.options[dos.selectedIndex].text
-    assetlocation.value = dos.options[dos.selectedIndex].value
+    const words = dos.options[dos.selectedIndex].value.split('_');
+    assetlocation.value = words[0];
+    asset_name.value = words[1];
+    // assetlocation.value = dos.options[dos.selectedIndex].value
 
 });

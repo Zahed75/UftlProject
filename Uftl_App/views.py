@@ -25,6 +25,8 @@ import uuid
 import random
 import string
 
+from datetime import datetime,date, timedelta
+
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
@@ -149,6 +151,7 @@ def order_fuel(request):
         total_amount = request.POST.get('total_amount')
         payment_method = request.POST.get('payment_method')
         asset_name = request.POST.get('asset_name')
+        asset_location = request.POST.get('asset_location')
         fuel_type = request.POST.get('fuel_type')
         reserved = Reserved.objects.filter(Q(time=time) & Q(date=date))
         order_limits = orderlimit.objects.all().last().limit
@@ -183,6 +186,7 @@ def order_fuel(request):
                 order_id=order_id,
                 asset_name=asset_name,
                 fuel_type=fuel_type,
+                asset_location=asset_location,
 
             )
             print(asset_name)
@@ -448,22 +452,42 @@ def export_users_xls(request):
 
 
 def driver_dashboard(request):
-        
-    user_order = OrderList.objects.all()
-    paginator=Paginator(user_order,5) #pagination start
-    page_number=request.GET.get('page')
-    
-    page_obj=paginator.get_page(page_number)
-    ct_profile = Contact_Assets.objects.filter(user=request.user)
-    at = Assets.objects.filter(user=request.user)
+    current_time=datetime.now().strftime("%Y-%m-%d")
+    # current_time = datetime.strptime("2021-09-13","%Y-%m-%d")
+    od_list=OrderList.objects.filter(date=current_time)
 
-    dict = {
-
-        'user_order': user_order,
-        'ct_profile': ct_profile,
-        'at': at,
-        'page_obj':page_obj
-
+    dict={
+        'od_list':od_list,
+        'current_time':current_time
     }
 
     return render(request, 'Uftl_App/driver_dashboard.html', context=dict)
+
+
+
+def order_history(request):
+    last_month = datetime.today() - timedelta(days=30)
+    # current_time = datetime.strptime("2021-09-13","%Y-%m-%d")
+    od_list = OrderList.objects.filter(date__lte = datetime.today() ,date__gte=last_month).order_by('-id')
+
+    dict={
+        'od_list':od_list,
+        'last_month':last_month,
+    }
+    return render(request, 'Uftl_App/order_history.html', context=dict)
+
+
+def driver_order_status(request, pk):
+    od_list=OrderList.objects.get(id=pk)
+
+    if request.method == "POST":
+        od_list.driver_status = request.POST.get('driver_status')
+
+        
+    od_list.save()
+
+    dict={
+        'od_list':od_list, 
+    }
+
+    return render(request, 'Uftl_App/driver_order_details.html', context=dict)

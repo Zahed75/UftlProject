@@ -62,6 +62,7 @@ class OrderList(models.Model):
     time = models.TimeField(blank=True)
     date = models.DateField(blank=True)
     asset_name = models.CharField(max_length=300, blank=True)
+    asset_location = models.CharField(max_length=300, blank=True)
     fuel_type = models.CharField(max_length=300, blank=True)
     fuel_amount = models.IntegerField(default='1')
     base_cost = models.IntegerField(default='1')
@@ -69,17 +70,21 @@ class OrderList(models.Model):
     order_id = models.CharField(max_length=20, blank=True)
     total_amount = models.IntegerField(default='1')
     payment_method = models.CharField(max_length=300, blank=True)
+
     # STATUS = (
     #     ('PROCESSING', 'PROCESSING'),
     #     ('ON THE WAY', 'ON THE WAY'),
     #     ('DELIVERED', 'DELIVERED'),
     # )
+
     STATUS = (
         (1, 'PROCESSING'),
         (2, 'ON THE WAY'),
         (3, 'DELIVERED'),
     )
+
     status = models.CharField(max_length=30, choices=STATUS, default=STATUS[0])
+    driver_status = models.CharField(max_length=30, default="Processing")
 
 
 
