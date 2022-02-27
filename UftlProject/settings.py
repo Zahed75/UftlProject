@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@$1@5)arznsp39%=#p*)_=rz_j1i-s4e)51j-5ipx)!)^(6p6b
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-PRODUCTION = False
+PRODUCTION = True
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -84,7 +84,7 @@ if PRODUCTION:
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'uftl_mvp',
-            'USER': 'root',
+            'USER': 'uftl_mvp',
             'PASSWORD': 'hckwKSkiePMJwTs6',
             'HOST': '127.0.0.1',
             'PORT': '3306',
