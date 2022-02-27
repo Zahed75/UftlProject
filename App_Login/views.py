@@ -86,6 +86,8 @@ def non_register(request):
 
 
 
+
+
 def Sign_in(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -146,6 +148,8 @@ def SignUp(request):
     dict = {}
 
     return render(request, 'App_Login/signup.html', context=dict)
+
+
 
 
 def ChangePassword(request, token):
