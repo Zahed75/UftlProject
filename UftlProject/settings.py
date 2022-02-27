@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@$1@5)arznsp39%=#p*)_=rz_j1i-s4e)51j-5ipx)!)^(6p6b
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+PRODUCTION = False
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -78,12 +78,31 @@ WSGI_APPLICATION = 'UftlProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if PRODUCTION:
+    DATABASES = {
+        # Production configuration
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'uftl_mvp',
+            'USER': 'root',
+            'PASSWORD': 'hckwKSkiePMJwTs6',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
     }
-}
+else:
+    DATABASES = {
+        # Local configuration
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'uftl_mvp',
+            'USER': 'root',
+            'PASSWORD': '',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
