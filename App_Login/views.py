@@ -115,7 +115,7 @@ def Sign_in(request):
 
     dict = {}
 
-    return render(request, 'App_Login/Login.html', context=dict)
+    return render(request, 'App_Login/login.html', context=dict)
 
 
 def SignUp(request):
