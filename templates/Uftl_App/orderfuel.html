@@ -168,9 +168,11 @@
                     <div class="row">
                         <div class="col-12 col-sm-6">
                             <div class="row">
-                                {% for item in date_time %} {% if reservation %}
+                                {% for item in date_time %}
+                                    {% if reservation %}
                                 <label style="color: red;">{{ item.time }}</label>
-                                <input disabled type="radio" name="time" value="{{ item.time }}"> {% endif %}
+                                <input disabled type="radio" name="time" value="{{ item.time }}">
+                                    {% endif %}
 
 
                                 <label style="color: darkorchid;">{{ item.time }}</label>

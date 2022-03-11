@@ -134,10 +134,7 @@ def order_fuel(request):
     ft_utils = fuel_utils.objects.all()
     from django.db.models import Q
     date_time = OrderDashboard.objects.all()
-    # test=Fuel_price.objects.filter().last().fuel_ammount
-    # test1=Fuel_price.objects.filter().last().total_ammount
-    # print("hello",test)
-    # print("hello",test1)
+
 
     reservation = False
     if request.method == "POST":
