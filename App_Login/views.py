@@ -28,11 +28,12 @@ def generate_captcha():
     captcha = str(captcha)
 
     return captcha
+
+
 # ==============end=============================
 
 
 # =====================Non register order fuel start here======================
-
 
 
 def non_register(request):
@@ -81,11 +82,8 @@ def non_register(request):
 
     return render(request, 'App_Login/form.html', context=dict)
 
+
 # =====================================end===================================================
-
-
-
-
 
 
 def Sign_in(request):
@@ -148,8 +146,6 @@ def SignUp(request):
     dict = {}
 
     return render(request, 'App_Login/signup.html', context=dict)
-
-
 
 
 def ChangePassword(request, token):
@@ -243,7 +239,7 @@ def token_send(request):
 
 def send_mail_after_registration(email, token):
     subject = 'Your accounts need to be verified your account'
-    message = f'Hi click the link to verify your account http://127.0.0.1:8000/account/verify/{token}'
+    message = f'Hi click the link to verify your account https://urgentfuel.tech/account/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)
